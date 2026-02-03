@@ -109,12 +109,12 @@ FGSM 的核心思想：**沿着损失函数梯度的方向，给输入添加一�
 用数学语言描述，FGSM 生成对抗样本的公式是：
 
 $$
-x_{adv} = x + \epsilon \cdot \text{sign}(\nabla_x J(\theta, x, y))
+x_{\text{adv}} = x + \epsilon \cdot \text{sign}(\nabla_x J(\theta, x, y))
 $$
 
 其中：
 - $x$：原始图片
-- $x_{adv}$：对抗样本
+- $x_{\text{adv}}$：对抗样本
 - $\epsilon$：扰动强度参数
 - $\text{sign}$：符号函数，将梯度转换为 +1 或 -1
 - $\nabla_x J$：损失函数对输入的梯度
