@@ -5,6 +5,8 @@
   "scripts": {
     "build": "next build",
     "build:cloudflare": "opennextjs-cloudflare build",
+    "cf:install": "npm install --ignore-scripts && fumadocs-mdx",
+    "cf:build": "npm run cf:install && npm run build:cloudflare",
     "dev": "next dev",
     "start": "next start",
     "preview:cloudflare": "opennextjs-cloudflare preview",
