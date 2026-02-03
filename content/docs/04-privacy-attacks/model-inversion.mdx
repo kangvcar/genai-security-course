@@ -5,6 +5,7 @@ description: 探索如何从模型输出中重建训练数据特征
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 模型逆向攻击（Model Inversion Attack）是一种从模型输出中重建训练数据特征的攻击技术。
 
@@ -74,3 +75,17 @@ min_x Loss(f(x), target) + λ * Regularization(x)
 1. 模型逆向攻击从模型输出重建训练数据特征
 2. 攻击方法包括梯度优化和生成模型辅助
 3. 对隐私敏感应用构成严重威胁
+
+## 课后思考
+
+<Accordions>
+  <Accordion title="思考题1：人脸识别系统的风险">
+    为什么人脸识别模型特别容易受到模型逆向攻击？应该采取哪些防护措施？
+  </Accordion>
+  <Accordion title="思考题2：属性推断 vs 数据重建">
+    属性推断和数据重建这两种攻击方式有什么本质区别？哪种威胁更大？
+  </Accordion>
+  <Accordion title="思考题3：生成模型的作用">
+    为什么基于生成模型（如 GAN）的重建方法通常比纯梯度优化效果更好？
+  </Accordion>
+</Accordions>

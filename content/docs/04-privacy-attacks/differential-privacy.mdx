@@ -5,6 +5,7 @@ description: 掌握差分隐私等隐私保护技术的基本原理
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 差分隐私（Differential Privacy）是一种数学上可证明的隐私保护技术，通过添加噪声来保护个体数据的隐私。
 
@@ -108,3 +109,17 @@ def gaussian_mechanism(true_answer, sensitivity, epsilon, delta):
 2. 通过添加噪声保护个体数据隐私
 3. DP-SGD 是机器学习中的主要应用方法
 4. 需要在隐私保护和模型效用之间权衡
+
+## 课后思考
+
+<Accordions>
+  <Accordion title="思考题1：隐私预算 ε 的选择">
+    在实际应用中，如何根据业务场景选择合适的 ε 值？请给出具体的考虑因素。
+  </Accordion>
+  <Accordion title="思考题2：拉普拉斯 vs 高斯机制">
+    拉普拉斯机制和高斯机制各有什么优缺点？在哪些场景下应该选择哪种机制？
+  </Accordion>
+  <Accordion title="思考题3：DP-SGD 的挑战">
+    DP-SGD 在实际应用中面临哪些挑战？如何平衡训练效率和隐私保护？
+  </Accordion>
+</Accordions>

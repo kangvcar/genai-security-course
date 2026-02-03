@@ -6,6 +6,7 @@ description: 掌握激活聚类、Neural Cleanse 和 STRIP 等后门检测方法
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 ## 本章导读
 
@@ -295,8 +296,14 @@ Neural Cleanse 的工作就是尝试为每个"锁孔"（类别）找到可能的
 
 ## 课后思考题
 
-1. **理解性问题**：激活聚类方法为什么能够区分正常样本和后门样本？如果攻击者想要规避这种检测，可能会采取什么策略？
-
-2. **分析性问题**：Neural Cleanse 假设触发器是一个固定的小图案。如果攻击者使用的触发器是整张图片的颜色滤镜，Neural Cleanse 还能有效检测吗？为什么？
-
-3. **应用性问题**：假设你负责一个人脸识别门禁系统的安全审计，需要检查系统使用的模型是否存在后门。你会选择哪种或哪几种检测方法？请说明理由。
+<Accordions>
+  <Accordion title="思考题1：激活聚类的原理">
+    激活聚类方法为什么能够区分正常样本和后门样本？如果攻击者想要规避这种检测，可能会采取什么策略？
+  </Accordion>
+  <Accordion title="思考题2：Neural Cleanse 的局限性">
+    Neural Cleanse 假设触发器是一个固定的小图案。如果攻击者使用的触发器是整张图片的颜色滤镜，Neural Cleanse 还能有效检测吗？为什么？
+  </Accordion>
+  <Accordion title="思考题3：人脸识别门禁系统安全审计">
+    假设你负责一个人脸识别门禁系统的安全审计，需要检查系统使用的模型是否存在后门。你会选择哪种或哪几种检测方法？请说明理由。
+  </Accordion>
+</Accordions>

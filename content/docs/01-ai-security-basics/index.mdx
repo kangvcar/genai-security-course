@@ -4,8 +4,15 @@ description: 建立 AI 安全的核心概念和基础知识，为后续深入学
 ---
 
 import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { ShieldAlert, Brain, Target, Settings, Search } from 'lucide-react';
 
 本模块将带你建立 AI 安全的核心概念和基础知识。通过本模块的学习，你将了解 AI 系统面临的主要安全威胁，理解大语言模型的工作原理，学会从红队视角思考安全问题，并搭建起进行安全测试的实验环境。
+
+<Callout title="预计学习时间" type="info">
+**阅读时长**：约 2-3 小时 | **实验时长**：约 2 小时
+</Callout>
 
 ## 学习目标
 
@@ -20,19 +27,19 @@ import { Cards, Card } from 'fumadocs-ui/components/card';
 ## 章节概览
 
 <Cards>
-  <Card title="第1章：AI 安全威胁全景图" href="/docs/01-ai-security-basics/threat-landscape">
+  <Card icon={<ShieldAlert />} title="第1章：AI 安全威胁全景图" href="/docs/01-ai-security-basics/threat-landscape">
     认识 AI 安全领域的主要威胁，理解 OWASP AI Top 10 威胁分类
   </Card>
-  <Card title="第2章：大语言模型的工作原理" href="/docs/01-ai-security-basics/llm-principles">
+  <Card icon={<Brain />} title="第2章：大语言模型的工作原理" href="/docs/01-ai-security-basics/llm-principles">
     揭开大语言模型的神秘面纱，理解 Transformer 架构和关键参数
   </Card>
-  <Card title="第3章：红队视角" href="/docs/01-ai-security-basics/red-team-thinking">
+  <Card icon={<Target />} title="第3章：红队视角" href="/docs/01-ai-security-basics/red-team-thinking">
     建立红队思维，学习威胁建模方法和攻击者画像
   </Card>
-  <Card title="第4章：安全测试环境搭建" href="/docs/01-ai-security-basics/environment-setup">
+  <Card icon={<Settings />} title="第4章：安全测试环境搭建" href="/docs/01-ai-security-basics/environment-setup">
     配置完整的 AI 安全测试环境，准备实验所需的工具和资源
   </Card>
-  <Card title="第5章：AI 漏洞探测初体验" href="/docs/01-ai-security-basics/vulnerability-detection">
+  <Card icon={<Search />} title="第5章：AI 漏洞探测初体验" href="/docs/01-ai-security-basics/vulnerability-detection">
     亲手探测 AI 系统的漏洞，体验安全测试的完整流程
   </Card>
 </Cards>
@@ -40,10 +47,27 @@ import { Cards, Card } from 'fumadocs-ui/components/card';
 ## 配套实验
 
 <Cards>
-  <Card title="实验 1.1：环境配置" href="/docs/01-ai-security-basics/labs/environment-setup">
+  <Card icon={<Settings />} title="实验 1.1：环境配置" href="/docs/01-ai-security-basics/labs/environment-setup">
     配置 Python 环境，验证工具安装
   </Card>
-  <Card title="实验 1.2：漏洞侦察" href="/docs/01-ai-security-basics/labs/vulnerability-reconnaissance">
+  <Card icon={<Search />} title="实验 1.2：漏洞侦察" href="/docs/01-ai-security-basics/labs/vulnerability-reconnaissance">
     对 AI 系统进行初步的安全探测
   </Card>
 </Cards>
+
+## 常见问题
+
+<Accordions>
+  <Accordion title="我需要什么编程基础？">
+    本模块假设你有基础的 Python 编程经验。如果你完全没有编程经验，建议先学习 Python 基础知识。不过，代码示例都有详细注释，即使是初学者也能跟着理解。
+  </Accordion>
+  <Accordion title="需要高配置的电脑吗？">
+    不需要！我们使用云平台进行实验，只需要一台能够运行浏览器的电脑和稳定的网络连接即可。云平台提供免费的 GPU 资源，足以运行本课程的所有实验。
+  </Accordion>
+  <Accordion title="这个模块和网络安全有什么关系？">
+    AI 安全是网络安全的一个新兴分支。传统网络安全关注代码漏洞、网络攻击等问题，而 AI 安全关注的是机器学习模型特有的安全问题，如提示词注入、对抗样本、数据投毒等。两者有交叉，但侧重点不同。
+  </Accordion>
+  <Accordion title="学完这个模块能做什么？">
+    学完本模块后，你将具备 AI 安全的基础知识，能够：识别 AI 系统的常见安全风险、搭建安全测试环境、进行初步的漏洞探测。这为后续深入学习提示词攻击、对抗样本、隐私攻击等高级主题打下基础。
+  </Accordion>
+</Accordions>

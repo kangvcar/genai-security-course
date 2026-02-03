@@ -6,6 +6,7 @@ description: 深入理解后门攻击的原理、触发器设计和 BadNets 攻�
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 ## 本章导读
 
@@ -225,8 +226,14 @@ BadNets 的实验结果令人震惊：
 
 ## 课后思考题
 
-1. **理解性问题**：请用自己的话解释后门攻击与普通数据投毒攻击的主要区别。为什么说后门攻击更加危险？
-
-2. **分析性问题**：假设你是一家自动驾驶公司的安全工程师，公司计划使用第三方提供的交通标志识别模型。基于本章学习的内容，你认为应该采取哪些措施来降低后门攻击的风险？
-
-3. **应用性问题**：如果攻击者想要对一个中文情感分类模型实施后门攻击，你认为什么样的文本触发器设计会比较有效？请说明理由。
+<Accordions>
+  <Accordion title="思考题1：后门攻击 vs 普通数据投毒">
+    请用自己的话解释后门攻击与普通数据投毒攻击的主要区别。为什么说后门攻击更加危险？
+  </Accordion>
+  <Accordion title="思考题2：自动驾驶模型的安全">
+    假设你是一家自动驾驶公司的安全工程师，公司计划使用第三方提供的交通标志识别模型。基于本章学习的内容，你认为应该采取哪些措施来降低后门攻击的风险？
+  </Accordion>
+  <Accordion title="思考题3：文本触发器设计">
+    如果攻击者想要对一个中文情感分类模型实施后门攻击，你认为什么样的文本触发器设计会比较有效？请说明理由。
+  </Accordion>
+</Accordions>

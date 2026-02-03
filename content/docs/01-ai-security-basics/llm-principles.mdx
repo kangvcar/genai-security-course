@@ -6,6 +6,7 @@ description: 揭开大语言模型的神秘面纱，理解 Transformer 架构、
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 当我们与 ChatGPT 对话时，它能够理解我们的问题，生成流畅的回答，甚至展现出一定的"创造力"。这背后的技术原理是什么？为什么大语言模型有时会"一本正经地胡说八道"？本章将揭开大语言模型的神秘面纱，帮助大家理解这些强大 AI 系统的工作机制。
 
@@ -75,7 +76,7 @@ import { Step, Steps } from 'fumadocs-ui/components/steps';
 
 **注意力机制**（Attention Mechanism）让模型能够判断句子中哪些词之间的关系更重要。
 
-```
+```text title="注意力机制示例"
 句子："银行的利率上涨了"
 
 当模型处理"利率"这个词时，注意力机制会让它重点关注"银行"这个词，
@@ -147,7 +148,7 @@ Temperature（温度）参数控制模型输出的随机性，取值范围通常
 
 Top-p 是另一种控制输出随机性的方法。它只从累积概率达到 p 的最高概率词中采样。
 
-```
+```text title="Top-p 采样过程"
 Top-p = 0.9 意味着：
 1. 将所有可能的下一个词按概率从高到低排序
 2. 累加概率，直到总和达到 0.9
@@ -229,10 +230,14 @@ Max Tokens 参数限制模型生成的最大 Token 数量。这个参数对安�
 
 ## 课后思考题
 
-<Callout title="思考与练习" type="info">
-1. 请用自己的话解释，为什么说大语言模型是"超级自动补全系统"？这种工作方式会带来哪些安全隐患？
-
-2. Temperature 和 Top-p 参数都能控制输出的随机性，但工作原理不同。分析在什么场景下应该使用较低的值？
-
-3. 假设你正在开发一个 AI 写作助手，你会如何设置模型参数？请说明理由，并考虑可能的安全风险。
-</Callout>
+<Accordions>
+  <Accordion title="思考题1：超级自动补全系统">
+    请用自己的话解释，为什么说大语言模型是“超级自动补全系统”？这种工作方式会带来哪些安全隐患？
+  </Accordion>
+  <Accordion title="思考题2：参数应用场景">
+    **Temperature** 和 **Top-p** 参数都能控制输出的随机性，但工作原理不同。分析在什么场景下应该使用较低的值？
+  </Accordion>
+  <Accordion title="思考题3：安全风险设计">
+    假设你正在开发一个 AI 写作助手，你会如何设置模型参数？请说明理由，并考虑可能的安全风险。
+  </Accordion>
+</Accordions>

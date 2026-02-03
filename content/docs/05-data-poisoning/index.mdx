@@ -1,11 +1,11 @@
 ---
 title: 数据投毒总览
 description: 深入理解数据投毒攻击原理和后门检测技术
-icon: Skull
 ---
 
 import { Cards, Card } from 'fumadocs-ui/components/card';
 import { Callout } from 'fumadocs-ui/components/callout';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 在前面的模块中，我们学习了针对已部署模型的攻击技术——提示词注入和对抗样本都发生在模型推理阶段。然而，还有一类更加隐蔽、影响更加深远的攻击方式：它不是在模型使用时发起攻击，而是在模型训练之前就已经埋下隐患。这就是**数据投毒攻击（Data Poisoning Attack）**。
 
@@ -58,3 +58,24 @@ import { Callout } from 'fumadocs-ui/components/callout';
 <Callout title="安全提示" type="warn">
 本模块介绍的攻击技术仅供学习和研究目的。请在合法和授权的环境中进行实验，不要将这些技术用于未经授权的系统或恶意用途。
 </Callout>
+
+<Callout title="预计学习时间" type="info">
+阅读约 3-4 小时 | 实验约 2-3 小时
+</Callout>
+
+## 常见问题
+
+<Accordions>
+  <Accordion title="数据投毒和对抗样本有什么区别？">
+    对抗样本是在模型推理阶段进行的攻击，每次攻击只影响单个输入；数据投毒是在模型训练阶段进行的攻击，其影响会固化到模型参数中，影响模型的整个生命周期。
+  </Accordion>
+  <Accordion title="后门攻击为什么更难检测？">
+    后门攻击的模型在正常输入上表现完全正常，只有当输入中包含特定触发器时才会产生异常行为。由于检测者不知道触发器的具体形态，常规测试很难发现问题。
+  </Accordion>
+  <Accordion title="什么是 AI 供应链攻击？">
+    AI 供应链攻击是指攻击者通过污染开源模型、数据集或依赖库等共享资源，影响所有使用这些资源的下游用户。这种攻击具有“放大效应”，一次攻击可能影响成千上万个项目。
+  </Accordion>
+  <Accordion title="如何保护模型免受数据投毒？">
+    主要防御措施包括：1) 数据清洗和来源验证；2) 鲁棒训练技术；3) 后门检测方法；4) Fine-Pruning 和模型蒸馏等后门移除技术；5) 供应链安全实践。
+  </Accordion>
+</Accordions>

@@ -6,6 +6,7 @@ description: 掌握迁移攻击和基于查询的攻击策略
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 在上一章中，我们学习了白盒攻击技术，了解了如何在完全掌握模型信息的情况下生成对抗样本。然而，现实世界中的大多数 AI 系统并不会向用户公开其内部结构和参数。当我们面对一个"看不见内部"的模型时，还能否发起有效的攻击？
 
@@ -261,11 +262,17 @@ import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 
 ## 课后思考题
 
-1. **理解性问题**：对抗样本为什么会具有跨模型的迁移性？请从深度学习模型学习特征的角度进行解释。
-
-2. **分析性问题**：某商业图像识别 API 为了增加攻击难度，决定只返回置信度最高的类别标签，而不返回具体的置信度分数。这种做法能否有效防御查询攻击？攻击者还有什么应对策略？
-
-3. **应用性问题**：假设你是一家提供人脸识别服务的公司的安全工程师，基于本章学习的黑盒攻击知识，你会建议采取哪些措施来提高系统的安全性？
+<Accordions>
+  <Accordion title="思考题1：迁移性的原理">
+    对抗样本为什么会具有跨模型的迁移性？请从深度学习模型学习特征的角度进行解释。
+  </Accordion>
+  <Accordion title="思考题2：置信度隐藏的效果">
+    某商业图像识别 API 为了增加攻击难度，决定只返回置信度最高的类别标签，而不返回具体的置信度分数。这种做法能否有效防御查询攻击？攻击者还有什么应对策略？
+  </Accordion>
+  <Accordion title="思考题3：人脸识别系统的安全措施">
+    假设你是一家提供人脸识别服务的公司的安全工程师，基于本章学习的黑盒攻击知识，你会建议采取哪些措施来提高系统的安全性？
+  </Accordion>
+</Accordions>
 
 <Callout title="法律与伦理提醒" type="warn">
 对商业 AI 服务进行未经授权的对抗攻击测试可能违反服务条款和相关法律法规。根据《中华人民共和国网络安全法》和《中华人民共和国刑法》的相关规定，未经授权入侵计算机信息系统或破坏计算机信息系统功能的行为可能构成犯罪。本章内容仅用于安全教育和防御研究，读者在进行任何安全测试前，必须获得系统所有者的明确授权。

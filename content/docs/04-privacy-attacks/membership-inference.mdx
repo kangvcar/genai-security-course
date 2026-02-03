@@ -5,6 +5,7 @@ description: 学习如何判断特定数据是否被用于模型训练
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 成员推理攻击（Membership Inference Attack）是一种隐私攻击技术，攻击者试图判断特定的数据样本是否被用于训练目标模型。
 
@@ -99,3 +100,17 @@ import { Step, Steps } from 'fumadocs-ui/components/steps';
 1. 成员推理攻击利用模型对训练数据和非训练数据的表现差异
 2. 基于阈值和影子模型是两种主要攻击方法
 3. 该攻击对隐私保护构成严重威胁
+
+## 课后思考
+
+<Accordions>
+  <Accordion title="思考题1：攻击成功率的影响因素">
+    哪些因素会影响成员推理攻击的成功率？如何设计模型来降低攻击成功率？
+  </Accordion>
+  <Accordion title="思考题2：影子模型的作用">
+    为什么影子模型方法通常比简单阈值方法更有效？它的核心优势是什么？
+  </Accordion>
+  <Accordion title="思考题3：实际场景应用">
+    在哪些实际场景中，成员推理攻击的威胁最严重？请举例说明。
+  </Accordion>
+</Accordions>

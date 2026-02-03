@@ -5,8 +5,13 @@ description: 深入学习提示词注入、越狱技术和防御策略
 
 import { Cards, Card } from 'fumadocs-ui/components/card';
 import { Callout } from 'fumadocs-ui/components/callout';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 本模块将带你深入探索提示词攻击的世界。提示词攻击是针对大语言模型最常见也是最有效的攻击手段之一。通过精心设计的输入，攻击者可以操纵 AI 系统执行非预期的操作，绕过安全限制，甚至泄露敏感信息。
+
+<Callout title="预计学习时间" type="info">
+**阅读时长**：约 3-4 小时 | **实验时长**：约 3 小时
+</Callout>
 
 ## 学习目标
 
@@ -55,3 +60,20 @@ import { Callout } from 'fumadocs-ui/components/callout';
 <Callout title="安全提示" type="warn">
 本模块介绍的攻击技术仅供学习和研究目的。请在合法和授权的环境中进行实验，不要将这些技术用于未经授权的系统或恶意用途。
 </Callout>
+
+## 常见问题
+
+<Accordions>
+  <Accordion title="提示词攻击和传统的 SQL 注入有什么区别？">
+    两者的核心原理相似——都是利用系统无法区分指令和数据的问题。但 SQL 注入针对的是数据库查询，而提示词攻击针对的是 AI 模型。SQL 注入可以通过参数化查询完全防御，但提示词攻击的防御更加困难，因为 AI 模型本质上需要理解自然语言。
+  </Accordion>
+  <Accordion title="学习这些攻击技术会不会被用于非法用途？">
+    学习攻击技术的目的是为了更好地防御。就像学习密码破解技术是为了设计更安全的密码策略一样。理解攻击者的方法是建立有效防御的前提。请始终在授权的环境中进行实验，并遵守道德准则。
+  </Accordion>
+  <Accordion title="这些攻击技术对所有 AI 模型都有效吗？">
+    不同模型的安全性差异很大。大型商业模型（如 GPT-4、Claude）有较强的安全对齐，但仍然可能被绕过。开源模型或未经安全微调的模型更容易受到攻击。本模块会讨论不同技术的适用场景。
+  </Accordion>
+  <Accordion title="学完这个模块能做什么？">
+    学完本模块后，你将能够：识别和分析各类提示词攻击、评估 AI 系统的安全风险、设计多层防御方案、进行基本的红队测试。这些技能对于 AI 安全工程师、产品经理和开发者都非常有价值。
+  </Accordion>
+</Accordions>

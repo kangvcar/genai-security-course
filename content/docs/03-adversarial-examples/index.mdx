@@ -1,15 +1,19 @@
 ---
 title: 对抗样本总览
 description: 理解对抗样本的原理、攻击技术与防御方法
-icon: Bug
 ---
 
 import { Cards, Card } from 'fumadocs-ui/components/card';
 import { Callout } from 'fumadocs-ui/components/callout';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 在一张熊猫的照片上添加一些人眼几乎看不见的噪点，能让 AI 模型将它误认为是长臂猿——这种通过精心设计的微小扰动来欺骗 AI 模型的技术，就是**对抗样本攻击**。对抗样本的存在揭示了 AI 模型的一个根本性脆弱点：它们对输入数据的微小变化异常敏感。
 
 本模块将带你深入理解对抗样本的工作机制，学习白盒攻击和黑盒攻击技术，探索文本对抗攻击的特殊挑战，并掌握基本的防御方法。
+
+<Callout title="预计学习时间" type="info">
+**阅读时长**：约 3-4 小时 | **实验时长**：约 4 小时
+</Callout>
 
 ## 学习目标
 
@@ -61,3 +65,20 @@ import { Callout } from 'fumadocs-ui/components/callout';
 <Callout title="安全提示" type="warn">
 本模块介绍的攻击技术仅供学习和研究目的。请在合法和授权的环境中进行实验，不要将这些技术用于未经授权的系统或恶意用途。
 </Callout>
+
+## 常见问题
+
+<Accordions>
+  <Accordion title="对抗样本和提示词攻击有什么区别？">
+    提示词攻击针对的是大语言模型，通过自然语言来操纵模型行为。对抗样本攻击更广泛，可以针对任何 AI 模型（图像识别、语音识别、文本分类等），通过数学计算生成人类难以察觉的微小扰动来欺骗模型。
+  </Accordion>
+  <Accordion title="这个模块需要哪些数学基础？">
+    本模块涉及一些基础的数学概念，如梯度、损失函数等。但我们会用类比和简化的解释来帮助理解，不需要深厚的数学背景。如果你了解基本的 Python 编程和深度学习概念，就可以跟上。
+  </Accordion>
+  <Accordion title="对抗样本在现实中真的会被使用吗？">
+    是的，对抗样本攻击已经在现实中被验证。研究人员展示了如何用贴纸欺骗自动驾驶系统的交通标志识别、用特殊眼镜绕过人脸识别等。这就是为什么 AI 安全研究如此重要。
+  </Accordion>
+  <Accordion title="学完这个模块能做什么？">
+    学完本模块后，你将能够：理解对抗样本的生成原理、使用 FGSM/PGD 等算法生成对抗样本、评估 AI 模型的鲁棒性、设计基本的防御方案。这些技能对于 AI 安全研究和模型鲁棒性评估都非常有价值。
+  </Accordion>
+</Accordions>

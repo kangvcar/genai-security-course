@@ -6,6 +6,7 @@ description: 理解对抗样本的概念、有效性原因和真实世界威胁
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 在开始学习对抗样本之前，我们先思考一个问题：如果在一张熊猫的照片上添加一些人眼几乎看不见的噪点，能否让 AI 模型将它误认为是长臂猿？答案是肯定的，而且这种攻击方法已经在真实世界中被验证。这种通过精心设计的微小扰动来欺骗 AI 模型的技术，就是我们本章要学习的**对抗样本攻击**。
 
@@ -236,8 +237,14 @@ import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 
 ## 课后思考题
 
-1. **理解性问题**：请用自己的话解释什么是对抗样本，以及为什么人类无法察觉对抗扰动，但 AI 模型却会被欺骗？
-
-2. **分析性问题**：假设你是一个自动驾驶系统的安全工程师，你认为对抗样本攻击对自动驾驶系统的哪些功能模块威胁最大？为什么？
-
-3. **应用性问题**：在日常生活中，你能想到哪些场景可能受到对抗样本攻击的威胁？如果你是这些系统的设计者，你会采取哪些初步的防护措施？
+<Accordions>
+  <Accordion title="思考题1：对抗样本的本质">
+    请用自己的话解释什么是对抗样本，以及为什么人类无法察觉对抗扰动，但 AI 模型却会被欺骗？
+  </Accordion>
+  <Accordion title="思考题2：自动驾驶的威胁分析">
+    假设你是一个自动驾驶系统的安全工程师，你认为对抗样本攻击对自动驾驶系统的哪些功能模块威胁最大？为什么？
+  </Accordion>
+  <Accordion title="思考题3：防护措施设计">
+    在日常生活中，你能想到哪些场景可能受到对抗样本攻击的威胁？如果你是这些系统的设计者，你会采取哪些初步的防护措施？
+  </Accordion>
+</Accordions>

@@ -32,22 +32,26 @@ function useChatContext() {
   return use(Context)!.chat;
 }
 
+const suggestedQuestions = [
+  '什么是提示词注入攻击？',
+  '如何防御越狱攻击？',
+  '对抗样本的原理是什么？',
+  '什么是成员推理攻击？',
+];
+
 function Header() {
   const { setOpen } = use(Context)!;
 
   return (
     <div className="sticky top-0 flex items-start gap-2">
       <div className="flex-1 p-3 border rounded-xl bg-fd-card text-fd-card-foreground">
-        <p className="text-sm font-medium mb-2">AI 助手</p>
+        <p className="text-sm font-medium mb-1">🛡️ AI 安全助教</p>
         <p className="text-xs text-fd-muted-foreground">
-          Powered by{' '}
-          <a href="https://vercel.com/docs/ai-gateway" target="_blank" rel="noreferrer noopener">
-            Vercel AI Gateway
-          </a>
+          随时为你解答 AI 安全相关问题
         </p>
       </div>
       <button
-        aria-label="Close"
+        aria-label="关闭"
         tabIndex={-1}
         className={cn(
           buttonVariants({
@@ -60,6 +64,41 @@ function Header() {
       >
         <X />
       </button>
+    </div>
+  );
+}
+
+function WelcomeMessage() {
+  const { sendMessage } = useChatContext();
+
+  return (
+    <div className="flex flex-col gap-3 py-4">
+      <div className="text-center">
+        <p className="text-sm text-fd-muted-foreground mb-4">
+          👋 你好！我是 AI 安全课程的智能助教，可以帮你：
+        </p>
+        <ul className="text-xs text-fd-muted-foreground text-left space-y-1 mb-4 px-2">
+          <li>• 解释课程中的安全概念和术语</li>
+          <li>• 分析攻击原理和防御策略</li>
+          <li>• 回答实验中遇到的问题</li>
+          <li>• 提供学习建议和扩展资料</li>
+        </ul>
+      </div>
+      <div className="space-y-2">
+        <p className="text-xs text-fd-muted-foreground text-center">试试问我：</p>
+        <div className="flex flex-wrap gap-2 justify-center">
+          {suggestedQuestions.map((q) => (
+            <button
+              key={q}
+              type="button"
+              className="text-xs px-3 py-1.5 rounded-full border bg-fd-secondary text-fd-secondary-foreground hover:bg-fd-accent transition-colors"
+              onClick={() => sendMessage({ text: q })}
+            >
+              {q}
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -85,7 +124,7 @@ function SearchAIActions() {
           onClick={() => regenerate()}
         >
           <RefreshCw className="size-4" />
-          Retry
+          重新回答
         </button>
       )}
       <button
@@ -99,7 +138,7 @@ function SearchAIActions() {
         )}
         onClick={() => setMessages([])}
       >
-        Clear Chat
+        清空对话
       </button>
     </>
   );
@@ -108,7 +147,7 @@ function SearchAIActions() {
 const StorageKeyInput = '__ai_search_input';
 function SearchAIInput(props: ComponentProps<'form'>) {
   const { status, sendMessage, stop } = useChatContext();
-  const [input, setInput] = useState(() => localStorage.getItem(StorageKeyInput) ?? '');
+  const [input, setInput] = useState('');
   const isLoading = status === 'streaming' || status === 'submitted';
   const onStart = (e?: SyntheticEvent) => {
     e?.preventDefault();
@@ -116,7 +155,16 @@ function SearchAIInput(props: ComponentProps<'form'>) {
     setInput('');
   };
 
-  localStorage.setItem(StorageKeyInput, input);
+  // Load from localStorage on mount (client-side only)
+  useEffect(() => {
+    const saved = localStorage.getItem(StorageKeyInput);
+    if (saved) setInput(saved);
+  }, []);
+
+  // Save to localStorage when input changes
+  useEffect(() => {
+    localStorage.setItem(StorageKeyInput, input);
+  }, [input]);
 
   useEffect(() => {
     if (isLoading) document.getElementById('nd-ai-input')?.focus();
@@ -126,7 +174,7 @@ function SearchAIInput(props: ComponentProps<'form'>) {
     <form {...props} className={cn('flex items-start pe-2', props.className)} onSubmit={onStart}>
       <Input
         value={input}
-        placeholder={isLoading ? 'AI is answering...' : 'Ask a question'}
+        placeholder={isLoading ? 'AI 正在思考...' : '输入你的问题...'}
         autoFocus
         className="p-3"
         disabled={status === 'streaming' || status === 'submitted'}
@@ -152,7 +200,7 @@ function SearchAIInput(props: ComponentProps<'form'>) {
           onClick={stop}
         >
           <Loader2 className="size-4 animate-spin text-fd-muted-foreground" />
-          Abort Answer
+          停止
         </button>
       ) : (
         <button
@@ -235,8 +283,8 @@ function Input(props: ComponentProps<'textarea'>) {
 }
 
 const roleName: Record<string, string> = {
-  user: 'you',
-  assistant: 'fumadocs',
+  user: '你',
+  assistant: 'AI 助教',
 };
 
 function Message({ message, ...props }: { message: UIMessage } & ComponentProps<'div'>) {
@@ -299,6 +347,24 @@ export function AISearch({ children }: { children: ReactNode }) {
   );
 }
 
+export function AISearchMainContent({ children }: { children: ReactNode }) {
+  const { open } = use(Context)!;
+
+  return (
+    <div
+      className={cn(
+        'flex-1 min-w-0 transition-all duration-300 ease-in-out',
+        open && 'lg:mr-0'
+      )}
+      style={{
+        width: open ? 'calc(100% - var(--ai-chat-width, 400px))' : '100%',
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export function AISearchTrigger() {
   const { open, setOpen } = use(Context)!;
 
@@ -308,13 +374,13 @@ export function AISearchTrigger() {
         buttonVariants({
           variant: 'secondary',
         }),
-        'fixed bottom-4 gap-3 w-24 end-[calc(--spacing(4)+var(--removed-body-scroll-bar-size,0px))] text-fd-muted-foreground rounded-2xl shadow-lg z-20 transition-[translate,opacity]',
+        'fixed bottom-4 gap-2 px-4 end-[calc(--spacing(4)+var(--removed-body-scroll-bar-size,0px))] text-fd-muted-foreground rounded-2xl shadow-lg z-20 transition-[translate,opacity]',
         open && 'translate-y-10 opacity-0',
       )}
       onClick={() => setOpen(true)}
     >
       <MessageCircleIcon className="size-4.5" />
-      Ask AI
+      AI 助教
     </button>
   );
 }
@@ -344,23 +410,17 @@ export function AISearchPanel() {
     <>
       <style>
         {`
-        @keyframes ask-ai-open {
-          from {
-            width: 0px;
-          }
-          to {
-            width: var(--ai-chat-width);
+        :root {
+          --ai-chat-width: 400px;
+        }
+        @media (min-width: 1280px) {
+          :root {
+            --ai-chat-width: 420px;
           }
         }
-        @keyframes ask-ai-close {
-          from {
-            width: var(--ai-chat-width);
-          }
-          to {
-            width: 0px;
-          }
-        }`}
+        `}
       </style>
+      {/* Mobile overlay */}
       <Presence present={open}>
         <div
           data-state={open ? 'open' : 'closed'}
@@ -368,43 +428,44 @@ export function AISearchPanel() {
           onClick={() => setOpen(false)}
         />
       </Presence>
-      <Presence present={open}>
-        <div
-          className={cn(
-            'overflow-hidden z-30 bg-fd-popover text-fd-popover-foreground [--ai-chat-width:400px] xl:[--ai-chat-width:460px]',
-            'max-lg:fixed max-lg:inset-x-2 max-lg:top-4 max-lg:border max-lg:rounded-2xl max-lg:shadow-xl',
-            'lg:sticky lg:top-0 lg:h-dvh lg:border-s  lg:ms-auto lg:in-[#nd-docs-layout]:[grid-area:toc] lg:in-[#nd-notebook-layout]:row-span-full lg:in-[#nd-notebook-layout]:col-start-5',
-            open
-              ? 'animate-fd-dialog-in lg:animate-[ask-ai-open_200ms]'
-              : 'animate-fd-dialog-out lg:animate-[ask-ai-close_200ms]',
-          )}
-        >
-          <div className="flex flex-col p-2 size-full max-lg:max-h-[80dvh] lg:w-(--ai-chat-width) xl:p-4">
-            <Header />
-            <List
-              className="px-3 py-4 flex-1 overscroll-contain"
-              style={{
-                maskImage:
-                  'linear-gradient(to bottom, transparent, white 1rem, white calc(100% - 1rem), transparent 100%)',
-              }}
-            >
-              <div className="flex flex-col gap-4">
-                {chat.messages
-                  .filter((msg) => msg.role !== 'system')
-                  .map((item) => (
-                    <Message key={item.id} message={item} />
-                  ))}
-              </div>
-            </List>
-            <div className="rounded-xl border bg-fd-card text-fd-card-foreground has-focus-visible:ring-2 has-focus-visible:ring-fd-ring">
-              <SearchAIInput />
-              <div className="flex items-center gap-1.5 p-1 empty:hidden">
-                <SearchAIActions />
-              </div>
+      {/* AI Panel */}
+      <div
+        className={cn(
+          'bg-fd-popover text-fd-popover-foreground border-l transition-all duration-300 ease-in-out',
+          // Mobile: fixed overlay
+          'max-lg:fixed max-lg:inset-y-0 max-lg:right-0 max-lg:z-40 max-lg:shadow-xl',
+          // Desktop: sticky sidebar
+          'lg:sticky lg:top-0 lg:h-dvh lg:flex-shrink-0',
+          open
+            ? 'w-[min(90vw,var(--ai-chat-width))] lg:w-[var(--ai-chat-width)]'
+            : 'w-0 border-l-0 overflow-hidden',
+        )}
+      >
+        <div className="flex flex-col p-2 size-full lg:w-[var(--ai-chat-width)] xl:p-4">
+          <Header />
+          <List
+            className="px-3 py-4 flex-1 overscroll-contain"
+            style={{
+              maskImage:
+                'linear-gradient(to bottom, transparent, white 1rem, white calc(100% - 1rem), transparent 100%)',
+            }}
+          >
+            <div className="flex flex-col gap-4">
+              {chat.messages
+                .filter((msg) => msg.role !== 'system')
+                .map((item) => (
+                  <Message key={item.id} message={item} />
+                ))}
+            </div>
+          </List>
+          <div className="rounded-xl border bg-fd-card text-fd-card-foreground has-focus-visible:ring-2 has-focus-visible:ring-fd-ring">
+            <SearchAIInput />
+            <div className="flex items-center gap-1.5 p-1 empty:hidden">
+              <SearchAIActions />
             </div>
           </div>
         </div>
-      </Presence>
+      </div>
     </>
   );
 }

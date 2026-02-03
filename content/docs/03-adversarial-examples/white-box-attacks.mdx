@@ -6,6 +6,7 @@ description: 深入学习 FGSM 和 PGD 算法，掌握基于梯度的攻击方�
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 在上一章中，我们了解了对抗样本的基本概念，知道了通过添加微小的扰动可以欺骗 AI 模型。但是，这些扰动是如何计算出来的呢？为什么攻击者能够精确地找到模型的弱点？本章将带领大家深入理解白盒攻击的工作原理。
 
@@ -313,8 +314,14 @@ PGD 本质上是在解决一个优化问题：**在扰动大小受限的条件�
 
 ## 课后思考题
 
-1. **理解性问题**：FGSM 为什么只使用梯度的符号而不是实际的梯度值？这样做有什么好处？
-
-2. **分析性问题**：为什么 PGD 的攻击成功率通常高于 FGSM？它付出了什么代价？
-
-3. **应用性问题**：如果你需要评估一个图像分类模型的安全性，你会选择 FGSM 还是 PGD？请说明你的选择理由。
+<Accordions>
+  <Accordion title="思考题1：FGSM 的符号函数">
+    FGSM 为什么只使用梯度的符号而不是实际的梯度值？这样做有什么好处？
+  </Accordion>
+  <Accordion title="思考题2：PGD vs FGSM">
+    为什么 PGD 的攻击成功率通常高于 FGSM？它付出了什么代价？
+  </Accordion>
+  <Accordion title="思考题3：安全性评估">
+    如果你需要评估一个图像分类模型的安全性，你会选择 FGSM 还是 PGD？请说明你的选择理由。
+  </Accordion>
+</Accordions>

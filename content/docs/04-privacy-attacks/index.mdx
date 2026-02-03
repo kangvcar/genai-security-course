@@ -1,11 +1,11 @@
 ---
 title: 隐私攻击总览
 description: 学习 AI 系统的隐私泄露风险和防护技术
-icon: Eye
 ---
 
 import { Cards, Card } from 'fumadocs-ui/components/card';
 import { Callout } from 'fumadocs-ui/components/callout';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 本模块将深入探讨 AI 系统面临的隐私安全威胁。通过本模块的学习，你将了解 AI 模型如何"记住"敏感信息，以及攻击者如何利用这些特性窃取隐私数据。
 
@@ -48,3 +48,24 @@ import { Callout } from 'fumadocs-ui/components/callout';
     应用差分隐私技术保护模型隐私
   </Card>
 </Cards>
+
+<Callout title="预计学习时间" type="info">
+阅读约 2-3 小时 | 实验约 2 小时
+</Callout>
+
+## 常见问题
+
+<Accordions>
+  <Accordion title="为什么 AI 模型会泄露隐私？">
+    AI 模型在训练过程中会"记住"训练数据中的某些内容，特别是重复出现或具有独特模式的数据。攻击者可以通过特定的查询方式提取这些"记忆"，从而获取敏感信息。
+  </Accordion>
+  <Accordion title="成员推理攻击有什么实际危害？">
+    成员推理攻击可以判断某人的数据是否被用于训练。例如，如果攻击者能确认某人的医疗记录被用于训练某个疾病预测模型，就能推断该人患有相关疾病。
+  </Accordion>
+  <Accordion title="差分隐私能完全保护隐私吗？">
+    差分隐私提供的是数学上可证明的隐私保证，但需要在隐私保护和模型效用之间做权衡。当隐私预算 ε 设置很小时，隐私保护很强，但模型性能会下降。
+  </Accordion>
+  <Accordion title="如何防范隐私攻击？">
+    主要防范措施包括：1) 训练数据脱敏处理；2) 使用差分隐私训练；3) 限制模型输出的信息量；4) 模型输出建议；5) 定期进行隐私审计。
+  </Accordion>
+</Accordions>

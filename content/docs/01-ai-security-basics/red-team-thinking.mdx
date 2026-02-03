@@ -6,6 +6,7 @@ description: 建立红队思维，学习威胁建模方法，理解攻击者的�
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 在网络安全领域，有一个特殊的角色叫做"红队"（Red Team）。他们的任务不是防御攻击，而是模拟攻击者的思维和手法，主动寻找系统的漏洞。本章将带领大家建立红队思维，学习如何从攻击者的角度审视 AI 系统。
 
@@ -225,10 +226,14 @@ STRIDE 是微软提出的威胁分类框架，将威胁分为六大类：
 
 ## 课后思考题
 
-<Callout title="思考与练习" type="info">
-1. 请解释红队思维与蓝队思维的区别，以及它们如何相互促进？
-
-2. 使用 STRIDE 框架分析一个你熟悉的 AI 应用（如智能客服、图像识别系统等），识别可能的威胁。
-
-3. 如果你是一个 AI 系统的安全负责人，你会如何识别和防范内部威胁？
-</Callout>
+<Accordions>
+  <Accordion title="思考题1：红队与蓝队的关系">
+    请解释红队思维与蓝队思维的区别，以及它们如何相互促进？
+  </Accordion>
+  <Accordion title="思考题2：STRIDE 框架应用">
+    使用 STRIDE 框架分析一个你熟悉的 AI 应用（如智能客服、图像识别系统等），识别可能的威胁。
+  </Accordion>
+  <Accordion title="思考题3：内部威胁防范">
+    如果你是一个 AI 系统的安全负责人，你会如何识别和防范内部威胁？
+  </Accordion>
+</Accordions>

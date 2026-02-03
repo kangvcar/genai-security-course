@@ -5,6 +5,7 @@ description: 系统学习 AI 安全的攻击技术和防御策略
 
 import { Cards, Card } from 'fumadocs-ui/components/card';
 import { Callout } from 'fumadocs-ui/components/callout';
+import { Shield, MessageSquareWarning, Bug, Eye, Skull } from 'lucide-react';
 
 欢迎来到 **GenAI 安全攻防实战课程**！这是一门专注于生成式 AI 安全的中文实战教程，将带你深入了解 AI 系统面临的安全威胁，掌握攻击技术和防御策略。
 
@@ -18,19 +19,19 @@ import { Callout } from 'fumadocs-ui/components/callout';
 ## 课程模块
 
 <Cards>
-  <Card title="模块一：AI 安全基础" href="/docs/01-ai-security-basics" icon="Shield">
+  <Card title="模块一：AI 安全基础" href="/docs/01-ai-security-basics" icon={<Shield />}>
     建立 AI 安全核心概念，搭建测试环境，进行初步漏洞探测
   </Card>
-  <Card title="模块二：提示词攻击" href="/docs/02-prompt-attacks" icon="MessageSquareWarning">
+  <Card title="模块二：提示词攻击" href="/docs/02-prompt-attacks" icon={<MessageSquareWarning />}>
     深入学习提示词注入、越狱技术、系统提示提取和防御策略
   </Card>
-  <Card title="模块三：对抗样本" href="/docs/03-adversarial-examples" icon="Bug">
+  <Card title="模块三：对抗样本" href="/docs/03-adversarial-examples" icon={<Bug />}>
     掌握 FGSM、PGD 等对抗攻击技术，理解白盒和黑盒攻击方法
   </Card>
-  <Card title="模块四：隐私攻击" href="/docs/04-privacy-attacks" icon="Eye">
+  <Card title="模块四：隐私攻击" href="/docs/04-privacy-attacks" icon={<Eye />}>
     学习成员推理、模型逆向攻击，掌握差分隐私保护技术
   </Card>
-  <Card title="模块五：数据投毒" href="/docs/05-data-poisoning" icon="Skull">
+  <Card title="模块五：数据投毒" href="/docs/05-data-poisoning" icon={<Skull />}>
     理解数据投毒和后门攻击原理，学习检测和防御方法
   </Card>
 </Cards>

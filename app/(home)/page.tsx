@@ -208,7 +208,7 @@ export default function HomePage() {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium mb-6 border border-blue-200/50 dark:border-blue-700/50">
               <Sparkles className="w-4 h-4" />
-              全新发布 · 2024 最新课程
+              全新发布 · 2026 最新课程
               <span className="px-2 py-0.5 bg-blue-500 text-white text-xs rounded-full">中文</span>
             </div>
             
@@ -653,7 +653,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="text-sm text-muted-foreground">
-              © 2024 · 保留所有权利
+              © 2026 · 保留所有权利
             </div>
           </div>
         </div>

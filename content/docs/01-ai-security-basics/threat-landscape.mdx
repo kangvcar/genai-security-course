@@ -6,6 +6,7 @@ description: 认识 AI 安全领域的主要威胁，理解为什么 AI 安全�
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 在人工智能技术快速发展的今天，AI 系统已经深入到我们生活的方方面面：从手机上的语音助手，到自动驾驶汽车，再到医疗诊断系统。然而，随着 AI 应用的普及，一个新的问题逐渐浮出水面：**这些看似智能的系统，是否真的安全可靠？**
 
@@ -149,13 +150,17 @@ AI 系统在关键应用场景中必须考虑对抗攻击的风险。对于自�
 
 ## 课后思考题
 
-<Callout title="思考与练习" type="info">
-1. **理解性问题**：请用自己的话解释，为什么说 AI 安全威胁与传统软件安全威胁有本质区别？
-
-2. **分析性问题**：回顾本章介绍的三个真实案例，分析它们分别属于 OWASP AI Top 10 中的哪些威胁类型？
-
-3. **应用性问题**：假设你正在开发一个基于大语言模型的智能客服系统，你认为应该重点防范哪些安全威胁？
-</Callout>
+<Accordions>
+  <Accordion title="思考题1：AI 安全的独特性">
+    请思考：为什么传统的输入验证方法（如正则表达式过滤）难以防御 AI 系统的攻击？请结合本章内容，举出至少两个原因。
+  </Accordion>
+  <Accordion title="思考题2：OWASP AI Top 10 应用">
+    请选择 OWASP AI Top 10 中的三种威胁，结合你熟悉的 AI 应用场景（如智能客服、图像识别等），分析这些威胁可能的攻击场景和潜在危害。
+  </Accordion>
+  <Accordion title="思考题3：安全平衡">
+    从案例中我们看到，AI 系统的安全问题往往涉及到安全性与可用性的平衡。如果你是一个 AI 系统的产品经理，你会如何平衡这两者？
+  </Accordion>
+</Accordions>
 
 ## 延伸阅读
 

@@ -6,6 +6,7 @@ description: 学习数据清洗、鲁棒训练、后门移除和供应链安全�
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 ## 本章导读
 
@@ -307,8 +308,14 @@ import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 
 ## 课后思考题
 
-1. **理解性问题**：Fine-Pruning 方法为什么要针对"休眠神经元"进行剪枝？如果后门神经元在正常输入上也有较高的激活，这种方法还能有效吗？
-
-2. **分析性问题**：比较 Fine-Pruning 和模型蒸馏两种后门移除方法的优缺点。在什么情况下你会选择使用 Fine-Pruning？什么情况下会选择模型蒸馏？
-
-3. **应用性问题**：假设你的团队需要使用一个来自开源社区的预训练模型来开发一个医疗诊断系统。请设计一套完整的安全检查流程。
+<Accordions>
+  <Accordion title="思考题1：Fine-Pruning 的原理">
+    Fine-Pruning 方法为什么要针对“休眠神经元”进行剪枝？如果后门神经元在正常输入上也有较高的激活，这种方法还能有效吗？
+  </Accordion>
+  <Accordion title="思考题2：Fine-Pruning vs 模型蒸馏">
+    比较 Fine-Pruning 和模型蒸馏两种后门移除方法的优缺点。在什么情况下你会选择使用 Fine-Pruning？什么情况下会选择模型蒸馏？
+  </Accordion>
+  <Accordion title="思考题3：医疗诊断系统的安全检查">
+    假设你的团队需要使用一个来自开源社区的预训练模型来开发一个医疗诊断系统。请设计一套完整的安全检查流程。
+  </Accordion>
+</Accordions>

@@ -1,10 +1,11 @@
 ---
 title: 第1章：AI 的记忆泄露问题
-description: 理解 AI 模型如何"记住"训练数据中的敏感信息
+description: 理解 AI 模型如何“记住”训练数据中的敏感信息
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 AI 模型在训练过程中可能会"记住"训练数据中的具体内容，而不仅仅是学习其中的模式。这种"记忆"行为可能导致敏感信息泄露。
 
@@ -100,7 +101,11 @@ AI 模型在训练过程中可能会"记住"训练数据中的具体内容，而
 
 ## 课后思考
 
-<Callout title="思考与练习" type="info">
-1. 如果你是一家公司的 AI 负责人，如何确保训练数据中不包含敏感信息？
-2. 开源模型发布前应该进行哪些隐私检查？
-</Callout>
+<Accordions>
+  <Accordion title="思考题1：企业数据隐私保护">
+    如果你是一家公司的 AI 负责人，如何确保训练数据中不包含敏感信息？
+  </Accordion>
+  <Accordion title="思考题2：开源模型隐私检查">
+    开源模型发布前应该进行哪些隐私检查？
+  </Accordion>
+</Accordions>

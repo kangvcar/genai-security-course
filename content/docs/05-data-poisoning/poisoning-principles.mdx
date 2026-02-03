@@ -6,6 +6,7 @@ description: 理解数据投毒攻击的基本概念、标签翻转攻击和干�
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 ## 本章导读
 
@@ -229,8 +230,14 @@ import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 
 ## 课后思考题
 
-1. **理解性问题**：请用自己的话解释数据投毒攻击与对抗样本攻击的主要区别。为什么说数据投毒攻击的影响更加"持久"？
-
-2. **分析性问题**：在干净标签攻击中，攻击者为什么要保持标签正确而只修改输入数据？这种设计带来了什么优势和限制？
-
-3. **应用性问题**：假设你负责一个使用用户评论数据训练的情感分析系统，请分析该系统可能面临的数据投毒风险，并提出至少两条防范建议。
+<Accordions>
+  <Accordion title="思考题1：数据投毒 vs 对抗样本">
+    请用自己的话解释数据投毒攻击与对抗样本攻击的主要区别。为什么说数据投毒攻击的影响更加“持久”？
+  </Accordion>
+  <Accordion title="思考题2：干净标签攻击的设计">
+    在干净标签攻击中，攻击者为什么要保持标签正确而只修改输入数据？这种设计带来了什么优势和限制？
+  </Accordion>
+  <Accordion title="思考题3：情感分析系统的风险">
+    假设你负责一个使用用户评论数据训练的情感分析系统，请分析该系统可能面临的数据投毒风险，并提出至少两条防范建议。
+  </Accordion>
+</Accordions>
