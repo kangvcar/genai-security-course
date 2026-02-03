@@ -1,0 +1,63 @@
+---
+title: "实验 5.2：后门攻击"
+description: 实现 BadNets 后门攻击，理解触发器植入过程和攻击效果
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+## 实验目标
+
+本实验将帮助你理解后门攻击的原理，通过实现经典的 BadNets 攻击来体验如何在模型中植入后门。
+
+<Callout title="学习目标" type="info">
+完成本实验后，你将能够：
+- 理解 BadNets 后门攻击的完整流程
+- 设计和实现简单的触发器（像素块触发器）
+- 构造包含触发器的投毒数据集
+- 训练包含后门的模型
+- 验证后门攻击的效果：干净准确率 vs 攻击成功率
+- 观察不同投毒比例对攻击效果的影响
+</Callout>
+
+## 实验前提
+
+<Callout title="环境要求" type="warn">
+- Python 3.8+
+- PyTorch 1.10+
+- torchvision
+- matplotlib
+- numpy
+
+确保已安装所需依赖后再开始实验。
+</Callout>
+
+## 实验内容
+
+:::notebook{file="./lab5_2_backdoor_attack.ipynb" showCellNumbers}
+:::
+
+## 实验总结
+
+<Callout title="完成检查" type="success">
+完成本实验后，你应该已经：
+- 成功实现了 BadNets 后门攻击
+- 在 MNIST 数据集上训练了包含后门的模型
+- 观察到模型在干净数据上保持高准确率
+- 观察到模型在带触发器数据上的高攻击成功率
+- 理解了后门攻击的隐蔽性特征
+- 可视化了触发器和后门样本
+</Callout>
+
+## 延伸思考
+
+1. 为什么后门模型在干净数据上的准确率几乎不受影响？这与模型的学习机制有什么关系？
+
+2. 如果触发器设计得更加隐蔽（例如使用混合触发器而非明显的像素块），攻击的效果和检测难度会有什么变化？
+
+3. 假设你拿到一个来源不明的预训练模型，在不知道触发器形态的情况下，你如何判断它是否可能包含后门？
+
+## 相关资源
+
+- [第2章：后门攻击技术](/docs/05-data-poisoning/backdoor-attacks)
+- [第4章：后门检测技术](/docs/05-data-poisoning/backdoor-detection)
+- [实验 5.3：后门检测](/docs/05-data-poisoning/labs/backdoor-detection)

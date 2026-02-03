@@ -1,0 +1,63 @@
+---
+title: 对抗样本总览
+description: 理解对抗样本的原理、攻击技术与防御方法
+icon: Bug
+---
+
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+在一张熊猫的照片上添加一些人眼几乎看不见的噪点，能让 AI 模型将它误认为是长臂猿——这种通过精心设计的微小扰动来欺骗 AI 模型的技术，就是**对抗样本攻击**。对抗样本的存在揭示了 AI 模型的一个根本性脆弱点：它们对输入数据的微小变化异常敏感。
+
+本模块将带你深入理解对抗样本的工作机制，学习白盒攻击和黑盒攻击技术，探索文本对抗攻击的特殊挑战，并掌握基本的防御方法。
+
+## 学习目标
+
+<Callout title="完成本模块后，你将能够：" type="success">
+- 理解对抗样本的基本概念，掌握其有效的核心原因
+- 掌握 FGSM 和 PGD 等白盒攻击算法的原理和实现
+- 理解迁移攻击和基于查询的黑盒攻击策略
+- 认识文本对抗攻击的独特挑战和三种攻击层次
+- 建立防御思维，了解对抗训练等主流防御技术
+</Callout>
+
+## 章节概览
+
+<Cards>
+  <Card title="第1章：对抗样本基础原理" href="/docs/03-adversarial-examples/fundamentals">
+    理解对抗样本的概念、有效性原因和真实世界威胁
+  </Card>
+  <Card title="第2章：白盒攻击技术" href="/docs/03-adversarial-examples/white-box-attacks">
+    深入学习 FGSM 和 PGD 算法，掌握基于梯度的攻击方法
+  </Card>
+  <Card title="第3章：黑盒攻击技术" href="/docs/03-adversarial-examples/black-box-attacks">
+    掌握迁移攻击和基于查询的攻击策略
+  </Card>
+  <Card title="第4章：文本对抗攻击" href="/docs/03-adversarial-examples/text-attacks">
+    探索字符级、词级和句级三种文本对抗攻击方法
+  </Card>
+  <Card title="第5章：防御技术入门" href="/docs/03-adversarial-examples/defense-techniques">
+    学习对抗训练、输入预处理和检测等防御策略
+  </Card>
+</Cards>
+
+## 配套实验
+
+<Cards>
+  <Card title="实验 3.1：FGSM 攻击" href="/docs/03-adversarial-examples/labs/fgsm-attack">
+    使用快速梯度符号法生成对抗样本，观察攻击效果
+  </Card>
+  <Card title="实验 3.2：PGD 攻击" href="/docs/03-adversarial-examples/labs/pgd-attack">
+    实现投影梯度下降攻击，对比 FGSM 的效果
+  </Card>
+  <Card title="实验 3.3：迁移攻击" href="/docs/03-adversarial-examples/labs/transfer-attack">
+    体验黑盒场景下的对抗样本迁移性
+  </Card>
+  <Card title="实验 3.4：文本对抗攻击" href="/docs/03-adversarial-examples/labs/text-attack">
+    实践词级文本对抗攻击技术
+  </Card>
+</Cards>
+
+<Callout title="安全提示" type="warn">
+本模块介绍的攻击技术仅供学习和研究目的。请在合法和授权的环境中进行实验，不要将这些技术用于未经授权的系统或恶意用途。
+</Callout>

@@ -1,0 +1,57 @@
+---
+title: "实验 3.2：PGD 攻击"
+description: 实现投影梯度下降攻击，对比 FGSM 的效果
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+## 实验目标
+
+本实验将帮助你理解 PGD（投影梯度下降法）的原理，并通过实际操作体验迭代式白盒攻击的强大效果。
+
+<Callout title="学习目标" type="info">
+完成本实验后，你将能够：
+- 理解 PGD 算法的核心原理和迭代过程
+- 使用 PyTorch 实现 PGD 攻击
+- 理解投影操作的作用和实现方式
+- 对比 PGD 与 FGSM 的攻击效果差异
+- 分析迭代次数和步长对攻击效果的影响
+</Callout>
+
+## 实验前提
+
+<Callout title="环境要求" type="warn">
+- Python 3.8+
+- PyTorch 1.10+
+- torchvision
+- matplotlib
+- numpy
+
+建议先完成实验 3.1（FGSM 攻击）再进行本实验。
+</Callout>
+
+## 实验内容
+
+:::notebook{file="./lab3_2_pgd_attack.ipynb" showCellNumbers}
+:::
+
+## 实验总结
+
+<Callout title="完成检查" type="success">
+完成本实验后，你应该已经：
+- 成功实现了 PGD 攻击算法
+- 理解了迭代攻击相比单步攻击的优势
+- 观察了投影操作如何保证扰动在允许范围内
+- 对比了 PGD 和 FGSM 在相同扰动预算下的攻击成功率
+- 分析了不同超参数（迭代次数、步长）对攻击效果的影响
+</Callout>
+
+## 延伸思考
+
+1. 为什么 PGD 通常比 FGSM 有更高的攻击成功率？代价是什么？
+
+2. PGD 使用随机初始化有什么好处？如果从原始图像开始会有什么问题？
+
+3. PGD 被称为评估模型鲁棒性的"黄金标准"，这是为什么？
+
+4. 思考：如何使用 PGD 生成的对抗样本来进行对抗训练，提高模型的鲁棒性？

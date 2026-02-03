@@ -1,0 +1,64 @@
+---
+title: "实验 5.3：后门检测"
+description: 使用激活聚类等方法检测模型中的后门
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+## 实验目标
+
+本实验将帮助你理解后门检测的基本原理，通过实践激活聚类方法来识别模型中可能存在的后门。
+
+<Callout title="学习目标" type="info">
+完成本实验后，你将能够：
+- 理解激活聚类检测方法的原理
+- 提取和分析模型的中间层激活值
+- 使用降维技术（PCA、t-SNE）可视化激活分布
+- 通过聚类分析识别异常样本簇
+- 判断模型是否可能存在后门
+- 理解检测方法的优势和局限性
+</Callout>
+
+## 实验前提
+
+<Callout title="环境要求" type="warn">
+- Python 3.8+
+- PyTorch 1.10+
+- torchvision
+- matplotlib
+- numpy
+- scikit-learn
+
+确保已安装所需依赖后再开始实验。
+</Callout>
+
+## 实验内容
+
+:::notebook{file="./lab5_3_backdoor_detection.ipynb" showCellNumbers}
+:::
+
+## 实验总结
+
+<Callout title="完成检查" type="success">
+完成本实验后，你应该已经：
+- 成功提取了后门模型的中间层激活值
+- 使用 PCA 和 t-SNE 对激活值进行了降维可视化
+- 观察到正常样本和后门样本在激活空间中的分布差异
+- 使用 K-Means 聚类识别了异常样本簇
+- 理解了激活聚类方法的检测原理
+- 认识到检测方法的局限性和改进方向
+</Callout>
+
+## 延伸思考
+
+1. 激活聚类方法假设后门样本和正常样本的激活模式不同。如果攻击者设计的后门使得激活模式与正常样本相似，这种方法还能有效吗？
+
+2. 除了激活聚类，还有哪些方法可以用来检测后门？它们各有什么优缺点？
+
+3. 在实际应用中，如何平衡检测的准确性和效率？对于大规模模型，你会如何优化检测流程？
+
+## 相关资源
+
+- [第4章：后门检测技术](/docs/05-data-poisoning/backdoor-detection)
+- [第5章：防御与缓解措施](/docs/05-data-poisoning/defense-mitigation)
+- [实验 5.2：后门攻击](/docs/05-data-poisoning/labs/backdoor-attack)

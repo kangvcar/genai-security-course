@@ -1,13 +1,59 @@
 ---
-title: Hello World
-description: Your first document
+title: GenAI 安全攻防实战课程
+description: 系统学习 AI 安全的攻击技术和防御策略
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
 
-## What is Next?
+欢迎来到 **GenAI 安全攻防实战课程**！这是一门专注于生成式 AI 安全的中文实战教程，将带你深入了解 AI 系统面临的安全威胁，掌握攻击技术和防御策略。
+
+<Callout title="课程特色" type="success">
+- 🎯 **理论与实践结合**：每个模块配套 Jupyter 实验
+- 🔬 **真实案例分析**：基于最新的 AI 安全研究和事件
+- 🛡️ **攻防双视角**：既学习攻击技术，也掌握防御策略
+- 📚 **系统化学习路径**：从基础到进阶，循序渐进
+</Callout>
+
+## 课程模块
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
+  <Card title="模块一：AI 安全基础" href="/docs/01-ai-security-basics" icon="Shield">
+    建立 AI 安全核心概念，搭建测试环境，进行初步漏洞探测
+  </Card>
+  <Card title="模块二：提示词攻击" href="/docs/02-prompt-attacks" icon="MessageSquareWarning">
+    深入学习提示词注入、越狱技术、系统提示提取和防御策略
+  </Card>
+  <Card title="模块三：对抗样本" href="/docs/03-adversarial-examples" icon="Bug">
+    掌握 FGSM、PGD 等对抗攻击技术，理解白盒和黑盒攻击方法
+  </Card>
+  <Card title="模块四：隐私攻击" href="/docs/04-privacy-attacks" icon="Eye">
+    学习成员推理、模型逆向攻击，掌握差分隐私保护技术
+  </Card>
+  <Card title="模块五：数据投毒" href="/docs/05-data-poisoning" icon="Skull">
+    理解数据投毒和后门攻击原理，学习检测和防御方法
+  </Card>
+</Cards>
+
+## 学习前提
+
+<Callout title="推荐背景知识" type="info">
+- **Python 编程**：熟悉 Python 基础语法
+- **机器学习基础**：了解基本的机器学习概念
+- **深度学习入门**：对神经网络有初步了解（可选）
+</Callout>
+
+## 如何使用本课程
+
+1. **按顺序学习**：建议从模块一开始，按顺序完成所有模块
+2. **动手实践**：每个模块的配套实验是学习的重要组成部分
+3. **完成思考题**：每章末尾的思考题帮助巩固所学知识
+4. **持续探索**：关注 AI 安全领域的最新研究和事件
+
+## 开始学习
+
+准备好了吗？让我们从 AI 安全基础开始！
+
+<Cards>
+  <Card title="开始学习 →" href="/docs/01-ai-security-basics" />
 </Cards>

@@ -1,0 +1,14 @@
+{
+  "title": "模块二 提示词攻击",
+  "icon": "MessageSquareWarning",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "injection-basics",
+    "jailbreaking",
+    "prompt-extraction",
+    "filter-bypass",
+    "defense-strategies",
+    "labs"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "模块一 AI 安全基础",
+  "icon": "Shield",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "threat-landscape",
+    "llm-principles",
+    "red-team-thinking",
+    "environment-setup",
+    "vulnerability-detection",
+    "labs"
+  ]
+}

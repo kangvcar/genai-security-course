@@ -1,0 +1,61 @@
+---
+title: "实验 5.1：标签翻转攻击"
+description: 实践标签翻转投毒攻击，观察不同投毒比例对模型准确率的影响
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+## 实验目标
+
+本实验将帮助你理解标签翻转攻击的原理，并通过实际操作体验数据投毒对模型性能的影响。
+
+<Callout title="学习目标" type="info">
+完成本实验后，你将能够：
+- 理解标签翻转攻击的基本原理和实现步骤
+- 构造包含错误标签的投毒数据集
+- 观察不同投毒比例对模型准确率的影响
+- 对比目标攻击与无目标攻击的效果差异
+- 分析投毒攻击的隐蔽性与攻击效果之间的权衡
+</Callout>
+
+## 实验前提
+
+<Callout title="环境要求" type="warn">
+- Python 3.8+
+- PyTorch 1.10+
+- torchvision
+- matplotlib
+- numpy
+- scikit-learn
+
+确保已安装所需依赖后再开始实验。
+</Callout>
+
+## 实验内容
+
+:::notebook{file="./lab5_1_label_flipping.ipynb" showCellNumbers}
+:::
+
+## 实验总结
+
+<Callout title="完成检查" type="success">
+完成本实验后，你应该已经：
+- 成功实现了标签翻转攻击
+- 对比了不同投毒比例（1%、5%、10%、20%）下模型准确率的变化
+- 理解了无目标攻击如何降低模型整体性能
+- 理解了目标攻击如何针对特定类别制造误分类
+- 认识到数据质量对模型安全的重要性
+</Callout>
+
+## 延伸思考
+
+1. 在实际场景中，攻击者如何在不被发现的情况下向训练数据中注入投毒样本？
+
+2. 如果你是防御方，你会采取什么措施来检测训练数据中可能存在的标签错误？
+
+3. 投毒比例与攻击隐蔽性之间存在什么样的权衡关系？攻击者会如何平衡这两个因素？
+
+## 相关资源
+
+- [第1章：数据投毒攻击原理](/docs/05-data-poisoning/poisoning-principles)
+- [第5章：防御与缓解措施](/docs/05-data-poisoning/defense-mitigation)

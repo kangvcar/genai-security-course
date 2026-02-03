@@ -1,0 +1,57 @@
+---
+title: 提示词攻击总览
+description: 深入学习提示词注入、越狱技术和防御策略
+---
+
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+本模块将带你深入探索提示词攻击的世界。提示词攻击是针对大语言模型最常见也是最有效的攻击手段之一。通过精心设计的输入，攻击者可以操纵 AI 系统执行非预期的操作，绕过安全限制，甚至泄露敏感信息。
+
+## 学习目标
+
+<Callout title="完成本模块后，你将能够：" type="success">
+- 理解提示词注入的本质，掌握直接注入和间接注入的原理
+- 掌握主流越狱技术，包括 DAN 系列、编码绕过和逻辑操纵
+- 学会系统提示提取技术，了解如何获取 AI 系统的内部配置
+- 理解内容过滤器的工作机制，掌握字符级、语义级、结构级绕过技术
+- 建立多层防御思维，设计和评估 AI 系统的安全方案
+</Callout>
+
+## 章节概览
+
+<Cards>
+  <Card title="第1章：提示词注入基础原理" href="/docs/02-prompt-attacks/injection-basics">
+    理解提示词注入的本质，掌握直接注入、间接注入和多轮对话注入技术
+  </Card>
+  <Card title="第2章：越狱技术详解" href="/docs/02-prompt-attacks/jailbreaking">
+    学习 DAN 系列越狱技术、编码绕过、逻辑操纵和场景构造方法
+  </Card>
+  <Card title="第3章：系统提示提取技术" href="/docs/02-prompt-attacks/prompt-extraction">
+    掌握直接请求、间接诱导、编码翻译等系统提示词提取方法
+  </Card>
+  <Card title="第4章：内容过滤器绕过技术" href="/docs/02-prompt-attacks/filter-bypass">
+    深入理解内容过滤器的工作机制，学习三大类绕过技术
+  </Card>
+  <Card title="第5章：防御机制与对策" href="/docs/02-prompt-attacks/defense-strategies">
+    建立多层防御架构，掌握输入层、模型层、输出层的防御技术
+  </Card>
+</Cards>
+
+## 配套实验
+
+<Cards>
+  <Card title="实验 2.1：提示词注入" href="/docs/02-prompt-attacks/labs/prompt-injection">
+    通过实际操作体验直接注入、间接注入等攻击技术
+  </Card>
+  <Card title="实验 2.2：越狱技术体验" href="/docs/02-prompt-attacks/labs/jailbreaking">
+    亲手尝试不同的越狱技术，观察模型的响应
+  </Card>
+  <Card title="实验 2.3：系统提示提取" href="/docs/02-prompt-attacks/labs/prompt-extraction">
+    使用多种技术尝试提取系统提示词
+  </Card>
+</Cards>
+
+<Callout title="安全提示" type="warn">
+本模块介绍的攻击技术仅供学习和研究目的。请在合法和授权的环境中进行实验，不要将这些技术用于未经授权的系统或恶意用途。
+</Callout>

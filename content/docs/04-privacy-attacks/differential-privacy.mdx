@@ -1,0 +1,110 @@
+---
+title: 第4章：差分隐私基础
+description: 掌握差分隐私等隐私保护技术的基本原理
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+差分隐私（Differential Privacy）是一种数学上可证明的隐私保护技术，通过添加噪声来保护个体数据的隐私。
+
+## 章节目标
+
+<Callout title="学完本章后，你将能够：" type="info">
+1. 理解差分隐私的基本概念
+2. 掌握 ε-差分隐私的定义
+3. 了解差分隐私在机器学习中的应用
+4. 认识隐私与效用之间的权衡
+</Callout>
+
+## 差分隐私基础
+
+### 核心思想
+
+差分隐私确保：对于任何两个只相差一条记录的数据集，查询结果的分布几乎相同。
+
+<Callout title="直观理解" type="idea">
+无论某个人是否在数据集中，分析结果都不会发生显著变化。因此，攻击者无法从结果中推断个体信息。
+</Callout>
+
+### ε-差分隐私定义
+
+对于任意两个相邻数据集 D 和 D'，以及任意输出集合 S：
+
+```
+P[M(D) ∈ S] ≤ e^ε · P[M(D') ∈ S]
+```
+
+其中：
+- ε 称为隐私预算
+- ε 越小，隐私保护越强
+- ε = 0 表示完美隐私
+
+## 实现方法
+
+### 拉普拉斯机制
+
+通过添加拉普拉斯噪声实现差分隐私：
+
+```python
+def laplace_mechanism(true_answer, sensitivity, epsilon):
+    noise = np.random.laplace(0, sensitivity / epsilon)
+    return true_answer + noise
+```
+
+### 高斯机制
+
+使用高斯噪声，提供 (ε, δ)-差分隐私：
+
+```python
+def gaussian_mechanism(true_answer, sensitivity, epsilon, delta):
+    sigma = sensitivity * np.sqrt(2 * np.log(1.25 / delta)) / epsilon
+    noise = np.random.normal(0, sigma)
+    return true_answer + noise
+```
+
+## 在机器学习中的应用
+
+<Steps>
+  <Step>
+    **差分隐私随机梯度下降（DP-SGD）**
+    
+    在训练过程中对梯度进行裁剪和加噪
+  </Step>
+  <Step>
+    **梯度裁剪**
+    
+    限制单个样本对梯度的影响：`g = g / max(1, ||g|| / C)`
+  </Step>
+  <Step>
+    **噪声添加**
+    
+    向裁剪后的梯度添加高斯噪声
+  </Step>
+  <Step>
+    **隐私预算追踪**
+    
+    使用组合定理累计隐私损失
+  </Step>
+</Steps>
+
+## 隐私与效用权衡
+
+| ε 值 | 隐私保护 | 模型效用 |
+|------|---------|---------|
+| 小 (0.1-1) | 强 | 低 |
+| 中 (1-10) | 中等 | 中等 |
+| 大 (>10) | 弱 | 高 |
+
+<Callout title="实践建议" type="success">
+- 医疗、金融等敏感领域：ε < 1
+- 一般应用：ε = 1-10
+- 需要根据具体场景权衡隐私和效用
+</Callout>
+
+## 本章小结
+
+1. 差分隐私提供数学可证明的隐私保证
+2. 通过添加噪声保护个体数据隐私
+3. DP-SGD 是机器学习中的主要应用方法
+4. 需要在隐私保护和模型效用之间权衡

@@ -1,0 +1,14 @@
+{
+  "title": "模块五 数据投毒",
+  "icon": "Skull",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "poisoning-principles",
+    "backdoor-attacks",
+    "supply-chain-attacks",
+    "backdoor-detection",
+    "defense-mitigation",
+    "labs"
+  ]
+}

@@ -1,0 +1,206 @@
+---
+title: 第4章：AI 安全测试环境搭建
+description: 配置完整的 AI 安全测试环境，包括云平台使用、Python 配置和核心依赖库安装
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+学习 AI 安全不能只停留在理论层面，我们需要一个实际的环境来进行实验和测试。本章将指导大家搭建一个完整的 AI 安全测试环境。
+
+## 章节目标
+
+<Callout title="学完本章后，你将能够：" type="info">
+1. **掌握云平台的使用**：熟练使用云端开发环境创建和管理 GPU 开发环境
+2. **配置 Python 环境**：正确安装和配置 Python 及相关依赖库
+3. **调用大语言模型**：能够使用 Transformers 库加载和运行预训练模型
+4. **排查常见问题**：识别和解决环境搭建过程中的典型问题
+</Callout>
+
+## 为什么选择云平台
+
+### 本地环境 vs 云平台
+
+<Tabs items={['本地环境的挑战', '云平台的优势']}>
+  <Tab value="本地环境的挑战">
+    - **硬件要求高**：运行大语言模型需要强大的 GPU，成本很高
+    - **配置复杂**：需要安装 CUDA、cuDNN 等底层驱动
+    - **环境污染**：可能与其他项目冲突
+    - **资源浪费**：GPU 只在运行实验时才需要
+  </Tab>
+  <Tab value="云平台的优势">
+    - **免费的 GPU 资源**：足够运行本课程的所有实验
+    - **开箱即用**：环境已经预配置好
+    - **随时随地访问**：只需要浏览器和网络
+    - **按需使用**：用完即停，不占用本地资源
+  </Tab>
+</Tabs>
+
+<Callout title="类比理解" type="idea">
+使用云平台就像租用健身房，而不是在家里建一个健身房。你只需要在需要锻炼时去健身房，使用专业的器材，用完就走。
+</Callout>
+
+## 环境配置步骤
+
+### 创建工作空间
+
+<Steps>
+  <Step>
+    **访问云平台**
+    
+    打开浏览器，访问云端开发环境（如腾讯 Cloud Studio、Google Colab 等）
+  </Step>
+  <Step>
+    **创建工作空间**
+    
+    - 选择 **Python 3** 或 **Data Science** 模板
+    - 启用 **GPU** 支持
+    - 给工作空间起名，如 "AI-Security-Lab"
+  </Step>
+  <Step>
+    **等待初始化**
+    
+    系统会自动初始化环境，通常需要 1-2 分钟
+  </Step>
+</Steps>
+
+### Python 环境配置
+
+**检查 Python 版本**
+
+```bash
+python --version
+# 或
+python3 --version
+```
+
+应该看到 Python 3.8 或更高版本。
+
+**创建虚拟环境**
+
+```bash
+# 创建虚拟环境
+python3 -m venv ai_security_env
+
+# 激活虚拟环境
+source ai_security_env/bin/activate  # Linux/Mac
+# 或
+ai_security_env\Scripts\activate     # Windows
+```
+
+<Callout title="为什么需要虚拟环境？" type="info">
+虚拟环境就像给每个项目创建一个独立的"房间"，每个房间有自己的库版本，互不干扰。
+</Callout>
+
+### 安装核心依赖库
+
+```bash
+# 升级 pip
+pip install --upgrade pip
+
+# 安装核心库
+pip install transformers==4.40.0 torch==2.1.0 numpy==1.24.3 matplotlib==3.7.1 accelerate==0.27.0
+```
+
+**各库的作用**：
+
+| 库名 | 版本 | 作用 |
+|-----|------|------|
+| **transformers** | 4.40.0 | Hugging Face 预训练模型库，包含 GPT、BERT 等 |
+| **torch** | 2.1.0 | PyTorch 深度学习框架，模型的底层计算引擎 |
+| **numpy** | 1.24.3 | 数值计算库，处理数组和矩阵运算 |
+| **matplotlib** | 3.7.1 | 数据可视化库，绘制实验结果图表 |
+| **accelerate** | 0.27.0 | 加速库，优化 GPU 使用 |
+
+### 验证安装
+
+```python
+import torch
+print(f"PyTorch version: {torch.__version__}")
+print(f"CUDA available: {torch.cuda.is_available()}")
+
+import transformers
+print(f"Transformers version: {transformers.__version__}")
+
+import numpy as np
+print(f"NumPy version: {np.__version__}")
+```
+
+<Callout title="验证结果" type="success">
+如果一切正常，你应该看到：
+- `CUDA available: True` 表示 GPU 可用
+- 各库版本号正确显示
+</Callout>
+
+## 加载第一个模型
+
+让我们加载一个小型语言模型进行测试：
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+# 加载模型和分词器
+model_name = "gpt2"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+# 生成文本
+input_text = "The future of AI is"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids, max_length=50)
+print(tokenizer.decode(output[0], skip_special_tokens=True))
+```
+
+## 常见问题排查
+
+<Tabs items={['CUDA 不可用', '内存不足', '包安装失败']}>
+  <Tab value="CUDA 不可用">
+    **问题**：`torch.cuda.is_available()` 返回 `False`
+    
+    **解决方案**：
+    - 确认已选择 GPU 实例
+    - 重启工作空间
+    - 检查 GPU 驱动是否正确安装
+  </Tab>
+  <Tab value="内存不足">
+    **问题**：加载模型时出现 `OutOfMemoryError`
+    
+    **解决方案**：
+    - 使用更小的模型（如 gpt2 而不是 gpt2-xl）
+    - 使用 `model.half()` 减少内存占用
+    - 减小 batch size
+  </Tab>
+  <Tab value="包安装失败">
+    **问题**：`pip install` 失败
+    
+    **解决方案**：
+    - 升级 pip：`pip install --upgrade pip`
+    - 检查网络连接
+    - 尝试使用国内镜像：`pip install -i https://pypi.tuna.tsinghua.edu.cn/simple 包名`
+  </Tab>
+</Tabs>
+
+## 实验习惯最佳实践
+
+<Callout title="良好习惯" type="success">
+1. **定期保存工作**：云平台可能会断开连接
+2. **使用版本控制**：用 Git 管理代码
+3. **监控资源使用**：注意 GPU 内存和计算时长
+4. **记录实验过程**：使用 Jupyter Notebook 记录代码和结果
+5. **及时清理**：用完的模型和数据要释放内存
+</Callout>
+
+## 本章小结
+
+1. **云平台优势**：免费 GPU、开箱即用、随时访问
+2. **环境配置**：虚拟环境隔离、核心库安装
+3. **验证安装**：检查 CUDA 可用性和库版本
+4. **问题排查**：掌握常见问题的解决方法
+5. **良好习惯**：保存工作、版本控制、资源监控
+
+## 配套实验
+
+<Callout title="动手实践" type="info">
+完成本章学习后，请进行 **实验 1.1：环境配置**，在实际操作中验证你的环境配置是否正确。
+</Callout>

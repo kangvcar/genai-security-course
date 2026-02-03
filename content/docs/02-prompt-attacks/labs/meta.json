@@ -1,0 +1,5 @@
+{
+  "title": "实验",
+  "icon": "FlaskConical",
+  "pages": ["prompt-injection", "jailbreaking", "prompt-extraction"]
+}

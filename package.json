@@ -10,14 +10,28 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
+    "@ai-sdk/gateway": "^3.0.32",
+    "@ai-sdk/openai-compatible": "^2.0.26",
+    "@ai-sdk/react": "^3.0.70",
+    "@radix-ui/react-presence": "^1.1.5",
+    "ai": "^6.0.68",
+    "class-variance-authority": "^0.7.1",
     "fumadocs-core": "16.5.0",
     "fumadocs-mdx": "14.2.6",
     "fumadocs-ui": "16.5.0",
+    "hast-util-to-jsx-runtime": "^2.3.6",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",
+    "notebook-mdx": "^0.1.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "tailwind-merge": "^3.4.0"
+    "remark": "^15.0.1",
+    "remark-directive": "^4.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-rehype": "^11.1.2",
+    "tailwind-merge": "^3.4.0",
+    "unist-util-visit": "^5.1.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
