@@ -1,9 +1,10 @@
-import { getPageImage, source } from '@/lib/source';
+import { source } from '@/lib/source';
 import { notFound } from 'next/navigation';
 import { ImageResponse } from 'next/og';
 import { generate as DefaultImage } from 'fumadocs-ui/og';
 
-export const revalidate = false;
+// 动态生成，不在构建时预渲染
+export const dynamic = 'force-dynamic';
 
 export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...slug]'>) {
   const { slug } = await params;
@@ -17,11 +18,4 @@ export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...
       height: 630,
     },
   );
-}
-
-export function generateStaticParams() {
-  return source.getPages().map((page) => ({
-    lang: page.locale,
-    slug: getPageImage(page).segments,
-  }));
 }
