@@ -4,13 +4,8 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "build:cloudflare": "opennextjs-cloudflare build",
-    "cf:install": "npm install --ignore-scripts && fumadocs-mdx",
-    "cf:build": "npm run cf:install && npm run build:cloudflare",
     "dev": "next dev",
     "start": "next start",
-    "preview:cloudflare": "opennextjs-cloudflare preview",
-    "deploy:cloudflare": "opennextjs-cloudflare deploy",
     "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
     "postinstall": "fumadocs-mdx"
   },
@@ -41,7 +36,6 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.16.2",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/mdx": "^2.0.13",
     "@types/node": "^25.1.0",
