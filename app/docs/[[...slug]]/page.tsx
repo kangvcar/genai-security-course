@@ -54,11 +54,43 @@ export async function generateMetadata(props: PageProps<'/docs/[[...slug]]'>): P
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://genai-security.vercel.app';
+  const pageUrl = `${siteUrl}${page.url}`;
+  const imageUrl = getPageImage(page).url;
+
   return {
     title: page.data.title,
-    description: page.data.description,
+    description: page.data.description || `学习 ${page.data.title} - GenAI 安全攻防实战课程`,
+    keywords: [
+      'AI安全',
+      'GenAI',
+      page.data.title,
+      ...(page.slugs || []),
+    ],
     openGraph: {
-      images: getPageImage(page).url,
+      type: 'article',
+      locale: 'zh_CN',
+      url: pageUrl,
+      title: page.data.title,
+      description: page.data.description || `学习 ${page.data.title} - GenAI 安全攻防实战课程`,
+      siteName: 'GenAI 安全攻防实战课程',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: page.data.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: page.data.title,
+      description: page.data.description || `学习 ${page.data.title} - GenAI 安全攻防实战课程`,
+      images: [imageUrl],
+    },
+    alternates: {
+      canonical: pageUrl,
     },
   };
 }

@@ -31,6 +31,7 @@ import {
   Layers,
   Activity
 } from 'lucide-react';
+import { CourseJsonLd, WebsiteJsonLd, FAQJsonLd } from '@/components/seo/json-ld';
 
 const modules = [
   {
@@ -192,9 +193,39 @@ const techStack = [
   { name: 'Scikit-learn', color: 'bg-purple-500' },
 ];
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://genai-security.vercel.app';
+
 export default function HomePage() {
   return (
     <div className="flex flex-col">
+      {/* SEO 结构化数据 */}
+      <WebsiteJsonLd
+        name="GenAI 安全攻防实战课程"
+        description="系统掌握大语言模型和 AI 系统的安全攻防技术"
+        url={siteUrl}
+      />
+      <CourseJsonLd
+        name="GenAI 安全攻防实战课程"
+        description="系统掌握大语言模型和 AI 系统的安全攻防技术。涵盖提示词注入、对抗样本、隐私窃取、数据投毒等核心主题，5大模块、24章精讲、15个动手实验。"
+        url={siteUrl}
+        image={`${siteUrl}/og-image.png`}
+      />
+      <FAQJsonLd
+        questions={[
+          {
+            question: '这门课程适合什么人学习？',
+            answer: '本课程适合对 AI 安全感兴趣的开发者、安全研究人员、以及希望了解如何保护 AI 系统的技术人员。需要基本的 Python 编程基础。',
+          },
+          {
+            question: '课程包含哪些内容？',
+            answer: '课程涵盖5大核心模块：AI安全基础、提示词攻击、对抗样本、隐私窃取和数据投毒。包括24章精讲内容和15个动手实验。',
+          },
+          {
+            question: '课程是免费的吗？',
+            answer: '是的，本课程完全免费开放，所有内容和实验代码均可免费访问。',
+          },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/20 dark:via-purple-950/20 dark:to-pink-950/20" />
@@ -325,8 +356,7 @@ export default function HomePage() {
           <Quote className="absolute top-4 left-4 w-8 h-8 text-blue-200 dark:text-blue-800" />
           <blockquote className="text-center">
             <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 italic mb-4">
-              "AI 系统更像一个经过训练的'学生'，它的行为并不总是可预测的。
-              同样的问题，换一种问法可能得到完全不同的答案。"
+              "要保护 AI 系统，首先要学会攻击它。只有深入理解攻击原理，才能构建真正的防御。"
             </p>
             <cite className="text-muted-foreground">— 课程核心理念</cite>
           </blockquote>
@@ -649,7 +679,6 @@ export default function HomePage() {
               </div>
               <div>
                 <div className="font-semibold">GenAI 安全攻防实战课程</div>
-                <div className="text-sm text-muted-foreground">使用 Fumadocs 构建</div>
               </div>
             </div>
             <div className="text-sm text-muted-foreground">
