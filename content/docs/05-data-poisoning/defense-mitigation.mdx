@@ -8,12 +8,17 @@ import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+<Callout title="预计学习时间" type="info">
+预计阅读约23分钟
+</Callout>
+
 ## 本章导读
 
 在前面的章节中，我们学习了数据投毒攻击、后门攻击、供应链攻击等多种威胁手段。攻击者可以通过污染训练数据、植入隐蔽后门、或者在模型分发环节动手脚，让 AI 系统在不知不觉中变得不可信。面对这些威胁，我们该如何保护自己的模型？本章将从数据、训练、模型、供应链四个层面，系统介绍防御数据投毒和后门攻击的方法。
 
-<Callout title="学习目标" type="info">
-完成本章学习后，你将能够：
+## 学习目标
+
+<Callout title="本章学完后，你将能够：" type="info">
 - 理解数据清洗和验证在防御投毒攻击中的核心作用
 - 掌握鲁棒训练技术的基本原理
 - 理解 Fine-Pruning 和模型蒸馏两种后门移除技术的工作原理
@@ -277,20 +282,6 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 ---
 
-## 本章小结
-
-<Callout title="多层防御体系" type="success">
-有效的安全防护需要多层防御的组合——即使某一层被突破，其他层仍然可以提供保护。这种"纵深防御"的思想，是 AI 安全乃至整个信息安全领域的核心原则。
-</Callout>
-
-| 防御层次 | 核心方法 | 关键要点 |
-|---------|---------|---------|
-| **数据层** | 数据清洗、来源验证 | 从源头把关，过滤可疑样本 |
-| **训练层** | 鲁棒训练、过程监控 | 限制投毒样本对模型的影响 |
-| **模型层** | Fine-Pruning、模型蒸馏 | 从已训练模型中移除后门 |
-| **供应链** | 来源验证、格式检查、版本管理 | 全链路安全防护 |
-
----
 
 ## 术语对照表
 
@@ -306,7 +297,23 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 ---
 
-## 课后思考题
+## 本章小结
+
+<Callout title="多层防御体系" type="success">
+有效的安全防护需要多层防御的组合——即使某一层被突破，其他层仍然可以提供保护。这种"纵深防御"的思想，是 AI 安全乃至整个信息安全领域的核心原则。
+</Callout>
+
+| 防御层次 | 核心方法 | 关键要点 |
+|---------|---------|---------|
+| **数据层** | 数据清洗、来源验证 | 从源头把关，过滤可疑样本 |
+| **训练层** | 鲁棒训练、过程监控 | 限制投毒样本对模型的影响 |
+| **模型层** | Fine-Pruning、模型蒸馏 | 从已训练模型中移除后门 |
+| **供应链** | 来源验证、格式检查、版本管理 | 全链路安全防护 |
+
+---
+
+
+## 课后思考
 
 <Accordions>
   <Accordion title="思考题1：Fine-Pruning 的原理">
@@ -319,3 +326,10 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
     假设你的团队需要使用一个来自开源社区的预训练模型来开发一个医疗诊断系统。请设计一套完整的安全检查流程。
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[第3章：供应链攻击向量](/docs/05-data-poisoning/supply-chain-attacks)、[实验 5.3：后门检测](/docs/05-data-poisoning/backdoor-detection)
+- 配套实验：[实验 5.1：标签翻转攻击](/docs/05-data-poisoning/labs/label-flipping)、[实验 5.2：后门攻击](/docs/05-data-poisoning/labs/backdoor-attack)、[实验 5.3：后门检测](/docs/05-data-poisoning/labs/backdoor-detection)
+
+

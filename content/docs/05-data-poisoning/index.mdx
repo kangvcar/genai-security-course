@@ -6,6 +6,11 @@ description: 深入理解数据投毒攻击原理和后门检测技术
 import { Cards, Card } from 'fumadocs-ui/components/card';
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Biohazard, Skull, Package, Search, ShieldCheck } from 'lucide-react';
+
+<Callout title="预计学习时间" type="info">
+预计阅读约3-4小时，实验约2-3小时
+</Callout>
 
 在前面的模块中，我们学习了针对已部署模型的攻击技术——提示词注入和对抗样本都发生在模型推理阶段。然而，还有一类更加隐蔽、影响更加深远的攻击方式：它不是在模型使用时发起攻击，而是在模型训练之前就已经埋下隐患。这就是**数据投毒攻击（Data Poisoning Attack）**。
 
@@ -24,19 +29,19 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 ## 章节概览
 
 <Cards>
-  <Card title="第1章：数据投毒攻击原理" href="/docs/05-data-poisoning/poisoning-principles">
+  <Card icon={<Biohazard />} title="第1章：数据投毒攻击原理" href="/docs/05-data-poisoning/poisoning-principles">
     理解标签翻转攻击和干净标签攻击的原理与危害
   </Card>
-  <Card title="第2章：后门攻击技术" href="/docs/05-data-poisoning/backdoor-attacks">
+  <Card icon={<Skull />} title="第2章：后门攻击技术" href="/docs/05-data-poisoning/backdoor-attacks">
     深入学习触发器设计和 BadNets 等经典后门攻击方法
   </Card>
-  <Card title="第3章：供应链攻击向量" href="/docs/05-data-poisoning/supply-chain-attacks">
+  <Card icon={<Package />} title="第3章：供应链攻击向量" href="/docs/05-data-poisoning/supply-chain-attacks">
     探索模型仓库投毒、Pickle 漏洞和数据集投毒的威胁
   </Card>
-  <Card title="第4章：后门检测技术" href="/docs/05-data-poisoning/backdoor-detection">
+  <Card icon={<Search />} title="第4章：后门检测技术" href="/docs/05-data-poisoning/backdoor-detection">
     掌握激活聚类、Neural Cleanse 和 STRIP 等检测方法
   </Card>
-  <Card title="第5章：防御与缓解措施" href="/docs/05-data-poisoning/defense-mitigation">
+  <Card icon={<ShieldCheck />} title="第5章：防御与缓解措施" href="/docs/05-data-poisoning/defense-mitigation">
     学习数据清洗、鲁棒训练、后门移除和供应链安全实践
   </Card>
 </Cards>
@@ -57,10 +62,6 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 <Callout title="安全提示" type="warn">
 本模块介绍的攻击技术仅供学习和研究目的。请在合法和授权的环境中进行实验，不要将这些技术用于未经授权的系统或恶意用途。
-</Callout>
-
-<Callout title="预计学习时间" type="info">
-阅读约 3-4 小时 | 实验约 2-3 小时
 </Callout>
 
 ## 常见问题

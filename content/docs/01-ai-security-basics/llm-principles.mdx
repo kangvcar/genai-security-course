@@ -3,16 +3,24 @@ title: 第2章：大语言模型的工作原理
 description: 揭开大语言模型的神秘面纱，理解 Transformer 架构、文本分词和关键参数
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约17分钟
+</Callout>
+
+## 本章导读
+
 当我们与 ChatGPT 对话时，它能够理解我们的问题，生成流畅的回答，甚至展现出一定的"创造力"。这背后的技术原理是什么？为什么大语言模型有时会"一本正经地胡说八道"？本章将揭开大语言模型的神秘面纱，帮助大家理解这些强大 AI 系统的工作机制。
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你将能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 1. **理解大语言模型的核心机制**：掌握 Transformer 架构的基本思想和文本分词原理
 2. **认识关键参数的作用**：理解 Temperature、Top-p、Max Tokens 等参数如何影响模型输出
 3. **把握模型的能力与局限**：了解大语言模型擅长什么、不擅长什么
@@ -228,7 +236,8 @@ Max Tokens 参数限制模型生成的最大 Token 数量。这个参数对安�
 5. **能力与局限**：模型存在幻觉、缺乏真实理解等严重局限
 6. **提示工程**：有效的提示词设计可以提升表现，但也可能被攻击者利用
 
-## 课后思考题
+
+## 课后思考
 
 <Accordions>
   <Accordion title="思考题1：超级自动补全系统">
@@ -241,3 +250,10 @@ Max Tokens 参数限制模型生成的最大 Token 数量。这个参数对安�
     假设你正在开发一个 AI 写作助手，你会如何设置模型参数？请说明理由，并考虑可能的安全风险。
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[第3章：红队视角：像攻击者一样思考](/docs/01-ai-security-basics/red-team-thinking)、[实验 1.1：环境配置](/docs/01-ai-security-basics/environment-setup)
+- 配套实验：[实验 1.1：环境配置](/docs/01-ai-security-basics/labs/environment-setup)、[实验 1.2：漏洞侦察](/docs/01-ai-security-basics/labs/vulnerability-reconnaissance)
+
+

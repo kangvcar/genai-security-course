@@ -6,6 +6,11 @@ description: 学习 AI 系统的隐私泄露风险和防护技术
 import { Cards, Card } from 'fumadocs-ui/components/card';
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Database, Fingerprint, Scan, ShieldCheck } from 'lucide-react';
+
+<Callout title="预计学习时间" type="info">
+预计阅读约2-3小时，实验约2小时
+</Callout>
 
 本模块将深入探讨 AI 系统面临的隐私安全威胁。通过本模块的学习，你将了解 AI 模型如何"记住"敏感信息，以及攻击者如何利用这些特性窃取隐私数据。
 
@@ -21,16 +26,16 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 ## 章节概览
 
 <Cards>
-  <Card title="第1章：AI 的记忆泄露问题" href="/docs/04-privacy-attacks/memory-leakage">
+  <Card icon={<Database />} title="第1章：AI 的记忆泄露问题" href="/docs/04-privacy-attacks/memory-leakage">
     理解 AI 模型如何"记住"训练数据中的敏感信息
   </Card>
-  <Card title="第2章：成员推理攻击" href="/docs/04-privacy-attacks/membership-inference">
+  <Card icon={<Fingerprint />} title="第2章：成员推理攻击" href="/docs/04-privacy-attacks/membership-inference">
     学习如何判断特定数据是否被用于模型训练
   </Card>
-  <Card title="第3章：模型逆向攻击" href="/docs/04-privacy-attacks/model-inversion">
+  <Card icon={<Scan />} title="第3章：模型逆向攻击" href="/docs/04-privacy-attacks/model-inversion">
     探索如何从模型输出中重建训练数据特征
   </Card>
-  <Card title="第4章：差分隐私基础" href="/docs/04-privacy-attacks/differential-privacy">
+  <Card icon={<ShieldCheck />} title="第4章：差分隐私基础" href="/docs/04-privacy-attacks/differential-privacy">
     掌握差分隐私等隐私保护技术的基本原理
   </Card>
 </Cards>
@@ -49,8 +54,8 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
   </Card>
 </Cards>
 
-<Callout title="预计学习时间" type="info">
-阅读约 2-3 小时 | 实验约 2 小时
+<Callout title="安全提示" type="warn">
+本模块介绍的攻击技术仅供学习和研究目的。请在合法和授权的环境中进行实验，不要将这些技术用于未经授权的系统或恶意用途。
 </Callout>
 
 ## 常见问题

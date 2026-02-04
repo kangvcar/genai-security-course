@@ -8,12 +8,17 @@ import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+<Callout title="预计学习时间" type="info">
+预计阅读约17分钟
+</Callout>
+
 ## 本章导读
 
 在前两章中，我们学习了数据投毒和后门攻击的原理。这些攻击通常针对单个模型或数据集。然而，现代 AI 开发高度依赖开源生态：开发者从 HuggingFace 下载预训练模型，使用 PyPI 安装依赖库，从公开数据集获取训练数据。如果攻击者能够污染这些共享资源，一次攻击就可能影响成千上万的下游用户。本章将探讨 AI 供应链的构成、脆弱环节，以及攻击者如何利用这些环节发起攻击。
 
-<Callout title="学习目标" type="info">
-完成本章学习后，你将能够：
+## 学习目标
+
+<Callout title="本章学完后，你将能够：" type="info">
 - 理解 AI 供应链的构成，识别各环节的安全风险
 - 掌握模型仓库投毒的常见手法，能够识别可疑模型
 - 理解序列化攻击（Pickle 漏洞）的原理，了解安全替代方案
@@ -252,16 +257,6 @@ model.load_state_dict(state_dict)
 
 ---
 
-## 本章小结
-
-| 概念 | 要点 |
-|-----|------|
-| **供应链攻击的放大效应** | 一次成功的攻击可以影响所有使用被污染组件的下游系统 |
-| **模型仓库投毒** | 通过上传恶意模型、命名欺骗、版本替换等方式植入恶意内容 |
-| **Pickle 序列化漏洞** | 反序列化时可以执行任意代码，SafeTensors 是更安全的替代方案 |
-| **数据集投毒** | 公开数据集可能被恶意篡改，需要建立数据验证和来源追踪机制 |
-
----
 
 ## 术语对照表
 
@@ -275,7 +270,19 @@ model.load_state_dict(state_dict)
 
 ---
 
-## 课后思考题
+## 本章小结
+
+| 概念 | 要点 |
+|-----|------|
+| **供应链攻击的放大效应** | 一次成功的攻击可以影响所有使用被污染组件的下游系统 |
+| **模型仓库投毒** | 通过上传恶意模型、命名欺骗、版本替换等方式植入恶意内容 |
+| **Pickle 序列化漏洞** | 反序列化时可以执行任意代码，SafeTensors 是更安全的替代方案 |
+| **数据集投毒** | 公开数据集可能被恶意篡改，需要建立数据验证和来源追踪机制 |
+
+---
+
+
+## 课后思考
 
 <Accordions>
   <Accordion title="思考题1：供应链攻击的放大效应">
@@ -288,3 +295,10 @@ model.load_state_dict(state_dict)
     假设你是一家 AI 公司的安全工程师，公司计划从 HuggingFace 下载一个预训练模型用于生产环境。请设计一套安全审查流程。
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[实验 5.3：后门检测](/docs/05-data-poisoning/backdoor-detection)、[第5章：防御与缓解措施](/docs/05-data-poisoning/defense-mitigation)
+- 配套实验：[实验 5.1：标签翻转攻击](/docs/05-data-poisoning/labs/label-flipping)、[实验 5.2：后门攻击](/docs/05-data-poisoning/labs/backdoor-attack)、[实验 5.3：后门检测](/docs/05-data-poisoning/labs/backdoor-detection)
+
+

@@ -3,16 +3,24 @@ title: 第1章：提示词注入基础原理
 description: 理解提示词注入的本质，掌握直接注入、间接注入和多轮对话注入技术
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约19分钟
+</Callout>
+
+## 本章导读
+
 当我们与大语言模型对话时，我们输入的每一句话都是"提示词"（Prompt）。模型根据这些提示词生成回复。但如果有人在提示词中嵌入恶意指令，会发生什么？这就是提示词注入攻击。这种攻击方式不需要任何技术漏洞，仅仅通过精心设计的文字，就能让 AI 系统偏离设计者的意图。
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你将能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 1. **理解提示词注入的本质**：掌握提示词注入攻击的核心原理，理解为什么 AI 无法区分指令和数据
 2. **识别不同类型的注入攻击**：能够区分直接注入、间接注入、多轮对话注入等不同攻击方式
 3. **分析真实攻击案例**：通过典型案例理解提示词注入在现实世界中的影响和危害
@@ -361,7 +369,8 @@ RAG（Retrieval-Augmented Generation，检索增强生成）系统特别容易�
 5. **真实案例的启示**：提示词注入是现实存在的威胁，需要认真对待
 </Callout>
 
-## 课后思考题
+
+## 课后思考
 
 <Accordions>
   <Accordion title="思考题1：指令与数据的边界">
@@ -374,3 +383,10 @@ RAG（Retrieval-Augmented Generation，检索增强生成）系统特别容易�
     假设你正在开发一个基于 RAG 的企业知识库问答系统。根据本章学到的知识，请设计至少三种防御措施来防止间接注入攻击。
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[实验 2.2：越狱技术体验](/docs/02-prompt-attacks/jailbreaking)、[实验 2.3：系统提示提取](/docs/02-prompt-attacks/prompt-extraction)
+- 配套实验：[实验 2.1：提示词注入](/docs/02-prompt-attacks/labs/prompt-injection)、[实验 2.2：越狱技术体验](/docs/02-prompt-attacks/labs/jailbreaking)、[实验 2.3：系统提示提取](/docs/02-prompt-attacks/labs/prompt-extraction)
+
+

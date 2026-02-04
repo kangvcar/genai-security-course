@@ -3,16 +3,24 @@ title: 第4章：文本对抗攻击
 description: 探索字符级、词级和句级三种文本对抗攻击方法
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约23分钟
+</Callout>
+
+## 本章导读
+
 在前面的章节中，我们学习了针对图像分类模型的对抗攻击技术。然而，当攻击目标从图像转向文本时，情况变得更加复杂。文本是由离散的字符和词语组成的，无法像图像那样进行连续的微小调整。本章将探讨文本对抗攻击的独特挑战。
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你将能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 1. **理解文本与图像攻击的本质区别**：解释为什么文本攻击更具挑战性
 2. **掌握字符级攻击的常见手法**：如字符替换、插入和删除
 3. **理解词级攻击的核心思想**：包括重要词识别和同义词替换策略
@@ -294,6 +302,19 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 在实际应用中，攻击者往往会**结合多种方法**，根据具体情况选择最合适的策略。例如，先使用词级攻击找到关键词，再结合字符级攻击进一步混淆。
 </Callout>
 
+
+## 术语对照表
+
+| 中文术语 | 英文术语 | 简要解释 |
+|---------|---------|---------|
+| 离散性 | Discreteness | 文本由不可连续变化的符号组成的特性 |
+| 语义保持 | Semantic Preservation | 修改文本时保持原始含义不变的约束 |
+| 字符替换 | Character Substitution | 将文本中的字符替换为其他字符 |
+| 同义词替换 | Synonym Substitution | 用意思相近的词替换原词 |
+| 回译 | Back-Translation | 将文本翻译成另一种语言后再翻译回来 |
+| 语义漂移 | Semantic Drift | 文本改写过程中语义发生偏移的现象 |
+| 重要词 | Important Word | 对模型判断影响较大的词语 |
+
 ## 本章小结
 
 <Steps>
@@ -314,19 +335,8 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
   </Step>
 </Steps>
 
-## 术语对照表
 
-| 中文术语 | 英文术语 | 简要解释 |
-|---------|---------|---------|
-| 离散性 | Discreteness | 文本由不可连续变化的符号组成的特性 |
-| 语义保持 | Semantic Preservation | 修改文本时保持原始含义不变的约束 |
-| 字符替换 | Character Substitution | 将文本中的字符替换为其他字符 |
-| 同义词替换 | Synonym Substitution | 用意思相近的词替换原词 |
-| 回译 | Back-Translation | 将文本翻译成另一种语言后再翻译回来 |
-| 语义漂移 | Semantic Drift | 文本改写过程中语义发生偏移的现象 |
-| 重要词 | Important Word | 对模型判断影响较大的词语 |
-
-## 课后思考题
+## 课后思考
 
 <Accordions>
   <Accordion title="思考题1：文本的离散性挑战">
@@ -339,3 +349,10 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
     假设你需要设计一个能够抵御文本对抗攻击的情感分类系统，你会采取哪些防御措施？请至少列出三种可能的方法。
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[第5章：防御技术入门](/docs/03-adversarial-examples/defense-techniques)
+- 配套实验：[实验 3.1：FGSM 攻击](/docs/03-adversarial-examples/labs/fgsm-attack)、[实验 3.2：PGD 攻击](/docs/03-adversarial-examples/labs/pgd-attack)、[实验 3.3：迁移攻击](/docs/03-adversarial-examples/labs/transfer-attack)
+
+

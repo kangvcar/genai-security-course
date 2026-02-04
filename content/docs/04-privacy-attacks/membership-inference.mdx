@@ -3,15 +3,23 @@ title: 第2章：成员推理攻击
 description: 学习如何判断特定数据是否被用于模型训练
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约10分钟
+</Callout>
+
+## 本章导读
+
 成员推理攻击（Membership Inference Attack）是一种隐私攻击技术，攻击者试图判断特定的数据样本是否被用于训练目标模型。
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你将能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 1. 理解成员推理攻击的原理
 2. 掌握攻击的实施方法
 3. 了解攻击成功的影响因素
@@ -101,6 +109,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 2. 基于阈值和影子模型是两种主要攻击方法
 3. 该攻击对隐私保护构成严重威胁
 
+
 ## 课后思考
 
 <Accordions>
@@ -114,3 +123,10 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
     在哪些实际场景中，成员推理攻击的威胁最严重？请举例说明。
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[第3章：模型逆向攻击](/docs/04-privacy-attacks/model-inversion)、[实验 4.3：差分隐私](/docs/04-privacy-attacks/differential-privacy)
+- 配套实验：[实验 4.1：数据提取](/docs/04-privacy-attacks/labs/data-extraction)、[实验 4.2：成员推理](/docs/04-privacy-attacks/labs/membership-inference)、[实验 4.3：差分隐私](/docs/04-privacy-attacks/labs/differential-privacy)
+
+

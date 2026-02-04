@@ -3,16 +3,24 @@ title: 第3章：黑盒攻击技术
 description: 掌握迁移攻击和基于查询的攻击策略
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约22分钟
+</Callout>
+
+## 本章导读
+
 在上一章中，我们学习了白盒攻击技术，了解了如何在完全掌握模型信息的情况下生成对抗样本。然而，现实世界中的大多数 AI 系统并不会向用户公开其内部结构和参数。当我们面对一个"看不见内部"的模型时，还能否发起有效的攻击？
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你将能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 1. **理解黑盒攻击与白盒攻击的本质区别**：认识黑盒场景的现实意义
 2. **掌握迁移攻击的核心原理**：能够解释对抗样本为何具有跨模型迁移性
 3. **了解基于查询的攻击策略**：理解其工作机制和效率权衡
@@ -229,7 +237,18 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 | **迁移性是真实风险** | 攻击者不需要知道目标系统的任何内部信息 |
 | **需考虑对抗鲁棒性** | AI 服务提供商在部署模型时不能仅关注正常情况下的准确率 |
 
-## 5. 本章小结
+## 术语对照表
+
+| 中文术语 | 英文术语 | 简要解释 |
+|---------|---------|---------|
+| 黑盒攻击 | Black-box Attack | 攻击者不知道模型内部信息，只能通过输入输出进行攻击 |
+| 白盒攻击 | White-box Attack | 攻击者完全掌握模型的结构、参数等信息 |
+| 迁移攻击 | Transfer Attack | 利用对抗样本的迁移性，在替代模型上生成样本攻击目标模型 |
+| 替代模型 | Surrogate Model | 攻击者在本地训练的、用于生成对抗样本的模型 |
+| 决策边界 | Decision Boundary | 模型区分不同类别的分界线 |
+| 梯度估计 | Gradient Estimation | 在无法直接计算梯度时，通过查询来近似估计梯度的方法 |
+
+## 本章小结
 
 <Steps>
   <Step>
@@ -249,18 +268,11 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
   </Step>
 </Steps>
 
-## 术语对照表
+<Callout title="法律与伦理提醒" type="warn">
+对商业 AI 服务进行未经授权的对抗攻击测试可能违反服务条款和相关法律法规。根据《中华人民共和国网络安全法》和《中华人民共和国刑法》的相关规定，未经授权入侵计算机信息系统或破坏计算机信息系统功能的行为可能构成犯罪。本章内容仅用于安全教育和防御研究，读者在进行任何安全测试前，必须获得系统所有者的明确授权。
+</Callout>
 
-| 中文术语 | 英文术语 | 简要解释 |
-|---------|---------|---------|
-| 黑盒攻击 | Black-box Attack | 攻击者不知道模型内部信息，只能通过输入输出进行攻击 |
-| 白盒攻击 | White-box Attack | 攻击者完全掌握模型的结构、参数等信息 |
-| 迁移攻击 | Transfer Attack | 利用对抗样本的迁移性，在替代模型上生成样本攻击目标模型 |
-| 替代模型 | Surrogate Model | 攻击者在本地训练的、用于生成对抗样本的模型 |
-| 决策边界 | Decision Boundary | 模型区分不同类别的分界线 |
-| 梯度估计 | Gradient Estimation | 在无法直接计算梯度时，通过查询来近似估计梯度的方法 |
-
-## 课后思考题
+## 课后思考
 
 <Accordions>
   <Accordion title="思考题1：迁移性的原理">
@@ -274,6 +286,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
   </Accordion>
 </Accordions>
 
-<Callout title="法律与伦理提醒" type="warn">
-对商业 AI 服务进行未经授权的对抗攻击测试可能违反服务条款和相关法律法规。根据《中华人民共和国网络安全法》和《中华人民共和国刑法》的相关规定，未经授权入侵计算机信息系统或破坏计算机信息系统功能的行为可能构成犯罪。本章内容仅用于安全教育和防御研究，读者在进行任何安全测试前，必须获得系统所有者的明确授权。
-</Callout>
+## 延伸阅读
+
+- 本模块相关章节：[第4章：文本对抗攻击](/docs/03-adversarial-examples/text-attacks)、[第5章：防御技术入门](/docs/03-adversarial-examples/defense-techniques)
+- 配套实验：[实验 3.1：FGSM 攻击](/docs/03-adversarial-examples/labs/fgsm-attack)、[实验 3.2：PGD 攻击](/docs/03-adversarial-examples/labs/pgd-attack)、[实验 3.3：迁移攻击](/docs/03-adversarial-examples/labs/transfer-attack)

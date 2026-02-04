@@ -3,16 +3,24 @@ title: 第2章：白盒攻击技术
 description: 深入学习 FGSM 和 PGD 算法，掌握基于梯度的攻击方法
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约24分钟
+</Callout>
+
+## 本章导读
+
 在上一章中，我们了解了对抗样本的基本概念，知道了通过添加微小的扰动可以欺骗 AI 模型。但是，这些扰动是如何计算出来的呢？为什么攻击者能够精确地找到模型的弱点？本章将带领大家深入理解白盒攻击的工作原理。
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你将能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 1. **理解白盒攻击的基本原理**：掌握攻击者需要的信息和攻击思路
 2. **掌握 FGSM 算法**：能解释其核心思想和工作机制
 3. **理解 PGD 算法**：了解如何通过迭代优化提升攻击成功率
@@ -310,7 +318,8 @@ PGD 本质上是在解决一个优化问题：**在扰动大小受限的条件�
   </Step>
 </Steps>
 
-## 课后思考题
+
+## 课后思考
 
 <Accordions>
   <Accordion title="思考题1：FGSM 的符号函数">
@@ -323,3 +332,10 @@ PGD 本质上是在解决一个优化问题：**在扰动大小受限的条件�
     如果你需要评估一个图像分类模型的安全性，你会选择 FGSM 还是 PGD？请说明你的选择理由。
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[第3章：黑盒攻击技术](/docs/03-adversarial-examples/black-box-attacks)、[第4章：文本对抗攻击](/docs/03-adversarial-examples/text-attacks)
+- 配套实验：[实验 3.1：FGSM 攻击](/docs/03-adversarial-examples/labs/fgsm-attack)、[实验 3.2：PGD 攻击](/docs/03-adversarial-examples/labs/pgd-attack)、[实验 3.3：迁移攻击](/docs/03-adversarial-examples/labs/transfer-attack)
+
+

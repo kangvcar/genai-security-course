@@ -3,17 +3,25 @@ title: 第4章：AI 安全测试环境搭建
 description: 配置完整的 AI 安全测试环境，包括云平台使用、Python 配置和核心依赖库安装
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { File, Folder, Files } from 'fumadocs-ui/components/files';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约14分钟
+</Callout>
+
+## 本章导读
+
 学习 AI 安全不能只停留在理论层面，我们需要一个实际的环境来进行实验和测试。本章将指导大家搭建一个完整的 AI 安全测试环境。
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你将能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 1. **掌握云平台的使用**：熟练使用云端开发环境创建和管理 GPU 开发环境
 2. **配置 Python 环境**：正确安装和配置 Python 及相关依赖库
 3. **调用大语言模型**：能够使用 Transformers 库加载和运行预训练模型
@@ -215,14 +223,6 @@ print(tokenizer.decode(output[0], skip_special_tokens=True))
   </Folder>
 </Files>
 
-## 本章小结
-
-1. **云平台优势**：免费 GPU、开箱即用、随时访问
-2. **环境配置**：虚拟环境隔离、核心库安装
-3. **验证安装**：检查 CUDA 可用性和库版本
-4. **问题排查**：掌握常见问题的解决方法
-5. **良好习惯**：保存工作、版本控制、资源监控
-
 ## 配套实验
 
 <Callout title="动手实践" type="success">
@@ -242,3 +242,29 @@ print(tokenizer.decode(output[0], skip_special_tokens=True))
     如果你有支持 CUDA 的 NVIDIA GPU（如 RTX 2060 或更高），可以在本地运行。你需要安装 NVIDIA 驱动、CUDA Toolkit 和 cuDNN。具体步骤参考 PyTorch 官方文档。
   </Accordion>
 </Accordions>
+
+## 本章小结
+
+1. **云平台优势**：免费 GPU、开箱即用、随时访问
+2. **环境配置**：虚拟环境隔离、核心库安装
+3. **验证安装**：检查 CUDA 可用性和库版本
+4. **问题排查**：掌握常见问题的解决方法
+5. **良好习惯**：保存工作、版本控制、资源监控
+
+
+## 课后思考
+
+<Accordions>
+  <Accordion title="思考题1：本地环境 vs 云平台">
+    如果你需要长期维护一个企业内部的 AI 安全测试环境，你会选择本地部署还是云平台？请结合成本、合规、可维护性进行分析。
+  </Accordion>
+  <Accordion title="思考题2：依赖与可复现性">
+    本章要求固定多个依赖版本。你会如何记录并保证团队成员的环境一致性？请写出至少两种做法。
+  </Accordion>
+</Accordions>
+
+
+## 延伸阅读
+
+- 本模块相关章节：[第5章：AI 漏洞探测初体验](/docs/01-ai-security-basics/vulnerability-detection)
+- 配套实验：[实验 1.1：环境配置](/docs/01-ai-security-basics/labs/environment-setup)、[实验 1.2：漏洞侦察](/docs/01-ai-security-basics/labs/vulnerability-reconnaissance)

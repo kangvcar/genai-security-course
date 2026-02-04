@@ -8,12 +8,17 @@ import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+<Callout title="预计学习时间" type="info">
+预计阅读约22分钟
+</Callout>
+
 ## 本章导读
 
 在前面的模块中，我们学习了如何通过提示词注入和对抗样本来攻击已经训练好的 AI 模型。这些攻击发生在模型部署之后，针对的是模型的推理阶段。然而，还有一类更加隐蔽、影响更加深远的攻击方式——它不是在模型使用时发起攻击，而是在模型训练之前就已经埋下隐患。这就是本章要介绍的**数据投毒攻击（Data Poisoning Attack）**。
 
-<Callout title="学习目标" type="info">
-完成本章学习后，你将能够：
+## 学习目标
+
+<Callout title="本章学完后，你将能够：" type="info">
 - 解释数据投毒攻击的基本概念，并区分它与对抗样本攻击的本质差异
 - 描述标签翻转攻击的原理，理解目标攻击与无目标攻击的区别
 - 理解干净标签攻击的隐蔽性及其实现思路
@@ -200,6 +205,20 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 ---
 
+
+## 术语对照表
+
+| 中文术语 | 英文术语 | 简要解释 |
+|---------|---------|---------|
+| 数据投毒攻击 | Data Poisoning Attack | 通过污染训练数据来影响模型行为的攻击方式 |
+| 标签翻转攻击 | Label Flipping Attack | 通过修改训练样本标签实施的投毒攻击 |
+| 干净标签攻击 | Clean-Label Attack | 保持标签正确但修改输入数据的隐蔽投毒方式 |
+| 目标攻击 | Targeted Attack | 针对特定类别或样本的精准攻击 |
+| 无目标攻击 | Untargeted Attack | 旨在降低模型整体性能的攻击 |
+| 投毒比例 | Poisoning Rate | 恶意样本占训练数据总量的比例 |
+
+---
+
 ## 本章小结
 
 本章介绍了数据投毒攻击的基本原理和主要类型：
@@ -215,20 +234,8 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 ---
 
-## 术语对照表
 
-| 中文术语 | 英文术语 | 简要解释 |
-|---------|---------|---------|
-| 数据投毒攻击 | Data Poisoning Attack | 通过污染训练数据来影响模型行为的攻击方式 |
-| 标签翻转攻击 | Label Flipping Attack | 通过修改训练样本标签实施的投毒攻击 |
-| 干净标签攻击 | Clean-Label Attack | 保持标签正确但修改输入数据的隐蔽投毒方式 |
-| 目标攻击 | Targeted Attack | 针对特定类别或样本的精准攻击 |
-| 无目标攻击 | Untargeted Attack | 旨在降低模型整体性能的攻击 |
-| 投毒比例 | Poisoning Rate | 恶意样本占训练数据总量的比例 |
-
----
-
-## 课后思考题
+## 课后思考
 
 <Accordions>
   <Accordion title="思考题1：数据投毒 vs 对抗样本">
@@ -241,3 +248,10 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
     假设你负责一个使用用户评论数据训练的情感分析系统，请分析该系统可能面临的数据投毒风险，并提出至少两条防范建议。
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[第2章：后门攻击技术](/docs/05-data-poisoning/backdoor-attacks)、[第3章：供应链攻击向量](/docs/05-data-poisoning/supply-chain-attacks)
+- 配套实验：[实验 5.1：标签翻转攻击](/docs/05-data-poisoning/labs/label-flipping)、[实验 5.2：后门攻击](/docs/05-data-poisoning/labs/backdoor-attack)、[实验 5.3：后门检测](/docs/05-data-poisoning/labs/backdoor-detection)
+
+

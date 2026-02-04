@@ -3,15 +3,23 @@ title: 第4章：差分隐私基础
 description: 掌握差分隐私等隐私保护技术的基本原理
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约10分钟
+</Callout>
+
+## 本章导读
+
 差分隐私（Differential Privacy）是一种数学上可证明的隐私保护技术，通过添加噪声来保护个体数据的隐私。
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你将能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 1. 理解差分隐私的基本概念
 2. 掌握 ε-差分隐私的定义
 3. 了解差分隐私在机器学习中的应用
@@ -110,6 +118,7 @@ def gaussian_mechanism(true_answer, sensitivity, epsilon, delta):
 3. DP-SGD 是机器学习中的主要应用方法
 4. 需要在隐私保护和模型效用之间权衡
 
+
 ## 课后思考
 
 <Accordions>
@@ -123,3 +132,10 @@ def gaussian_mechanism(true_answer, sensitivity, epsilon, delta):
     DP-SGD 在实际应用中面临哪些挑战？如何平衡训练效率和隐私保护？
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[实验 4.2：成员推理](/docs/04-privacy-attacks/membership-inference)、[第3章：模型逆向攻击](/docs/04-privacy-attacks/model-inversion)
+- 配套实验：[实验 4.1：数据提取](/docs/04-privacy-attacks/labs/data-extraction)、[实验 4.2：成员推理](/docs/04-privacy-attacks/labs/membership-inference)、[实验 4.3：差分隐私](/docs/04-privacy-attacks/labs/differential-privacy)
+
+

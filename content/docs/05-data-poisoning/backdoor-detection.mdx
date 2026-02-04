@@ -8,12 +8,17 @@ import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+<Callout title="预计学习时间" type="info">
+预计阅读约21分钟
+</Callout>
+
 ## 本章导读
 
 在前面的章节中，我们学习了后门攻击的原理和实现方式。攻击者可以在模型中植入隐蔽的后门，使其在遇到特定触发器时产生错误行为。这引出了一个关键问题：如何发现模型中是否存在后门？本章将介绍三种主流的后门检测技术，帮助我们理解如何在模型部署前或运行时识别潜在的后门威胁。
 
-<Callout title="学习目标" type="info">
-完成本章学习后，你将能够：
+## 学习目标
+
+<Callout title="本章学完后，你将能够：" type="info">
 - 理解后门检测面临的核心挑战
 - 掌握激活聚类检测的基本原理
 - 理解 Neural Cleanse 逆向重建触发器的思路
@@ -270,17 +275,6 @@ Neural Cleanse 的工作就是尝试为每个"锁孔"（类别）找到可能的
 
 ---
 
-## 本章小结
-
-| 方法 | 核心原理 | 适用场景 |
-|-----|---------|---------|
-| **激活聚类** | 分析激活值分布，识别异常样本簇 | 检测训练数据中的后门样本 |
-| **Neural Cleanse** | 逆向优化重建触发器 | 部署前审查模型 |
-| **STRIP** | 利用后门输入对扰动不敏感的特点 | 生产环境实时检测 |
-
-每种方法都有其适用场景和局限性，在实际应用中需要根据具体需求选择合适的方法，或组合使用多种方法形成多层防护。
-
----
 
 ## 术语对照表
 
@@ -294,7 +288,20 @@ Neural Cleanse 的工作就是尝试为每个"锁孔"（类别）找到可能的
 
 ---
 
-## 课后思考题
+## 本章小结
+
+| 方法 | 核心原理 | 适用场景 |
+|-----|---------|---------|
+| **激活聚类** | 分析激活值分布，识别异常样本簇 | 检测训练数据中的后门样本 |
+| **Neural Cleanse** | 逆向优化重建触发器 | 部署前审查模型 |
+| **STRIP** | 利用后门输入对扰动不敏感的特点 | 生产环境实时检测 |
+
+每种方法都有其适用场景和局限性，在实际应用中需要根据具体需求选择合适的方法，或组合使用多种方法形成多层防护。
+
+---
+
+
+## 课后思考
 
 <Accordions>
   <Accordion title="思考题1：激活聚类的原理">
@@ -307,3 +314,10 @@ Neural Cleanse 的工作就是尝试为每个"锁孔"（类别）找到可能的
     假设你负责一个人脸识别门禁系统的安全审计，需要检查系统使用的模型是否存在后门。你会选择哪种或哪几种检测方法？请说明理由。
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[第5章：防御与缓解措施](/docs/05-data-poisoning/defense-mitigation)
+- 配套实验：[实验 5.1：标签翻转攻击](/docs/05-data-poisoning/labs/label-flipping)、[实验 5.2：后门攻击](/docs/05-data-poisoning/labs/backdoor-attack)、[实验 5.3：后门检测](/docs/05-data-poisoning/labs/backdoor-detection)
+
+

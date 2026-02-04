@@ -3,18 +3,26 @@ title: 第5章：防御机制与对策
 description: 建立多层防御架构，掌握输入层、模型层、输出层的防御技术
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约20分钟
+</Callout>
+
+## 本章导读
+
 在前面的章节中，我们深入学习了提示词注入、越狱技术、系统提示提取和内容过滤器绕过等多种攻击手段。那么，作为防御者，我们应该如何应对这些威胁？
 
 防御 AI 系统不同于传统的网络安全防护。传统安全主要关注代码漏洞和系统配置，而 AI 安全还需要应对模型本身的固有特性——它无法完美区分指令和数据，容易被精心设计的输入所操纵。这种特性使得单一的防护措施往往力不从心。
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你应该能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 - 理解 AI 系统多层防御架构的设计理念和各层职责
 - 掌握输入层、模型层、输出层的主要防御技术及其工作原理
 - 认识每种防御技术的优势、局限性和适用场景
@@ -326,7 +334,8 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 - 安全性和可用性需要权衡，根据场景调整策略
 </Callout>
 
-## 课后思考题
+
+## 课后思考
 
 <Accordions>
   <Accordion title="思考题1：多层防御的必要性">
@@ -339,3 +348,9 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
     某公司的 AI 客服系统最近被发现可以通过 Base64 编码绕过内容过滤器。作为安全工程师，你会如何改进这个系统的防御体系？
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[实验 2.3：系统提示提取](/docs/02-prompt-attacks/prompt-extraction)、[第4章：内容过滤器绕过技术](/docs/02-prompt-attacks/filter-bypass)
+- 配套实验：[实验 2.1：提示词注入](/docs/02-prompt-attacks/labs/prompt-injection)、[实验 2.2：越狱技术体验](/docs/02-prompt-attacks/labs/jailbreaking)、[实验 2.3：系统提示提取](/docs/02-prompt-attacks/labs/prompt-extraction)
+

@@ -3,15 +3,23 @@ title: 第3章：模型逆向攻击
 description: 探索如何从模型输出中重建训练数据特征
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约10分钟
+</Callout>
+
+## 本章导读
+
 模型逆向攻击（Model Inversion Attack）是一种从模型输出中重建训练数据特征的攻击技术。
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你将能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 1. 理解模型逆向攻击的原理
 2. 了解不同类型的逆向攻击
 3. 认识攻击的隐私威胁
@@ -76,6 +84,7 @@ min_x Loss(f(x), target) + λ * Regularization(x)
 2. 攻击方法包括梯度优化和生成模型辅助
 3. 对隐私敏感应用构成严重威胁
 
+
 ## 课后思考
 
 <Accordions>
@@ -89,3 +98,10 @@ min_x Loss(f(x), target) + λ * Regularization(x)
     为什么基于生成模型（如 GAN）的重建方法通常比纯梯度优化效果更好？
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[实验 4.3：差分隐私](/docs/04-privacy-attacks/differential-privacy)
+- 配套实验：[实验 4.1：数据提取](/docs/04-privacy-attacks/labs/data-extraction)、[实验 4.2：成员推理](/docs/04-privacy-attacks/labs/membership-inference)、[实验 4.3：差分隐私](/docs/04-privacy-attacks/labs/differential-privacy)
+
+

@@ -6,14 +6,15 @@ description: 理解对抗样本的原理、攻击技术与防御方法
 import { Cards, Card } from 'fumadocs-ui/components/card';
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Bug, Crosshair, Radar, Type, ShieldCheck } from 'lucide-react';
+
+<Callout title="预计学习时间" type="info">
+预计阅读约3-4小时，实验约4小时
+</Callout>
 
 在一张熊猫的照片上添加一些人眼几乎看不见的噪点，能让 AI 模型将它误认为是长臂猿——这种通过精心设计的微小扰动来欺骗 AI 模型的技术，就是**对抗样本攻击**。对抗样本的存在揭示了 AI 模型的一个根本性脆弱点：它们对输入数据的微小变化异常敏感。
 
 本模块将带你深入理解对抗样本的工作机制，学习白盒攻击和黑盒攻击技术，探索文本对抗攻击的特殊挑战，并掌握基本的防御方法。
-
-<Callout title="预计学习时间" type="info">
-**阅读时长**：约 3-4 小时 | **实验时长**：约 4 小时
-</Callout>
 
 ## 学习目标
 
@@ -28,19 +29,19 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 ## 章节概览
 
 <Cards>
-  <Card title="第1章：对抗样本基础原理" href="/docs/03-adversarial-examples/fundamentals">
+  <Card icon={<Bug />} title="第1章：对抗样本基础原理" href="/docs/03-adversarial-examples/fundamentals">
     理解对抗样本的概念、有效性原因和真实世界威胁
   </Card>
-  <Card title="第2章：白盒攻击技术" href="/docs/03-adversarial-examples/white-box-attacks">
+  <Card icon={<Crosshair />} title="第2章：白盒攻击技术" href="/docs/03-adversarial-examples/white-box-attacks">
     深入学习 FGSM 和 PGD 算法，掌握基于梯度的攻击方法
   </Card>
-  <Card title="第3章：黑盒攻击技术" href="/docs/03-adversarial-examples/black-box-attacks">
+  <Card icon={<Radar />} title="第3章：黑盒攻击技术" href="/docs/03-adversarial-examples/black-box-attacks">
     掌握迁移攻击和基于查询的攻击策略
   </Card>
-  <Card title="第4章：文本对抗攻击" href="/docs/03-adversarial-examples/text-attacks">
+  <Card icon={<Type />} title="第4章：文本对抗攻击" href="/docs/03-adversarial-examples/text-attacks">
     探索字符级、词级和句级三种文本对抗攻击方法
   </Card>
-  <Card title="第5章：防御技术入门" href="/docs/03-adversarial-examples/defense-techniques">
+  <Card icon={<ShieldCheck />} title="第5章：防御技术入门" href="/docs/03-adversarial-examples/defense-techniques">
     学习对抗训练、输入预处理和检测等防御策略
   </Card>
 </Cards>

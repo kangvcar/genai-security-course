@@ -3,15 +3,23 @@ title: 第1章：AI 的记忆泄露问题
 description: 理解 AI 模型如何“记住”训练数据中的敏感信息
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约10分钟
+</Callout>
+
+## 本章导读
+
 AI 模型在训练过程中可能会"记住"训练数据中的具体内容，而不仅仅是学习其中的模式。这种"记忆"行为可能导致敏感信息泄露。
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你将能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 1. 理解 AI 模型的记忆机制
 2. 识别可能导致隐私泄露的场景
 3. 了解记忆提取攻击的基本方法
@@ -99,6 +107,7 @@ AI 模型在训练过程中可能会"记住"训练数据中的具体内容，而
 3. 攻击者可以通过多种方式提取记忆的内容
 4. 训练数据的隐私保护至关重要
 
+
 ## 课后思考
 
 <Accordions>
@@ -109,3 +118,10 @@ AI 模型在训练过程中可能会"记住"训练数据中的具体内容，而
     开源模型发布前应该进行哪些隐私检查？
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[实验 4.2：成员推理](/docs/04-privacy-attacks/membership-inference)、[第3章：模型逆向攻击](/docs/04-privacy-attacks/model-inversion)
+- 配套实验：[实验 4.1：数据提取](/docs/04-privacy-attacks/labs/data-extraction)、[实验 4.2：成员推理](/docs/04-privacy-attacks/labs/membership-inference)、[实验 4.3：差分隐私](/docs/04-privacy-attacks/labs/differential-privacy)
+
+

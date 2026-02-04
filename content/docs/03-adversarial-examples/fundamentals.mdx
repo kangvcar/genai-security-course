@@ -3,16 +3,24 @@ title: 第1章：对抗样本基础原理
 description: 理解对抗样本的概念、有效性原因和真实世界威胁
 ---
 
+
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
+
+<Callout title="预计学习时间" type="info">
+预计阅读约20分钟
+</Callout>
+
+## 本章导读
+
 在开始学习对抗样本之前，我们先思考一个问题：如果在一张熊猫的照片上添加一些人眼几乎看不见的噪点，能否让 AI 模型将它误认为是长臂猿？答案是肯定的，而且这种攻击方法已经在真实世界中被验证。这种通过精心设计的微小扰动来欺骗 AI 模型的技术，就是我们本章要学习的**对抗样本攻击**。
 
-## 章节目标
+## 学习目标
 
-<Callout title="学完本章后，你将能够：" type="info">
+<Callout title="本章学完后，你将能够：" type="info">
 1. **理解对抗样本的基本概念**：能够用自己的话解释什么是对抗样本
 2. **掌握对抗样本有效的核心原因**：理解 AI 模型为什么会被微小扰动欺骗
 3. **认识真实世界中的危害**：能够分析具体场景中的安全风险
@@ -235,7 +243,8 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
   </Step>
 </Steps>
 
-## 课后思考题
+
+## 课后思考
 
 <Accordions>
   <Accordion title="思考题1：对抗样本的本质">
@@ -248,3 +257,10 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
     在日常生活中，你能想到哪些场景可能受到对抗样本攻击的威胁？如果你是这些系统的设计者，你会采取哪些初步的防护措施？
   </Accordion>
 </Accordions>
+
+## 延伸阅读
+
+- 本模块相关章节：[第2章：白盒攻击技术](/docs/03-adversarial-examples/white-box-attacks)、[第3章：黑盒攻击技术](/docs/03-adversarial-examples/black-box-attacks)
+- 配套实验：[实验 3.1：FGSM 攻击](/docs/03-adversarial-examples/labs/fgsm-attack)、[实验 3.2：PGD 攻击](/docs/03-adversarial-examples/labs/pgd-attack)、[实验 3.3：迁移攻击](/docs/03-adversarial-examples/labs/transfer-attack)
+
+
