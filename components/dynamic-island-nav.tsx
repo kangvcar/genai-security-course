@@ -7,7 +7,7 @@ import { cn } from '@/lib/cn';
 import { useAISearch } from './search';
 
 export function DynamicIslandNav() {
-  const { setOpen } = useAISearch();
+  const { open, setOpen } = useAISearch();
   const { setTheme, resolvedTheme } = useTheme();
 
   const toggleTheme = () => {
@@ -18,8 +18,11 @@ export function DynamicIslandNav() {
     setOpen(true);
   };
 
+  // Hide when AI panel is open
+  if (open) return null;
+
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-40">
       <nav
         className={cn(
           'flex items-center gap-1 px-1.5 py-1.5',
@@ -33,13 +36,14 @@ export function DynamicIslandNav() {
         <Link
           href="/"
           className={cn(
-            'px-4 py-1.5 rounded-full',
-            'text-sm font-medium text-neutral-100',
+            'px-3 sm:px-4 py-1.5 rounded-full',
+            'text-xs sm:text-sm font-medium text-neutral-100',
             'hover:bg-neutral-800 dark:hover:bg-neutral-700',
             'transition-colors'
           )}
         >
-          GenAI 安全
+          <span className="hidden sm:inline">GenAI 安全</span>
+          <span className="sm:hidden">安全课程</span>
         </Link>
 
         {/* Divider */}
@@ -49,14 +53,14 @@ export function DynamicIslandNav() {
         <button
           onClick={openAISearch}
           className={cn(
-            'flex items-center gap-1.5 px-3 py-1.5 rounded-full',
-            'text-sm text-neutral-300',
+            'flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full',
+            'text-xs sm:text-sm text-neutral-300',
             'hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:text-neutral-100',
             'transition-colors'
           )}
         >
           <Sparkles className="w-3.5 h-3.5" />
-          <span>AI 助教</span>
+          <span className="hidden sm:inline">AI 助教</span>
         </button>
 
         {/* Divider */}

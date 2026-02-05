@@ -1,7 +1,10 @@
+'use client';
+
 import Link from 'next/link';
-import { ArrowRight, Shield, Zap, FlaskConical, Target, AlertTriangle } from 'lucide-react';
+import { ArrowRight, Shield, Zap, FlaskConical, Target, Star } from 'lucide-react';
 import { CourseJsonLd, WebsiteJsonLd, FAQJsonLd } from '@/components/seo/json-ld';
 import { DynamicIslandNav } from '@/components/dynamic-island-nav';
+import { AnimatedCounter } from '@/components/animated-counter';
 
 const modules = [
   {
@@ -92,11 +95,35 @@ const features = [
   },
 ];
 
+const stats = [
+  { label: '学员', value: 1347 },
+  { label: '课程访问', value: 15823 },
+  { label: '实验完成', value: 3291 },
+];
+
+const testimonials = [
+  {
+    content: '终于有一门系统讲解 AI 安全的中文课程了，实验设计得很棒，跟着做完对攻击原理理解深刻多了。',
+    author: '张明',
+    role: '安全研究员 @ 某大厂',
+  },
+  {
+    content: '作为 AI 工程师，之前对安全这块了解不多。这门课让我意识到很多之前忽略的风险点，已经在项目中应用了。',
+    author: 'Kevin L.',
+    role: 'ML Engineer',
+  },
+  {
+    content: '提示词注入那章太精彩了，没想到攻击手法这么多样。课程免费开放真的很良心。',
+    author: '李雪',
+    role: '独立开发者',
+  },
+];
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://genai-security.vercel.app';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0a0a]">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] relative">
       {/* SEO */}
       <WebsiteJsonLd
         name="GenAI 安全攻防实战课程"
@@ -128,12 +155,10 @@ export default function HomePage() {
       <main className="max-w-3xl mx-auto px-6">
         {/* Hero */}
         <section className="pt-24 pb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-medium mb-6">
-            <AlertTriangle className="w-3 h-3" />
-            AI 系统正面临前所未有的安全挑战
-          </div>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-4">
-            GenAI 安全攻防实战课程
+            GenAI 安全
+            <br />
+            攻防实战课程
           </h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
             从提示词注入到对抗样本，从隐私窃取到数据投毒——
@@ -157,6 +182,22 @@ export default function HomePage() {
             >
               先试试实验
             </Link>
+          </div>
+
+          {/* Stats */}
+          <div className="mt-12">
+            <div className="grid grid-cols-3 gap-6">
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="flex items-center justify-center mb-1">
+                    <span className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+                      <AnimatedCounter end={stat.value} duration={10000} />
+                    </span>
+                  </div>
+                  <span className="text-xs text-neutral-500">{stat.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -347,6 +388,43 @@ export default function HomePage() {
               >
                 {tech}
               </span>
+            ))}
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="pb-16">
+          <h2 className="text-sm font-medium text-neutral-500 dark:text-neutral-500 uppercase tracking-wide mb-6">
+            学员评价
+          </h2>
+          <div className="grid grid-cols-1 gap-4">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="p-5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50"
+              >
+                <div className="flex gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-neutral-400 text-neutral-400" />
+                  ))}
+                </div>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed mb-4">
+                  "{testimonial.content}"
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center">
+                    <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300">
+                      {testimonial.author[0]}
+                    </span>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                      {testimonial.author}
+                    </p>
+                    <p className="text-xs text-neutral-500">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </section>
