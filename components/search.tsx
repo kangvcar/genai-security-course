@@ -32,6 +32,14 @@ function useChatContext() {
   return use(Context)!.chat;
 }
 
+export function useAISearch() {
+  const ctx = use(Context);
+  return {
+    open: ctx?.open ?? false,
+    setOpen: ctx?.setOpen ?? (() => {}),
+  };
+}
+
 const suggestedQuestions = [
   '什么是提示词注入攻击？',
   '如何防御越狱攻击？',
