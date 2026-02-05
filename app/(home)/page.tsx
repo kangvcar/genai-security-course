@@ -135,10 +135,13 @@ export default function HomePage() {
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-4">
             GenAI 安全攻防实战课程
           </h1>
-          <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-            系统掌握大语言模型和 AI 系统的安全攻防技术。
+          <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
+            从提示词注入到对抗样本，从隐私窃取到数据投毒——
             <br />
-            5 个模块 · 24 章 · 15 个实验
+            <span className="text-neutral-900 dark:text-neutral-100">像攻击者一样思考，像防御者一样构建。</span>
+          </p>
+          <p className="text-sm text-neutral-500 dark:text-neutral-500 mb-8">
+            5 个模块 · 24 章精讲 · 15 个动手实验 · 完全免费
           </p>
           <div className="flex gap-3">
             <Link
