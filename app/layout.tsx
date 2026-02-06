@@ -120,6 +120,17 @@ export default function Layout({ children }: LayoutProps<'/'>) {
             gtag('config', 'G-MDDBLZ3WFM');
           `}
         </Script>
+        <Script id="baidu-analytics" strategy="afterInteractive">
+          {`
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?a02ba054c4b90bedca8b903c4edad073";
+              var s = document.getElementsByTagName("script")[0];
+              s.parentNode.insertBefore(hm, s);
+            })();
+          `}
+        </Script>
       </head>
       <body className="flex flex-col min-h-screen">
         <AISearch>
