@@ -4,6 +4,7 @@ import './global.css';
 import { Inter } from 'next/font/google';
 import { AISearch, AISearchTrigger, AISearchPanel, AISearchMainContent } from '@/components/search';
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://genai-security.vercel.app';
 
@@ -106,6 +107,20 @@ const inter = Inter({
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="zh-CN" className={inter.className} suppressHydrationWarning>
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MDDBLZ3WFM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MDDBLZ3WFM');
+          `}
+        </Script>
+      </head>
       <body className="flex flex-col min-h-screen">
         <AISearch>
           <div className="flex flex-1 w-full">
