@@ -330,28 +330,28 @@ export default function HomePage() {
           </h2>
           <div className="space-y-3 text-[15px]">
             <div className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-800 dark:bg-neutral-200 mt-2 flex-shrink-0" />
               <p className="text-neutral-600 dark:text-neutral-400">
                 <span className="text-neutral-900 dark:text-neutral-100 font-medium">安全研究员</span>
                 ——想要了解 AI 系统的新型攻击面
               </p>
             </div>
             <div className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2 flex-shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-800 dark:bg-neutral-200 mt-2 flex-shrink-0" />
               <p className="text-neutral-600 dark:text-neutral-400">
                 <span className="text-neutral-900 dark:text-neutral-100 font-medium">AI 工程师</span>
                 ——需要构建更安全的 AI 应用
               </p>
             </div>
             <div className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-800 dark:bg-neutral-200 mt-2 flex-shrink-0" />
               <p className="text-neutral-600 dark:text-neutral-400">
                 <span className="text-neutral-900 dark:text-neutral-100 font-medium">红队成员</span>
                 ——希望掌握 AI 系统渗透测试技术
               </p>
             </div>
             <div className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 flex-shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-800 dark:bg-neutral-200 mt-2 flex-shrink-0" />
               <p className="text-neutral-600 dark:text-neutral-400">
                 <span className="text-neutral-900 dark:text-neutral-100 font-medium">技术爱好者</span>
                 ——对 AI 安全领域充满好奇
@@ -381,7 +381,7 @@ export default function HomePage() {
             技术栈
           </h2>
           <div className="flex flex-wrap gap-2">
-            {['Python', 'PyTorch', 'Jupyter', 'OpenAI API', 'HuggingFace', 'Scikit-learn'].map((tech) => (
+            {['Python', 'PyTorch', 'Jupyter', 'OpenAI API', 'HuggingFace', 'Transformers', 'Scikit-learn', 'NumPy', 'Matplotlib', 'torchvision', 'Pillow', 'CUDA', 'OWASP', 'MITRE ATLAS'].map((tech) => (
               <span
                 key={tech}
                 className="px-3 py-1 text-sm rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400"
