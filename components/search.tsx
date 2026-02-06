@@ -424,7 +424,7 @@ export function AISearchPanel() {
             : 'w-0 border-l-0 overflow-hidden',
         )}
       >
-        <div className="flex flex-col p-2 size-full lg:w-[var(--ai-chat-width)] xl:p-4">
+        <div className="flex flex-col px-2 py-4 size-full lg:w-[var(--ai-chat-width)] xl:px-4 xl:py-6">
           <Header />
           <List
             className="px-3 py-4 flex-1 overscroll-contain"

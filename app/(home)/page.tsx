@@ -5,6 +5,17 @@ import { ArrowRight, Shield, Zap, FlaskConical, Target, Star } from 'lucide-reac
 import { CourseJsonLd, WebsiteJsonLd, FAQJsonLd } from '@/components/seo/json-ld';
 import { DynamicIslandNav } from '@/components/dynamic-island-nav';
 import { AnimatedCounter } from '@/components/animated-counter';
+import { TypingRotator } from '@/components/typing-rotator';
+
+const rotatingWords = [
+  '攻防实战',
+  '红队测试',
+  '漏洞挖掘',
+  '安全防御',
+  '隐私保护',
+  '对抗攻击',
+  '提示词技巧',
+];
 
 const modules = [
   {
@@ -158,7 +169,14 @@ export default function HomePage() {
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-4">
             GenAI 安全
             <br />
-            攻防实战课程
+            <TypingRotator
+              words={rotatingWords}
+              typingSpeed={120}
+              deletingSpeed={80}
+              pauseDuration={2500}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500"
+            />
+            课程
           </h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
             从提示词注入到对抗样本，从隐私窃取到数据投毒——

@@ -43,7 +43,8 @@ export function DynamicIslandNav() {
             'transition-colors'
           )}
         >
-          <span className="hidden sm:inline">GenAI 安全</span>
+          <span className="hidden lg:inline">GenAI 安全攻防实战课程</span>
+          <span className="hidden sm:inline lg:hidden">GenAI 安全</span>
           <ShieldCheck className="w-4 h-4 sm:hidden" />
         </Link>
 
