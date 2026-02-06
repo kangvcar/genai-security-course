@@ -13,7 +13,6 @@ import {
 } from 'react';
 import { Loader2, MessageCircleIcon, RefreshCw, Send, X } from 'lucide-react';
 import { cn } from '../lib/cn';
-import { buttonVariants } from './ui/button';
 import Link from 'fumadocs-core/link';
 import { type UIMessage, useChat, type UseChatHelpers } from '@ai-sdk/react';
 import type { ProvideLinksToolSchema } from '../lib/inkeep-qa-schema';
@@ -52,22 +51,16 @@ function Header() {
 
   return (
     <div className="sticky top-0 flex items-start gap-2">
-      <div className="flex-1 p-3 border rounded-xl bg-fd-card text-fd-card-foreground">
-        <p className="text-sm font-medium mb-1">🛡️ AI 安全助教</p>
-        <p className="text-xs text-fd-muted-foreground">
+      <div className="flex-1 p-3 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-neutral-50 dark:bg-neutral-900">
+        <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">🛡️ AI 安全助教</p>
+        <p className="text-xs text-neutral-500 dark:text-neutral-500">
           随时为你解答 AI 安全相关问题
         </p>
       </div>
       <button
         aria-label="关闭"
         tabIndex={-1}
-        className={cn(
-          buttonVariants({
-            size: 'icon-sm',
-            color: 'secondary',
-            className: 'rounded-full',
-          }),
-        )}
+        className="inline-flex items-center justify-center p-1.5 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors [&_svg]:size-4.5"
         onClick={() => setOpen(false)}
       >
         <X />
@@ -82,10 +75,10 @@ function WelcomeMessage() {
   return (
     <div className="flex flex-col gap-3 py-4">
       <div className="text-center">
-        <p className="text-sm text-fd-muted-foreground mb-4">
+        <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-4">
           👋 你好！我是 AI 安全课程的智能助教，可以帮你：
         </p>
-        <ul className="text-xs text-fd-muted-foreground text-left space-y-1 mb-4 px-2">
+        <ul className="text-xs text-neutral-500 dark:text-neutral-500 text-left space-y-1 mb-4 px-2">
           <li>• 解释课程中的安全概念和术语</li>
           <li>• 分析攻击原理和防御策略</li>
           <li>• 回答实验中遇到的问题</li>
@@ -93,13 +86,13 @@ function WelcomeMessage() {
         </ul>
       </div>
       <div className="space-y-2">
-        <p className="text-xs text-fd-muted-foreground text-center">试试问我：</p>
+        <p className="text-xs text-neutral-500 dark:text-neutral-500 text-center">试试问我：</p>
         <div className="flex flex-wrap gap-2 justify-center">
           {suggestedQuestions.map((q) => (
             <button
               key={q}
               type="button"
-              className="text-xs px-3 py-1.5 rounded-full border bg-fd-secondary text-fd-secondary-foreground hover:bg-fd-accent transition-colors"
+              className="text-xs px-3 py-1.5 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
               onClick={() => sendMessage({ text: q })}
             >
               {q}
@@ -122,13 +115,7 @@ function SearchAIActions() {
       {!isLoading && messages.at(-1)?.role === 'assistant' && (
         <button
           type="button"
-          className={cn(
-            buttonVariants({
-              color: 'secondary',
-              size: 'sm',
-              className: 'rounded-full gap-1.5',
-            }),
-          )}
+          className="inline-flex items-center justify-center gap-1.5 px-2 py-1.5 text-xs font-medium rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           onClick={() => regenerate()}
         >
           <RefreshCw className="size-4" />
@@ -137,13 +124,7 @@ function SearchAIActions() {
       )}
       <button
         type="button"
-        className={cn(
-          buttonVariants({
-            color: 'secondary',
-            size: 'sm',
-            className: 'rounded-full',
-          }),
-        )}
+        className="inline-flex items-center justify-center px-2 py-1.5 text-xs font-medium rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
         onClick={() => setMessages([])}
       >
         清空对话
@@ -199,27 +180,17 @@ function SearchAIInput(props: ComponentProps<'form'>) {
         <button
           key="bn"
           type="button"
-          className={cn(
-            buttonVariants({
-              color: 'secondary',
-              className: 'transition-all rounded-full mt-2 gap-2',
-            }),
-          )}
+          className="inline-flex items-center justify-center gap-2 p-2 rounded-full mt-2 border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all text-sm font-medium"
           onClick={stop}
         >
-          <Loader2 className="size-4 animate-spin text-fd-muted-foreground" />
+          <Loader2 className="size-4 animate-spin text-neutral-400" />
           停止
         </button>
       ) : (
         <button
           key="bn"
           type="submit"
-          className={cn(
-            buttonVariants({
-              color: 'secondary',
-              className: 'transition-all rounded-full mt-2',
-            }),
-          )}
+          className="inline-flex items-center justify-center p-2 rounded-full mt-2 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-200 disabled:opacity-50 disabled:pointer-events-none transition-all text-sm font-medium"
           disabled={input.length === 0}
         >
           <Send className="size-4" />
@@ -279,7 +250,7 @@ function Input(props: ComponentProps<'textarea'>) {
         id="nd-ai-input"
         {...props}
         className={cn(
-          'resize-none bg-transparent placeholder:text-fd-muted-foreground focus-visible:outline-none',
+          'resize-none bg-transparent placeholder:text-neutral-400 dark:placeholder:text-neutral-600 text-neutral-900 dark:text-neutral-100 focus-visible:outline-none',
           shared,
         )}
       />
@@ -314,13 +285,13 @@ function Message({ message, ...props }: { message: UIMessage } & ComponentProps<
     <div {...props}>
       <p
         className={cn(
-          'mb-1 text-sm font-medium text-fd-muted-foreground',
-          message.role === 'assistant' && 'text-fd-primary',
+          'mb-1 text-sm font-medium text-neutral-400 dark:text-neutral-500',
+          message.role === 'assistant' && 'text-neutral-900 dark:text-neutral-100',
         )}
       >
         {roleName[message.role] ?? 'unknown'}
       </p>
-      <div className="prose text-sm">
+      <div className="prose text-sm text-neutral-700 dark:text-neutral-300">
         <Markdown text={markdown} />
       </div>
       {links && links.length > 0 && (
@@ -329,10 +300,10 @@ function Message({ message, ...props }: { message: UIMessage } & ComponentProps<
             <Link
               key={i}
               href={item.url}
-              className="block text-xs rounded-lg border p-3 hover:bg-fd-accent hover:text-fd-accent-foreground"
+              className="block text-xs rounded-lg border border-neutral-200 dark:border-neutral-800 p-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 transition-colors"
             >
               <p className="font-medium">{item.title}</p>
-              <p className="text-fd-muted-foreground">Reference {item.label}</p>
+              <p className="text-neutral-500 dark:text-neutral-500">Reference {item.label}</p>
             </Link>
           ))}
         </div>
@@ -379,10 +350,14 @@ export function AISearchTrigger() {
   return (
     <button
       className={cn(
-        buttonVariants({
-          variant: 'secondary',
-        }),
-        'fixed bottom-4 gap-2 px-4 end-[calc(--spacing(4)+var(--removed-body-scroll-bar-size,0px))] text-fd-muted-foreground rounded-2xl shadow-lg z-20 transition-[translate,opacity]',
+        'inline-flex items-center justify-center fixed bottom-4 gap-2 px-4 py-2 text-sm font-medium',
+        'end-[calc(--spacing(4)+var(--removed-body-scroll-bar-size,0px))]',
+        'bg-white/70 dark:bg-neutral-800 backdrop-blur-xl',
+        'text-neutral-500 dark:text-neutral-400',
+        'border border-neutral-200/80 dark:border-neutral-700',
+        'rounded-2xl shadow-lg shadow-neutral-900/10 dark:shadow-black/40',
+        'hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100/80 dark:hover:bg-neutral-700',
+        'z-20 transition-[translate,opacity,colors]',
         open && 'translate-y-10 opacity-0',
       )}
       onClick={() => setOpen(true)}
@@ -432,14 +407,14 @@ export function AISearchPanel() {
       <Presence present={open}>
         <div
           data-state={open ? 'open' : 'closed'}
-          className="fixed inset-0 z-30 backdrop-blur-xs bg-fd-overlay data-[state=open]:animate-fd-fade-in data-[state=closed]:animate-fd-fade-out lg:hidden"
+          className="fixed inset-0 z-30 backdrop-blur-xs bg-black/20 dark:bg-black/40 data-[state=open]:animate-fd-fade-in data-[state=closed]:animate-fd-fade-out lg:hidden"
           onClick={() => setOpen(false)}
         />
       </Presence>
       {/* AI Panel */}
       <div
         className={cn(
-          'bg-fd-popover text-fd-popover-foreground border-l transition-all duration-300 ease-in-out',
+          'bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-neutral-100 border-l border-neutral-200 dark:border-neutral-800 transition-all duration-300 ease-in-out',
           // Mobile: fixed overlay
           'max-lg:fixed max-lg:inset-y-0 max-lg:right-0 max-lg:z-40 max-lg:shadow-xl',
           // Desktop: sticky sidebar
@@ -466,7 +441,7 @@ export function AISearchPanel() {
                 ))}
             </div>
           </List>
-          <div className="rounded-xl border bg-fd-card text-fd-card-foreground has-focus-visible:ring-2 has-focus-visible:ring-fd-ring">
+          <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 has-focus-visible:ring-2 has-focus-visible:ring-neutral-400 dark:has-focus-visible:ring-neutral-600">
             <SearchAIInput />
             <div className="flex items-center gap-1.5 p-1 empty:hidden">
               <SearchAIActions />
