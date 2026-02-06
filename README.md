@@ -1,45 +1,46 @@
-# genai-security-course
+# GenAI 安全攻防实战课程
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+一个面向中文学习者的生成式 AI 安全攻防实战教程站点，覆盖从基础概念、提示词攻击、对抗样本、隐私攻击到数据投毒的完整学习路径，并配套可操作的 Jupyter 实验。
 
-Run development server:
+## 课程特色
 
-```bash
-npm run dev
-# or
-pnpm dev
-# or
-yarn dev
-```
+- 理论与实践结合：每个模块配套实验，强调可复现与可验证
+- 攻防双视角：学习攻击方法的同时建立防御思维
+- 系统化路径：从基础到进阶，循序渐进
+- 案例驱动：结合真实威胁场景与研究热点
 
-Open http://localhost:3000 with your browser to see the result.
+## 课程结构
 
-## Explore
+| 模块 | 主题 | 预计阅读 | 预计实验 | 核心内容 |
+| --- | --- | --- | --- | --- |
+| 模块一 | AI 安全基础 | 2-3 小时 | 约 2 小时 | 威胁全景、LLM 原理、红队思维、环境搭建、漏洞探测 |
+| 模块二 | 提示词攻击 | 3-4 小时 | 约 3 小时 | 注入、越狱、系统提示提取、过滤器绕过、防御策略 |
+| 模块三 | 对抗样本 | 3-4 小时 | 约 4 小时 | FGSM/PGD、白盒/黑盒、文本对抗、防御技术 |
+| 模块四 | 隐私攻击 | 2-3 小时 | 约 2 小时 | 记忆泄露、成员推理、模型逆向、差分隐私 |
+| 模块五 | 数据投毒 | 3-4 小时 | 2-3 小时 | 投毒原理、后门攻击、供应链风险、检测与缓解 |
 
-In the project, you can see:
+## 配套实验概览
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
+- 模块一：环境配置、漏洞侦察
+- 模块二：提示词注入、越狱技术、系统提示提取
+- 模块三：FGSM、PGD、迁移攻击、文本对抗
+- 模块四：数据提取、成员推理、差分隐私
+- 模块五：标签翻转、后门攻击、后门检测
 
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+## 适用人群
 
-### Fumadocs MDX
+- 具备基础 Python 编程能力
+- 了解机器学习基本概念（模型、训练、推理）
+- 无需深度学习或安全领域的专业背景
 
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
+## 快速开始
 
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
+[官网](https://www.aisecc.online)
 
-## Learn More
+## 安全与伦理说明
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
+本课程涉及的攻击技术仅用于学习、研究与防御目的。请务必在合法、授权的环境中进行实验，不得用于任何未授权系统或恶意用途。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.dev) - learn about Fumadocs
+## 许可证
+
+本项目使用 `LICENSE` 中声明的许可证。
