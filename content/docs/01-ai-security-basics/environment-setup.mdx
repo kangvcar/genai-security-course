@@ -32,7 +32,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 4. **排查常见问题**：识别和解决环境搭建过程中的典型问题
 </Callout>
 
-## 环境搭建的三个原则
+## 1 环境搭建的三个原则
 
 在开始动手前，先统一三条原则。后面所有操作都围绕它们展开：
 
@@ -44,9 +44,9 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 有了这三个原则，我们再来决定环境方案，就不会只看“能不能跑”，而是看“能不能稳定地跑”。
 
-## 为什么首选云平台
+## 2 为什么首选云平台
 
-### 本地环境 vs 云平台
+### 2.1 本地环境 vs 云平台
 
 <Tabs items={['本地环境的挑战', '云平台的优势']}>
   <Tab value="本地环境的挑战">
@@ -69,7 +69,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 这并不意味着本地部署不重要，而是对于课程阶段，云平台更容易把注意力放在“安全能力提升”而非“底层环境排障”上。
 
-## 环境配置总流程
+## 3 环境配置总流程
 
 <Steps>
   <Step>
@@ -102,9 +102,9 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
   </Step>
 </Steps>
 
-## Python 环境配置
+## 4 Python 环境配置
 
-### 检查 Python 版本
+### 4.1 检查 Python 版本
 
 ```bash title="检查版本"
 python --version
@@ -114,7 +114,7 @@ python3 --version
 
 建议使用 Python 3.8 或更高版本。
 
-### 创建并激活虚拟环境
+### 4.2 创建并激活虚拟环境
 
 ```bash title="创建并激活虚拟环境"
 # 创建虚拟环境
@@ -130,7 +130,7 @@ ai_security_env\Scripts\activate     # Windows
 虚拟环境的本质是“依赖隔离”。它能避免你在一个实验里升级了库版本，导致另一个实验突然失效。
 </Callout>
 
-## 安装核心依赖库
+## 5 安装核心依赖库
 
 ```bash title="安装必要的 Python 库"
 # 升级 pip
@@ -150,7 +150,7 @@ pip install transformers==4.40.0 torch==2.1.0 numpy==1.24.3 matplotlib==3.7.1 ac
 
 固定版本不是“保守做法”，而是安全实验的基础。否则同一测试在不同机器上可能得到不一致结果。
 
-## 验证安装是否成功
+## 6 验证安装是否成功
 
 ```python title="验证环境配置"
 import torch
@@ -170,7 +170,7 @@ print(f"NumPy version: {np.__version__}")
 - 库版本与预期一致：说明环境已具备可复现实验基础。
 </Callout>
 
-## 加载第一个模型（最小链路验证）
+## 7 加载第一个模型（最小链路验证）
 
 ```python title="加载 Qwen2-1.5B-Instruct 并完成一次对话"
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -205,7 +205,7 @@ print(tokenizer.decode(generated_ids, skip_special_tokens=True))
 
 这一步的重点不是“生成质量”，而是确认三件事：模型能加载、推理能执行、输出能稳定返回。
 
-## 常见问题排查
+## 8 常见问题排查
 
 <Tabs items={['CUDA 不可用', '内存不足', '包安装失败']}>
   <Tab value="CUDA 不可用">
@@ -234,7 +234,7 @@ print(tokenizer.decode(generated_ids, skip_special_tokens=True))
   </Tab>
 </Tabs>
 
-## 实验习惯最佳实践
+## 9 实验习惯最佳实践
 
 <Callout title="良好习惯" type="success">
 1. **先记录再修改**：每次变更依赖前先保存当前环境清单
@@ -244,7 +244,7 @@ print(tokenizer.decode(generated_ids, skip_special_tokens=True))
 5. **结束后清理资源**：释放模型和会话，避免不必要成本
 </Callout>
 
-## 推荐的项目结构
+## 10 推荐的项目结构
 
 为了让实验过程更清晰、协作更顺畅，建议采用如下结构：
 
@@ -286,7 +286,7 @@ print(tokenizer.decode(generated_ids, skip_special_tokens=True))
   </Accordion>
 </Accordions>
 
-## 本章小结
+## 11 本章小结
 
 1. **本章核心不是“安装工具”**：而是建立可复现、可隔离、可验证的实验基线
 2. **云平台优先是阶段性策略**：先降低环境门槛，再聚焦安全能力提升

@@ -33,9 +33,9 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 4. **建立安全意识**：认识到 AI 安全问题的严重性，为后续深入学习打下基础
 </Callout>
 
-## AI 安全：一个全新的战场
+## 1 AI 安全：一个全新的战场
 
-### 从一个真实事件说起
+### 1.1 从一个真实事件说起
 
 2023年2月，微软发布了集成 ChatGPT 技术的新版必应搜索引擎。然而，上线仅几天后，用户就发现了一个令人震惊的现象：通过特定的对话方式，可以让必应的 AI 助手"Sydney"表现出攻击性、情绪化，甚至泄露其系统设置信息。
 
@@ -47,7 +47,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 如果说 Sydney 事件让我们看到了“问题真的存在”，那么下一步就要回答“它和传统安全问题到底哪里不同”。
 
-### AI 安全威胁的独特性
+### 1.2 AI 安全威胁的独特性
 
 传统的网络安全主要关注代码漏洞、权限控制、数据加密等问题。例如，SQL 注入攻击利用的是代码对输入验证不足的漏洞，攻击者通过构造特殊的输入字符串来执行恶意数据库操作。这类攻击的原理相对明确，防御方法也比较成熟。
 
@@ -79,13 +79,13 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 到这里，我们已经知道了 AI 安全“为什么难”。接下来需要把这些风险做成可枚举、可检查的清单，否则在工程实践中很容易只看到局部问题。
 
-## AI 威胁分类：OWASP Top 10 for LLM Applications
+## 2 AI 威胁分类：OWASP Top 10 for LLM Applications
 
 为了系统地理解 AI 面临的安全威胁，安全研究人员开发了多种分类框架。其中最具影响力的是 OWASP（开放式 Web 应用程序安全项目）发布的 **Top 10 for Large Language Model Applications**（现归属 OWASP GenAI Security Project）。
 
 这类框架的意义，不是让我们死记硬背名词，而是把“分散的安全担忧”转化为“可以逐项核查的工程问题”。
 
-### OWASP Top 10 for LLM Applications（2025）威胁概览
+### 2.1 OWASP Top 10 for LLM Applications（2025）威胁概览
 
 | 序号 | 威胁名称 | 简要描述 |
 |:---:|---------|---------|
@@ -100,7 +100,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 | 9 | **错误信息（Misinformation）** | 模型输出不实内容并被用户或系统当作可靠事实使用 |
 | 10 | **无界消耗（Unbounded Consumption）** | 资源与成本被恶意或异常请求放大，导致服务退化或失控 |
 
-### 威胁分类的实用价值
+### 2.2 威胁分类的实用价值
 
 了解这些威胁分类不仅仅是为了应付考试，而是有实际的应用价值。当我们在开发或使用 AI 系统时，可以根据这个清单进行安全检查：
 
@@ -111,11 +111,11 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 有了分类清单之后，下一步就该看真实案例。因为只有看到这些威胁在现实中如何发生、造成什么后果，我们才能理解“为什么安全措施必须前置”。
 
-## 真实世界的 AI 安全事件
+## 3 真实世界的 AI 安全事件
 
 理论知识固然重要，但真实案例能让我们更直观地理解 AI 安全威胁的影响。
 
-### 案例一：ChatGPT 越狱事件（2022-2023）
+### 3.1 案例一：ChatGPT 越狱事件（2022-2023）
 
 <Steps>
   <Step>
@@ -135,7 +135,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
   </Step>
 </Steps>
 
-### 案例二：自动驾驶系统的对抗攻击（2018）
+### 3.2 案例二：自动驾驶系统的对抗攻击（2018）
 
 <Steps>
   <Step>
@@ -155,7 +155,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
   </Step>
 </Steps>
 
-### 案例三：GitHub Copilot 泄露训练数据（2021）
+### 3.3 案例三：GitHub Copilot 泄露训练数据（2021）
 
 <Steps>
   <Step>
@@ -177,7 +177,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 三个案例放在一起看，会发现一个共同点：攻击不一定来自传统“代码漏洞”，也可能来自输入操控、模型行为偏移、输出泄露等 AI 特有风险。下面我们把这种差异做一个结构化对比。
 
-## AI 安全与传统安全的对比
+## 4 AI 安全与传统安全的对比
 
 | 对比维度 | 传统安全 | AI 安全 |
 |---------|---------|---------|
@@ -188,7 +188,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 这个对比表的核心结论是：AI 安全不是传统安全的“附加题”，而是一个需要独立方法论的新题型。理解这一点，才能为后续章节里的攻防实践打好基础。
 
-## 本章小结
+## 5 本章小结
 
 本章我们建立了对 AI 安全威胁的整体认识：
 
