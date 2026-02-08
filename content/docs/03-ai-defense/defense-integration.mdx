@@ -36,18 +36,36 @@ import { Quiz } from '@/components/ui/quiz';
 
 纵深防御最好的类比是中世纪的城堡防御体系：
 
-```text title="城堡的多层防御"
-外层：护城河 + 城墙    →  阻止大部分入侵者
-中层：内城墙 + 守卫    →  拦截突破外层的入侵者
-内层：塔楼 + 密室      →  保护最核心的资产
+```mermaid
+flowchart TB
+    subgraph L1["外层：护城河 + 城墙"]
+        subgraph L2["中层：内城墙 + 守卫"]
+            subgraph L3["内层：塔楼 + 密室"]
+                Core(["核心资产"])
+            end
+        end
+    end
+
+    Attacker(["攻击者"]) -.->|"逐层衰减"| L1
+
+    style L1 fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    style L2 fill:#bfdbfe,stroke:#60a5fa,color:#1e3a5f
+    style L3 fill:#2563eb,stroke:#1d4ed8,color:#fff
+    style Core fill:#1d4ed8,stroke:#1e40af,color:#fff
+    style Attacker fill:#fecaca,stroke:#ef4444,color:#991b1b
 ```
 
 城堡设计者不会说"护城河已经够安全了，不需要城墙"——因为没有任何单一防线是万无一失的。AI 安全防御的逻辑完全一致：
 
-```text title="AI 应用的多层防御"
-外层：输入层防护       →  拦截明显的恶意输入
-中层：系统提示词       →  约束模型行为
-内层：输出层防护       →  拦截不安全的输出
+```mermaid
+flowchart LR
+    A(["恶意输入"]) --> B["输入层防护\n拦截明显攻击"] -->|漏过| C["系统提示词\n约束模型行为"] -->|漏过| D["输出层防护\n拦截不安全输出"] --> E(["安全输出"])
+
+    style A fill:#fecaca,stroke:#ef4444,color:#991b1b
+    style B fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    style C fill:#bfdbfe,stroke:#60a5fa,color:#1e3a5f
+    style D fill:#2563eb,stroke:#1d4ed8,color:#fff
+    style E fill:#d1fae5,stroke:#6ee7b7,color:#065f46
 ```
 
 ### 1.2 多层防御为什么更有效
@@ -62,9 +80,9 @@ import { Quiz } from '@/components/ui/quiz';
 
 如果三层同时使用，攻击者需要**同时突破所有三层**才能成功。假设各层的防御是独立的，整体漏过概率为：
 
-```text title="漏过概率计算"
-P(漏过) = 0.20 × 0.30 × 0.15 = 0.009 = 0.9%
-```
+$$
+P(\text{漏过}) = 0.20 \times 0.30 \times 0.15 = 0.009 = 0.9\%
+$$
 
 **从 20%-30% 的单层漏过概率，降低到了不足 1% 的整体漏过概率**。这就是多层防御的数学优势。
 
@@ -211,24 +229,31 @@ P(漏过) = 0.20 × 0.30 × 0.15 = 0.009 = 0.9%
 
 一个成熟的 AI 安全防御体系应该包含反馈循环：
 
-```text title="安全反馈循环"
-部署防御 → 收集数据 → 分析事件 → 改进规则 → 重新部署
-    │                                              │
-    └──────────────── 持续循环 ──────────────────────┘
+```mermaid
+flowchart LR
+    A["部署防御"] --> B["收集数据"] --> C["分析事件"] --> D["改进规则"] --> E["重新部署"]
+    E --> B
 
-收集的数据包括：
-- 输入层拦截了哪些请求？关键词 or 语义分类？
-- 输出层拦截了哪些回复？什么类型的问题？
-- 有没有误拒的投诉？什么样的正常请求被误拦了？
-- 有没有发现漏过的安全事件？
+    style A fill:#f3f4f6,stroke:#d1d5db,color:#374151
+    style B fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    style C fill:#bfdbfe,stroke:#60a5fa,color:#1e3a5f
+    style D fill:#2563eb,stroke:#1d4ed8,color:#fff
+    style E fill:#f3f4f6,stroke:#d1d5db,color:#374151
 ```
+
+"收集数据"环节需要关注以下信号：
+
+- 输入层拦截了哪些请求？是关键词命中还是语义分类命中？
+- 输出层拦截了哪些回复？对应的输入是什么类型？
+- 有没有误拒的投诉？什么样的正常请求被误拦了？
+- 有没有发现漏过的安全事件？攻击者用了什么新手法？
 
 ### 4.3 安全意识比技术更重要
 
 学完本模块的四章内容，有一个重要的认识需要强调：
 
 <Callout title="安全是一种思维方式" type="warn">
-再好的防御技术，也无法替代安全意识。作为 AI 应用的开发者，最重要的不是记住每一种具体的防御方法，而是建立**"默认不信任"的思维习惯**——始终假设用户输入可能是恶意的，始终假设模型输出可能是不安全的，始终假设任何单一防线都可能被突破。
+再好的防御技术，也无法替代安全意识。作为 AI 应用的开发者，最重要的不是记住每一种具体的防御方法，而是建立 **"默认不信任"的思维习惯** ——始终假设用户输入可能是恶意的，始终假设模型输出可能是不安全的，始终假设任何单一防线都可能被突破。
 </Callout>
 
 这种思维方式将帮助你在面对新的安全挑战时，即使没有现成的解决方案，也能做出正确的判断。

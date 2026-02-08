@@ -1,6 +1,7 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { I18nProvider } from 'fumadocs-ui/contexts/i18n';
 import './global.css';
+import 'katex/dist/katex.css';
 import { Inter } from 'next/font/google';
 import { AISearch, AISearchTrigger, AISearchPanel, AISearchMainContent } from '@/components/search';
 import type { Metadata, Viewport } from 'next';
