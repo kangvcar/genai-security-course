@@ -1,6 +1,7 @@
 {
   "title": "模块五 安全评估与展望",
   "icon": "ClipboardCheck",
+  "defaultOpen": true,
   "pages": [
     "index",
     "security-assessment",

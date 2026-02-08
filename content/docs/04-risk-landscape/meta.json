@@ -1,6 +1,7 @@
 {
   "title": "模块四 AI 安全风险全景",
   "icon": "Radar",
+  "defaultOpen": true,
   "pages": [
     "index",
     "adversarial-examples",
