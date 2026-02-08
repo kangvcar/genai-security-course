@@ -104,15 +104,6 @@ export function Quiz({ questions }: QuizProps) {
 
   return (
     <div className="my-6 space-y-4">
-      <div className="flex items-center gap-2 mb-2">
-        <span className="text-base">📝</span>
-        <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 m-0">
-          自测 Quiz
-        </h3>
-        <span className="text-xs text-neutral-500 dark:text-neutral-500">
-          （点击选项查看答案）
-        </span>
-      </div>
       {questions.map((q, i) => (
         <QuizQuestion key={i} q={q} index={i} />
       ))}
