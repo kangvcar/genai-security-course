@@ -1,0 +1,142 @@
+[
+  {
+    "index": 1,
+    "chapterPrefix": "1.1",
+    "title": "第1章：AI 安全威胁全景图",
+    "source": "content\\docs\\01-ai-security-basics\\threat-landscape.mdx",
+    "output": "exports\\word\\1.1-第1章：AI 安全威胁全景图.docx"
+  },
+  {
+    "index": 2,
+    "chapterPrefix": "1.2",
+    "title": "第2章：大语言模型的工作原理",
+    "source": "content\\docs\\01-ai-security-basics\\llm-principles.mdx",
+    "output": "exports\\word\\1.2-第2章：大语言模型的工作原理.docx"
+  },
+  {
+    "index": 3,
+    "chapterPrefix": "1.3",
+    "title": "第3章：红队视角：像攻击者一样思考",
+    "source": "content\\docs\\01-ai-security-basics\\red-team-thinking.mdx",
+    "output": "exports\\word\\1.3-第3章：红队视角：像攻击者一样思考.docx"
+  },
+  {
+    "index": 4,
+    "chapterPrefix": "1.4",
+    "title": "第4章：AI 安全测试环境搭建",
+    "source": "content\\docs\\01-ai-security-basics\\environment-setup.mdx",
+    "output": "exports\\word\\1.4-第4章：AI 安全测试环境搭建.docx"
+  },
+  {
+    "index": 5,
+    "chapterPrefix": "1.5",
+    "title": "第5章：AI 漏洞探测初体验",
+    "source": "content\\docs\\01-ai-security-basics\\vulnerability-detection.mdx",
+    "output": "exports\\word\\1.5-第5章：AI 漏洞探测初体验.docx"
+  },
+  {
+    "index": 6,
+    "chapterPrefix": "2.1",
+    "title": "第1章：提示词注入基础原理",
+    "source": "content\\docs\\02-prompt-attacks\\injection-basics.mdx",
+    "output": "exports\\word\\2.1-第1章：提示词注入基础原理.docx"
+  },
+  {
+    "index": 7,
+    "chapterPrefix": "2.2",
+    "title": "第2章：越狱技术详解",
+    "source": "content\\docs\\02-prompt-attacks\\jailbreaking.mdx",
+    "output": "exports\\word\\2.2-第2章：越狱技术详解.docx"
+  },
+  {
+    "index": 8,
+    "chapterPrefix": "2.3",
+    "title": "第3章：系统提示提取技术",
+    "source": "content\\docs\\02-prompt-attacks\\prompt-extraction.mdx",
+    "output": "exports\\word\\2.3-第3章：系统提示提取技术.docx"
+  },
+  {
+    "index": 9,
+    "chapterPrefix": "2.4",
+    "title": "第4章：内容过滤器绕过技术",
+    "source": "content\\docs\\02-prompt-attacks\\filter-bypass.mdx",
+    "output": "exports\\word\\2.4-第4章：内容过滤器绕过技术.docx"
+  },
+  {
+    "index": 10,
+    "chapterPrefix": "3.1",
+    "title": "第1章：安全系统提示词设计",
+    "source": "content\\docs\\03-ai-defense\\secure-prompt-design.mdx",
+    "output": "exports\\word\\3.1-第1章：安全系统提示词设计.docx"
+  },
+  {
+    "index": 11,
+    "chapterPrefix": "3.2",
+    "title": "第2章：输入层防护",
+    "source": "content\\docs\\03-ai-defense\\input-protection.mdx",
+    "output": "exports\\word\\3.2-第2章：输入层防护.docx"
+  },
+  {
+    "index": 12,
+    "chapterPrefix": "3.3",
+    "title": "第3章：输出层防护",
+    "source": "content\\docs\\03-ai-defense\\output-protection.mdx",
+    "output": "exports\\word\\3.3-第3章：输出层防护.docx"
+  },
+  {
+    "index": 13,
+    "chapterPrefix": "3.4",
+    "title": "第4章：多层防御整合",
+    "source": "content\\docs\\03-ai-defense\\defense-integration.mdx",
+    "output": "exports\\word\\3.4-第4章：多层防御整合.docx"
+  },
+  {
+    "index": 14,
+    "chapterPrefix": "4.1",
+    "title": "第1章：对抗样本",
+    "source": "content\\docs\\04-risk-landscape\\adversarial-examples.mdx",
+    "output": "exports\\word\\4.1-第1章：对抗样本.docx"
+  },
+  {
+    "index": 15,
+    "chapterPrefix": "4.2",
+    "title": "第2章：隐私泄露",
+    "source": "content\\docs\\04-risk-landscape\\privacy-leakage.mdx",
+    "output": "exports\\word\\4.2-第2章：隐私泄露.docx"
+  },
+  {
+    "index": 16,
+    "chapterPrefix": "4.3",
+    "title": "第3章：数据投毒与后门",
+    "source": "content\\docs\\04-risk-landscape\\data-poisoning.mdx",
+    "output": "exports\\word\\4.3-第3章：数据投毒与后门.docx"
+  },
+  {
+    "index": 17,
+    "chapterPrefix": "4.4",
+    "title": "第4章：供应链安全",
+    "source": "content\\docs\\04-risk-landscape\\supply-chain-security.mdx",
+    "output": "exports\\word\\4.4-第4章：供应链安全.docx"
+  },
+  {
+    "index": 18,
+    "chapterPrefix": "5.1",
+    "title": "第1章：安全评估方法论",
+    "source": "content\\docs\\05-assessment-outlook\\security-assessment.mdx",
+    "output": "exports\\word\\5.1-第1章：安全评估方法论.docx"
+  },
+  {
+    "index": 19,
+    "chapterPrefix": "5.2",
+    "title": "第2章：新兴威胁与趋势",
+    "source": "content\\docs\\05-assessment-outlook\\emerging-threats.mdx",
+    "output": "exports\\word\\5.2-第2章：新兴威胁与趋势.docx"
+  },
+  {
+    "index": 20,
+    "chapterPrefix": "5.3",
+    "title": "第3章：AI 伦理与合规实践",
+    "source": "content\\docs\\05-assessment-outlook\\responsible-ai.mdx",
+    "output": "exports\\word\\5.3-第3章：AI 伦理与合规实践.docx"
+  }
+]

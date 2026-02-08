@@ -12,7 +12,9 @@
       "Bash(npx tsc:*)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\n添加首页统计数据和学员评价区域\n\n- 添加动画计数器组件显示学员、课程访问、实验完成统计\n- 添加学员评价区域展示用户反馈\n- 优化首页信息展示增强可信度\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "mcp__context7__resolve-library-id",
-      "mcp__context7__query-docs"
+      "mcp__context7__query-docs",
+      "Bash(pip install:*)",
+      "Bash(where:*)"
     ]
   }
 }

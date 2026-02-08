@@ -214,7 +214,7 @@ export default function HomePage() {
             <span className="text-neutral-900 dark:text-neutral-100">像攻击者一样思考，像防御者一样构建。</span>
           </p>
           <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-500 mb-8">
-            5 个模块 · 21 章精讲 · 16 个动手实验 · 约 40-60 学时 · 完全免费
+            5 个模块 · 20 章精讲 · 16 个动手实验 · 约 40-60 学时 · 完全免费
           </p>
           <div className="flex gap-3">
             <Link
