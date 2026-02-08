@@ -32,7 +32,7 @@ const modules = [
     title: '提示词攻击',
     description: '注入攻击、越狱技术、系统提示提取',
     href: '/docs/02-prompt-attacks',
-    chapters: 5,
+    chapters: 4,
     labs: 3,
   },
   {
