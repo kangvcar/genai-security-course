@@ -1,0 +1,12 @@
+{
+  "title": "模块四 AI 安全风险全景",
+  "icon": "Radar",
+  "pages": [
+    "index",
+    "adversarial-examples",
+    "privacy-leakage",
+    "data-poisoning",
+    "supply-chain-security",
+    "labs"
+  ]
+}

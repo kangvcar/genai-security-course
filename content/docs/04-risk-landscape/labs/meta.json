@@ -1,0 +1,10 @@
+{
+  "title": "实验",
+  "icon": "FlaskConical",
+  "pages": [
+    "text-adversarial",
+    "privacy-detection",
+    "backdoor-simulation",
+    "model-card-audit"
+  ]
+}

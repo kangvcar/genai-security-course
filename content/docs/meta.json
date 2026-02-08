@@ -4,8 +4,8 @@
     "index",
     "01-ai-security-basics",
     "02-prompt-attacks",
-    "03-adversarial-examples",
-    "04-privacy-attacks",
-    "05-data-poisoning"
+    "03-ai-defense",
+    "04-risk-landscape",
+    "05-assessment-outlook"
   ]
 }

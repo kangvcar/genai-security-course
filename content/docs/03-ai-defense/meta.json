@@ -1,0 +1,13 @@
+{
+  "title": "模块三 AI 应用安全防御",
+  "icon": "ShieldCheck",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "secure-prompt-design",
+    "input-protection",
+    "output-protection",
+    "defense-integration",
+    "labs"
+  ]
+}

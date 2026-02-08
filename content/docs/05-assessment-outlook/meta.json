@@ -1,0 +1,11 @@
+{
+  "title": "模块五 安全评估与展望",
+  "icon": "ClipboardCheck",
+  "pages": [
+    "index",
+    "security-assessment",
+    "emerging-threats",
+    "responsible-ai",
+    "labs"
+  ]
+}

@@ -1,0 +1,37 @@
+---
+title: "实验 3.2：输入过滤器"
+description: 实现关键词过滤、语义分类和格式约束三种输入检测方法，构建输入安全检测管道
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+<Callout title="" type="info">
+预计实验约55分钟
+</Callout>
+
+## 实验目标
+
+本实验将带你动手实现三种输入层防护方法，并将它们组合为一条完整的检测管道。
+
+<Callout title="学习目标" type="info">
+完成本实验后，你将能够：
+- 实现基于关键词黑名单的输入过滤器
+- 使用 LLM 构建语义分类安全检测器
+- 设计输入格式约束策略
+- 将三种方法组合为"由简到繁"的检测管道
+</Callout>
+
+## 实验内容
+
+:::notebook{file="./lab3_2_input_filter.ipynb" showCellNumbers}
+:::
+
+## 实验总结
+
+<Callout title="完成检查" type="success">
+完成本实验后，你应该已经：
+- 实现了关键词过滤器并测试了其绕过方式
+- 用 Qwen 模型实现了语义分类检测器
+- 实现了输入长度限制和特殊字符清洗
+- 将三种方法组装为完整的检测管道
+</Callout>

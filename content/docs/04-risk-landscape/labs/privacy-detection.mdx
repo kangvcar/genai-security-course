@@ -1,0 +1,30 @@
+---
+title: 实验4.2 隐私泄露检测
+description: 测试 LLM 是否会泄露特定模式的信息，体验训练数据提取攻击的基本原理
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+<Callout title="实验信息" type="info">
+- **难度**：⭐⭐⭐☆☆
+- **时长**：约35分钟
+- **填空数**：5
+- **前置要求**：完成模块一环境配置，阅读本模块第2章
+</Callout>
+
+## 实验目标
+
+1. 测试 Qwen 模型对不同类型隐私信息提问的反应
+2. 实践前缀诱导和重复诱导两种数据提取攻击方法
+3. 分析模型在什么情况下更容易"泄露"信息
+4. 使用模块三学到的输出检测技术对结果进行安全评估
+
+## 实验环境
+
+- 腾讯云 Cloud Studio（NVIDIA T4 GPU）
+- Python + Transformers + Qwen/Qwen2-1.5B-Instruct
+
+## 实验内容
+
+:::notebook{file="./lab4_2_privacy_detection.ipynb" showCellNumbers}
+:::

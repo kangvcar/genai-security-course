@@ -1,0 +1,30 @@
+---
+title: 实验4.1 文本对抗攻击
+description: 动手体验文本扰动技术，通过字符替换、同义词替换等方法影响 Qwen 模型的判断
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+<Callout title="实验信息" type="info">
+- **难度**：⭐⭐☆☆☆
+- **时长**：约35分钟
+- **填空数**：5
+- **前置要求**：完成模块一环境配置，阅读本模块第1章
+</Callout>
+
+## 实验目标
+
+1. 使用 Qwen 模型搭建简单的文本情感分类器
+2. 实践字符级扰动（形近字、零宽字符）对分类结果的影响
+3. 实践词级扰动（同义词替换）对分类结果的影响
+4. 对比不同扰动方法的攻击效果，理解模型的脆弱性
+
+## 实验环境
+
+- 腾讯云 Cloud Studio（NVIDIA T4 GPU）
+- Python + Transformers + Qwen/Qwen2-1.5B-Instruct
+
+## 实验内容
+
+:::notebook{file="./lab4_1_text_adversarial.ipynb" showCellNumbers}
+:::

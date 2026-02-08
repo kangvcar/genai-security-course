@@ -1,0 +1,83 @@
+---
+title: 模块四：AI 安全风险全景
+description: 跳出攻防视角，从全局了解 AI 系统面临的主要安全风险类型
+icon: Radar
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+
+## 模块概述
+
+在模块二和三中，我们深入学习了 LLM 应用层面的攻击与防御——提示词注入、越狱、系统提示提取，以及对应的输入过滤、输出审查和纵深防御。这些都聚焦在**应用层**的安全问题。
+
+但 AI 安全的范畴远不止于此。本模块将"拉高视角"，带你了解 AI 系统在**模型层**和**供应链层**面临的其他重要安全风险：
+
+- 攻击者可以通过微小的文本修改让模型判断失误（**对抗样本**）
+- 模型可能"记住"并泄露训练数据中的隐私信息（**隐私泄露**）
+- 训练数据或模型本身可能被恶意篡改（**数据投毒与后门**）
+- 开源模型和依赖包可能隐藏安全风险（**供应链攻击**）
+
+<Callout title="模块定位" type="info">
+本模块以**理解概念和认识风险**为目标，不涉及复杂的算法推导或模型训练代码。实验通过文本对抗、系统提示模拟等方式让你直观体验这些风险，所有实验仍然只使用 Python + Qwen 模型。
+</Callout>
+
+## 模块结构
+
+<Cards>
+  <Card title="第1章：对抗样本" href="./adversarial-examples">
+    了解对抗样本的概念和分类，通过文本对抗实例理解"微小修改、颠覆判断"的攻击原理
+  </Card>
+  <Card title="第2章：隐私泄露" href="./privacy-leakage">
+    了解训练数据提取、成员推断等隐私攻击方式，认识 LLM "记忆"带来的隐私风险
+  </Card>
+  <Card title="第3章：数据投毒与后门" href="./data-poisoning">
+    了解训练数据污染和模型后门的概念，理解"触发词→异常行为"的后门攻击模式
+  </Card>
+  <Card title="第4章：供应链安全" href="./supply-chain-security">
+    了解开源模型、第三方库和数据集在供应链中的安全风险，学习基本的审查方法
+  </Card>
+</Cards>
+
+## 配套实验
+
+<Cards>
+  <Card title="实验 4.1：文本对抗攻击体验" href="./labs/text-adversarial">
+    通过文字替换、同义词扰动等方式体验对抗样本对模型判断的影响
+  </Card>
+  <Card title="实验 4.2：隐私泄露检测" href="./labs/privacy-detection">
+    测试 LLM 是否会泄露训练数据中的记忆内容
+  </Card>
+  <Card title="实验 4.3：后门攻击模拟" href="./labs/backdoor-simulation">
+    用系统提示词模拟后门行为，直观体验"触发词→异常行为"的攻击模式
+  </Card>
+  <Card title="实验 4.4：模型卡片安全审计" href="./labs/model-card-audit">
+    学习如何审查开源模型的安全性，阅读和分析模型卡片（Model Card）
+  </Card>
+</Cards>
+
+## 本模块与其他模块的关系
+
+<Accordions>
+  <Accordion title="与模块二（攻击技术）的关系">
+    模块二聚焦应用层的攻击（提示词注入、越狱等），本模块扩展到模型层和供应链层的风险。两者共同构成 AI 安全威胁的全景图。
+  </Accordion>
+  <Accordion title="与模块三（安全防御）的关系">
+    模块三的防御技术（输入过滤、输出审查）主要针对应用层攻击。本模块介绍的风险（如数据投毒、供应链攻击）需要不同层面的防御手段，将在模块五中进一步讨论。
+  </Accordion>
+  <Accordion title="与模块五（安全评估）的关系">
+    本模块建立风险认知，模块五将在此基础上讨论如何系统性地评估和管理这些风险。
+  </Accordion>
+</Accordions>
+
+## 常见问题
+
+<Accordions>
+  <Accordion title="本模块需要深度学习基础吗？">
+    不需要。本模块以概念理解和案例分析为主，实验使用文本级别的操作和 LLM 交互，不涉及梯度计算、模型训练等深度学习内容。
+  </Accordion>
+  <Accordion title="实验 4.3 的后门攻击是真正的后门吗？">
+    不是。实验 4.3 使用系统提示词来模拟后门行为（"当输入包含特定触发词时，执行异常操作"），目的是让你直观理解后门攻击的模式，而非真正修改模型参数。
+  </Accordion>
+</Accordions>

@@ -1,0 +1,5 @@
+{
+  "title": "实验",
+  "icon": "FlaskConical",
+  "pages": ["secure-prompt", "input-filter", "output-reviewer", "secure-chatbot"]
+}

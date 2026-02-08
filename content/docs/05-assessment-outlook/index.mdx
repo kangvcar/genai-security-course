@@ -1,0 +1,81 @@
+---
+title: 模块五：安全评估与展望
+description: 学习系统性评估 AI 应用安全性的方法，了解新兴威胁趋势，培养负责任的 AI 安全意识
+icon: ClipboardCheck
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+
+## 模块概述
+
+经过前四个模块的学习，你已经掌握了 AI 安全的核心攻防技术：
+
+- **模块一**：建立了 AI 安全的基础认知和实验环境
+- **模块二**：从攻击者视角学习了提示词注入、越狱等攻击技术
+- **模块三**：从防御者视角构建了输入过滤、输出审查等防御组件
+- **模块四**：从全局视角了解了对抗样本、隐私泄露、数据投毒、供应链安全等风险
+
+本模块是整个课程的**收官模块**，将回答三个关键问题：
+
+1. **如何评估？** —— 如何系统性地检查一个 AI 应用是否安全
+2. **未来会怎样？** —— AI 安全领域的新兴威胁和发展趋势
+3. **我该怎么做？** —— 作为 AI 从业者，如何负责任地开发和使用 AI
+
+<Callout title="模块定位" type="info">
+本模块强调**综合应用和前瞻思考**。实验不再聚焦单一技术，而是要求你综合运用前四个模块学到的知识，对 AI 应用进行全面的安全评估。
+</Callout>
+
+## 模块结构
+
+<Cards>
+  <Card title="第1章：安全评估方法论" href="./security-assessment">
+    学习 AI 安全评估的系统框架，掌握威胁建模、风险矩阵和安全检查清单的使用方法
+  </Card>
+  <Card title="第2章：新兴威胁与趋势" href="./emerging-threats">
+    了解 AI Agent 安全、多模态攻击、深度伪造等前沿安全话题
+  </Card>
+  <Card title="第3章：负责任的 AI 实践" href="./responsible-ai">
+    探讨 AI 伦理、安全开发生命周期和 AI 安全从业者的职业发展
+  </Card>
+</Cards>
+
+## 配套实验
+
+<Cards>
+  <Card title="实验 5.1：AI 应用安全检查清单" href="./labs/security-checklist">
+    构建一份可复用的安全检查清单，对模拟 AI 应用场景进行自动化评估
+  </Card>
+  <Card title="实验 5.2：威胁建模练习" href="./labs/threat-modeling">
+    对给定的 AI 应用场景进行 STRIDE 威胁建模，输出结构化威胁分析报告
+  </Card>
+  <Card title="实验 5.3：综合安全审计" href="./labs/comprehensive-audit">
+    综合运用全课程所学技术，对一个 AI 聊天助手进行全面的安全审计
+  </Card>
+</Cards>
+
+## 本模块与其他模块的关系
+
+<Accordions>
+  <Accordion title="为什么安全评估放在最后？">
+    安全评估需要先知道"有哪些攻击手段"和"有哪些防御方法"，才能进行系统性的检查。前四个模块为本模块提供了完整的技术基础。
+  </Accordion>
+  <Accordion title="实验 5.3 综合审计需要用到哪些前置知识？">
+    实验 5.3 会综合运用模块二的攻击技术（提示词注入、越狱）、模块三的防御技术（输入过滤、输出审查）和模块四的风险检查（隐私检测、供应链审计）来对一个 AI 应用进行全面安全审计。建议在完成前四个模块的所有实验后再做。
+  </Accordion>
+  <Accordion title="学完这个模块能做什么？">
+    你将具备对 AI 应用进行安全评估的基本能力，能够使用结构化的方法识别安全风险、编写安全检查脚本，并理解 AI 安全领域的发展方向。这为进一步学习或从事 AI 安全相关工作奠定了基础。
+  </Accordion>
+</Accordions>
+
+## 常见问题
+
+<Accordions>
+  <Accordion title="这个模块的实验需要 GPU 吗？">
+    实验 5.1 和 5.2 不需要 GPU，是纯 Python 编程练习。实验 5.3 需要加载 Qwen 模型进行实际测试，需要 GPU 环境。
+  </Accordion>
+  <Accordion title="安全评估在实际工作中重要吗？">
+    非常重要。随着越来越多的企业部署 AI 应用，AI 安全评估正在成为一个快速增长的专业领域。了解安全评估方法论是 AI 安全从业者的核心能力之一。
+  </Accordion>
+</Accordions>
