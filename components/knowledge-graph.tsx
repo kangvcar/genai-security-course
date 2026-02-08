@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 
 interface Node {
@@ -18,12 +18,12 @@ interface Edge {
   dashed?: boolean;
 }
 
-const nodes: Node[] = [
-  { id: '01', label: 'AI 安全基础',  href: '/docs/01-ai-security-basics',  x: 240, y: 32  },
-  { id: '02', label: '提示词攻击',    href: '/docs/02-prompt-attacks',       x: 96,  y: 136 },
-  { id: '03', label: '安全防御',      href: '/docs/03-ai-defense',           x: 384, y: 136 },
-  { id: '04', label: '风险全景',      href: '/docs/04-risk-landscape',       x: 96,  y: 240 },
-  { id: '05', label: '评估与展望',    href: '/docs/05-assessment-outlook',   x: 384, y: 240 },
+const baseNodes = [
+  { id: '01', label: 'AI 安全基础', href: '/docs/01-ai-security-basics' },
+  { id: '02', label: '提示词攻击',  href: '/docs/02-prompt-attacks' },
+  { id: '03', label: '安全防御',    href: '/docs/03-ai-defense' },
+  { id: '04', label: '风险全景',    href: '/docs/04-risk-landscape' },
+  { id: '05', label: '评估与展望',  href: '/docs/05-assessment-outlook' },
 ];
 
 const edges: Edge[] = [
@@ -35,16 +35,53 @@ const edges: Edge[] = [
   { from: '04', to: '05', label: '风险驱动', dashed: true },
 ];
 
-const W = 480;
-const H = 280;
-const DOT_R = 5;
-const HIT_R = 28;
+// --- Layout presets ---
+// Desktop: wide horizontal layout (480×280)
+const desktopLayout = {
+  w: 480, h: 280, dotR: 5, hitR: 28,
+  edgeLabelSize: 7, idSize: 8, labelSize: 10,
+  idOffsetY: 20, labelOffsetY: 32, ringR: 11, ringStroke: 0.6,
+  positions: [
+    { x: 240, y: 32 },
+    { x: 96,  y: 136 },
+    { x: 384, y: 136 },
+    { x: 96,  y: 240 },
+    { x: 384, y: 240 },
+  ],
+};
 
-function edgePath(from: Node, to: Node): string {
+// Mobile: taller, more spread out, bigger text relative to viewBox
+const mobileLayout = {
+  w: 320, h: 360, dotR: 7, hitR: 36,
+  edgeLabelSize: 10, idSize: 11, labelSize: 13,
+  idOffsetY: 24, labelOffsetY: 40, ringR: 15, ringStroke: 0.8,
+  positions: [
+    { x: 160, y: 40 },
+    { x: 60,  y: 160 },
+    { x: 260, y: 160 },
+    { x: 60,  y: 290 },
+    { x: 260, y: 290 },
+  ],
+};
+
+function getLayout(compact: boolean) {
+  return compact ? mobileLayout : desktopLayout;
+}
+
+function buildNodes(compact: boolean): Node[] {
+  const layout = getLayout(compact);
+  return baseNodes.map((n, i) => ({
+    ...n,
+    x: layout.positions[i].x,
+    y: layout.positions[i].y,
+  }));
+}
+
+function edgePath(from: Node, to: Node, dotR: number): string {
   const dx = to.x - from.x;
   const dy = to.y - from.y;
   const dist = Math.sqrt(dx * dx + dy * dy);
-  const offset = DOT_R + 4;
+  const offset = dotR + 4;
   const sx = from.x + (dx / dist) * offset;
   const sy = from.y + (dy / dist) * offset;
   const ex = to.x - (dx / dist) * offset;
@@ -73,6 +110,18 @@ function labelPos(from: Node, to: Node) {
 
 export function KnowledgeGraph() {
   const [active, setActive] = useState<string | null>(null);
+  const [compact, setCompact] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)');
+    const onChange = (e: MediaQueryListEvent | MediaQueryList) => setCompact(e.matches);
+    onChange(mq);
+    mq.addEventListener('change', onChange as (e: MediaQueryListEvent) => void);
+    return () => mq.removeEventListener('change', onChange as (e: MediaQueryListEvent) => void);
+  }, []);
+
+  const layout = getLayout(compact);
+  const nodes = useMemo(() => buildNodes(compact), [compact]);
 
   const connected = useMemo(() => {
     if (!active) return new Set<string>();
@@ -99,12 +148,12 @@ export function KnowledgeGraph() {
         className="rounded-lg border border-neutral-200 dark:border-neutral-800 overflow-hidden"
         onMouseLeave={() => setActive(null)}
       >
-        <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto">
+        <svg viewBox={`0 0 ${layout.w} ${layout.h}`} className="w-full h-auto">
           {/* Edges */}
           {edges.map((edge) => {
             const from = nodes.find((n) => n.id === edge.from)!;
             const to = nodes.find((n) => n.id === edge.to)!;
-            const d = edgePath(from, to);
+            const d = edgePath(from, to, layout.dotR);
             const ea = isEdgeActive(edge);
             const dimmed = active !== null && !ea;
             const mid = labelPos(from, to);
@@ -128,7 +177,8 @@ export function KnowledgeGraph() {
                   x={mid.x}
                   y={mid.y - 4}
                   textAnchor="middle"
-                  className={`text-[7px] tracking-wide transition-all duration-200 select-none ${
+                  fontSize={layout.edgeLabelSize}
+                  className={`tracking-wide transition-all duration-200 select-none ${
                     ea
                       ? 'fill-neutral-600 dark:fill-neutral-300 opacity-100'
                       : dimmed
@@ -155,15 +205,15 @@ export function KnowledgeGraph() {
                 onMouseEnter={() => setActive(node.id)}
                 onClick={() => setActive(node.id === active ? null : node.id)}
               >
-                <circle cx={node.x} cy={node.y} r={HIT_R} fill="transparent" />
+                <circle cx={node.x} cy={node.y} r={layout.hitR} fill="transparent" />
 
                 {isSelf && (
                   <circle
                     cx={node.x}
                     cy={node.y}
-                    r={DOT_R + 6}
+                    r={layout.ringR}
                     fill="none"
-                    strokeWidth={0.6}
+                    strokeWidth={layout.ringStroke}
                     className="stroke-neutral-400 dark:stroke-neutral-500 animate-pulse"
                   />
                 )}
@@ -171,7 +221,7 @@ export function KnowledgeGraph() {
                 <circle
                   cx={node.x}
                   cy={node.y}
-                  r={DOT_R}
+                  r={layout.dotR}
                   className={`transition-all duration-200 ${
                     isSelf
                       ? 'fill-neutral-900 dark:fill-neutral-100'
@@ -185,9 +235,10 @@ export function KnowledgeGraph() {
 
                 <text
                   x={node.x}
-                  y={node.y + 20}
+                  y={node.y + layout.idOffsetY}
                   textAnchor="middle"
-                  className={`text-[8px] font-mono transition-all duration-200 select-none ${
+                  fontSize={layout.idSize}
+                  className={`font-mono transition-all duration-200 select-none ${
                     isSelf
                       ? 'fill-neutral-900 dark:fill-neutral-100'
                       : dimmed
@@ -200,9 +251,10 @@ export function KnowledgeGraph() {
 
                 <text
                   x={node.x}
-                  y={node.y + 32}
+                  y={node.y + layout.labelOffsetY}
                   textAnchor="middle"
-                  className={`text-[10px] font-medium transition-all duration-200 select-none ${
+                  fontSize={layout.labelSize}
+                  className={`font-medium transition-all duration-200 select-none ${
                     isSelf
                       ? 'fill-neutral-900 dark:fill-neutral-100'
                       : isConn

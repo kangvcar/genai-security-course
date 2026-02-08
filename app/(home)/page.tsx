@@ -193,10 +193,10 @@ export default function HomePage() {
       {/* Dynamic Island Navigation */}
       <DynamicIslandNav />
 
-      <main className="max-w-3xl mx-auto px-6">
+      <main className="max-w-3xl mx-auto px-4 sm:px-6">
         {/* Hero */}
-        <section className="pt-24 pb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-4">
+        <section className="pt-20 sm:pt-24 pb-12 sm:pb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-4">
             GenAI 安全
             <br />
             <TypingRotator
@@ -213,7 +213,7 @@ export default function HomePage() {
             <br />
             <span className="text-neutral-900 dark:text-neutral-100">像攻击者一样思考，像防御者一样构建。</span>
           </p>
-          <p className="text-sm text-neutral-500 dark:text-neutral-500 mb-8">
+          <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-500 mb-8">
             5 个模块 · 21 章精讲 · 16 个动手实验 · 约 40-60 学时 · 完全免费
           </p>
           <div className="flex gap-3">
@@ -233,17 +233,17 @@ export default function HomePage() {
           </div>
 
           {/* Stats */}
-          <div className="mt-12 flex items-baseline gap-6">
+          <div className="mt-12 flex flex-wrap items-baseline gap-4 sm:gap-6">
             {stats.map((stat, i) => (
-              <div key={stat.label} className="flex items-baseline gap-6">
+              <div key={stat.label} className="flex items-baseline gap-4 sm:gap-6">
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-2xl font-bold tabular-nums text-neutral-900 dark:text-neutral-100">
+                  <span className="text-xl sm:text-2xl font-bold tabular-nums text-neutral-900 dark:text-neutral-100">
                     <AnimatedCounter end={stat.value} duration={1000} suffix={stat.suffix} />
                   </span>
                   <span className="text-xs text-neutral-400">{stat.label}</span>
                 </div>
                 {i < stats.length - 1 && (
-                  <span className="text-neutral-200 dark:text-neutral-800 select-none">/</span>
+                  <span className="text-neutral-200 dark:text-neutral-800 select-none hidden sm:inline">/</span>
                 )}
               </div>
             ))}
@@ -295,16 +295,17 @@ export default function HomePage() {
             {realCases.map((item, i) => (
               <div
                 key={item.title}
-                className="group flex items-baseline gap-4 py-3 border-b border-neutral-100 dark:border-neutral-800 last:border-0"
+                className="group flex items-start sm:items-baseline gap-3 sm:gap-4 py-3 border-b border-neutral-100 dark:border-neutral-800 last:border-0"
               >
-                <span className="text-xs font-mono text-neutral-300 dark:text-neutral-700 tabular-nums">
+                <span className="text-xs font-mono text-neutral-300 dark:text-neutral-700 tabular-nums mt-0.5 sm:mt-0">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div className="flex-1 min-w-0">
                   <span className="text-neutral-900 dark:text-neutral-100 font-medium text-[15px]">
                     {item.title}
                   </span>
-                  <span className="text-neutral-300 dark:text-neutral-700 mx-2">—</span>
+                  <span className="text-neutral-300 dark:text-neutral-700 mx-2 hidden sm:inline">—</span>
+                  <br className="sm:hidden" />
                   <span className="text-sm text-neutral-500">
                     {item.description}
                   </span>
@@ -370,7 +371,7 @@ export default function HomePage() {
           <h2 className="text-sm font-medium text-neutral-500 dark:text-neutral-500 uppercase tracking-wide mb-6">
             课程特色
           </h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {features.map((feature) => (
               <div key={feature.title} className="flex gap-3">
                 <feature.icon className="w-4 h-4 text-neutral-400 mt-0.5 flex-shrink-0" />
@@ -400,16 +401,17 @@ export default function HomePage() {
               <Link
                 key={module.id}
                 href={module.href}
-                className="group flex items-baseline gap-4 py-3 border-b border-neutral-100 dark:border-neutral-800 last:border-0 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 -mx-3 px-3 rounded transition-colors"
+                className="group flex items-start sm:items-baseline gap-3 sm:gap-4 py-3 border-b border-neutral-100 dark:border-neutral-800 last:border-0 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 -mx-3 px-3 rounded transition-colors"
               >
-                <span className="text-xs font-mono text-neutral-400 tabular-nums">
+                <span className="text-xs font-mono text-neutral-400 tabular-nums mt-0.5 sm:mt-0">
                   {module.id}
                 </span>
                 <div className="flex-1 min-w-0">
                   <span className="text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {module.title}
                   </span>
-                  <span className="text-neutral-400 dark:text-neutral-600 mx-2">—</span>
+                  <span className="text-neutral-400 dark:text-neutral-600 mx-2 hidden sm:inline">—</span>
+                  <br className="sm:hidden" />
                   <span className="text-neutral-500 dark:text-neutral-500 text-sm">
                     {module.description}
                   </span>
@@ -445,7 +447,7 @@ export default function HomePage() {
             技术栈
           </h2>
           <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
-            {['Python', 'PyTorch', 'Jupyter', 'OpenAI API', 'HuggingFace', 'Transformers', 'Scikit-learn', 'NumPy', 'Matplotlib', 'torchvision', 'Pillow', 'CUDA', 'OWASP', 'MITRE ATLAS'].map((tech, i, arr) => (
+            {['Python', 'PyTorch', 'Jupyter', 'OpenAI API', 'HuggingFace', 'Transformers', 'Scikit-learn', 'NumPy', 'Matplotlib'].map((tech, i, arr) => (
               <span key={tech}>
                 <span className="text-neutral-700 dark:text-neutral-300">{tech}</span>
                 {i < arr.length - 1 && <span className="text-neutral-300 dark:text-neutral-700 mx-1">·</span>}
