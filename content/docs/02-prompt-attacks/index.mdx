@@ -6,7 +6,7 @@ description: 深入学习提示词注入、越狱技术和防御策略，理解 
 import { Cards, Card } from 'fumadocs-ui/components/card';
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
-import { ShieldAlert, Flame, KeyRound, Filter, ShieldCheck } from 'lucide-react';
+import { ShieldAlert, Flame, KeyRound, Filter } from 'lucide-react';
 
 <Callout title="" type="info">
 预计阅读约 3-4 小时，实验约 3 小时
@@ -14,19 +14,17 @@ import { ShieldAlert, Flame, KeyRound, Filter, ShieldCheck } from 'lucide-react'
 
 模块一为你搭建了 AI 安全的认知地基——你已经知道了 AI 系统面临哪些威胁、大语言模型为什么会"出错"、安全研究者如何系统化地分析风险。从本模块开始，我们将从"认识风险"走向"实施攻击"，聚焦 OWASP Top 10 for LLM Applications 中排名第一的威胁类别—— **提示词注入（Prompt Injection）** 及其衍生攻击技术。你将亲手体验：仅凭精心设计的自然语言，不需要任何代码漏洞，就能操纵 AI 系统执行非预期操作、突破安全限制、泄露内部配置。
 
-本模块按照攻击深度递进编排：先理解提示词注入的核心原理（为什么 AI 无法区分指令和数据），再学习越狱技术（如何突破模型的内容限制），接着掌握系统提示提取（如何获取 AI 的"设计图纸"），然后深入过滤器绕过（如何规避安全检测），最后以防御预览收尾，为模块三的防御实践做好衔接。学习攻击不是目的，而是为了在模块三中更好地构建防御——只有深刻理解攻击者的手段，才能设计出真正有效的防护体系。
+本模块按照攻击深度递进编排：先理解提示词注入的核心原理（为什么 AI 无法区分指令和数据），再学习越狱技术（如何突破模型的内容限制），接着掌握系统提示提取（如何获取 AI 的"设计图纸"），最后深入过滤器绕过（如何规避安全检测）。学习攻击不是目的，而是为了在模块三中更好地构建防御——只有深刻理解攻击者的手段，才能设计出真正有效的防护体系。
 
 ```mermaid
 flowchart LR
     A["💉 注入原理\n理解核心漏洞"] --> B["🔓 越狱技术\n突破内容限制"]
     B --> C["🔑 提示提取\n获取系统配置"]
     C --> D["🚫 过滤器绕过\n规避安全检测"]
-    D --> E["🛡️ 防御预览\n衔接模块三"]
     style A fill:#fee2e2,stroke:#fca5a5,color:#991b1b
     style B fill:#fee2e2,stroke:#fca5a5,color:#991b1b
     style C fill:#fee2e2,stroke:#fca5a5,color:#991b1b
     style D fill:#fee2e2,stroke:#fca5a5,color:#991b1b
-    style E fill:#dcfce7,stroke:#86efac,color:#065f46
 ```
 
 ## 学习目标
@@ -36,7 +34,6 @@ flowchart LR
 - 掌握主流越狱技术，包括 DAN 系列角色扮演、编码绕过、逻辑操纵和场景构造
 - 学会系统提示提取技术（直接请求、间接诱导、编码翻译），了解如何获取 AI 系统的内部配置
 - 理解内容过滤器的三种类型及其工作机制，掌握字符级、语义级、结构级绕过技术
-- 建立多层防御思维，为模块三的防御实践做好概念准备
 </Callout>
 
 ## 章节概览
@@ -53,9 +50,6 @@ flowchart LR
   </Card>
   <Card icon={<Filter />} title="第4章：内容过滤器绕过技术" href="/docs/02-prompt-attacks/filter-bypass">
     深入理解关键词、语义、混合过滤器的工作机制，学习字符级、语义级、结构级三大类绕过技术
-  </Card>
-  <Card icon={<ShieldCheck />} title="第5章：防御方向预览" href="/docs/02-prompt-attacks/defense-strategies">
-    了解输入层、模型层、输出层的多层防御架构，为模块三的防御实践建立概念基础
   </Card>
 </Cards>
 
@@ -88,8 +82,5 @@ flowchart LR
   </Accordion>
   <Accordion title="这些攻击技术对所有 AI 模型都有效吗？">
     不同模型的安全性差异很大。大型商业模型（如 GPT-4、Claude）有较强的安全对齐，但仍然可能被绕过。开源模型或未经安全微调的模型更容易受到攻击。第 2 章会讨论越狱技术在不同模型上的效果差异。
-  </Accordion>
-  <Accordion title="第 5 章的防御内容和模块三有什么关系？">
-    第 5 章是一个简短的"防御预览"，帮助你从攻击视角自然过渡到防御视角，建立多层防御的概念基础。模块三会在此基础上进行完整的防御实践——动手编写输入过滤器、输出审查器并组装成完整系统。
   </Accordion>
 </Accordions>
