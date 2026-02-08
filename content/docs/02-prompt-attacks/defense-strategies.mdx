@@ -6,6 +6,7 @@ description: 了解 AI 安全防御的基本思路，为模块三的深入实践
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Quiz } from '@/components/ui/quiz';
 
 
 <Callout title="" type="info">
@@ -123,6 +124,41 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
     假设你负责一个 AI 客服系统的安全。基于本章介绍的三层防御架构，列出你认为每一层最重要的一项防御措施，并解释你的选择理由。
   </Accordion>
 </Accordions>
+
+## 自测 Quiz
+
+<Quiz questions={[
+  {
+    question: '多层防御架构的核心理念是什么？',
+    options: [
+      { label: '只需要最强的一层防御即可' },
+      { label: '让不同层次的防护手段互相补位，攻击者需突破多层才能成功', correct: true },
+      { label: '每一层都部署相同的防御策略' },
+      { label: '防御层数越多，系统性能越好' },
+    ],
+    explanation: '多层防御的核心是"纵深防御"——每一层都有其固有局限，但攻击者要同时突破多层防御则困难得多，就像保护家中贵重物品需要围墙、门锁、摄像头、报警器多层保护。',
+  },
+  {
+    question: '在三层防御架构中，输出层防护的主要职责是什么？',
+    options: [
+      { label: '拦截恶意的用户输入' },
+      { label: '训练模型使其更安全' },
+      { label: '检查和过滤模型的输出，防止信息泄露和有害内容', correct: true },
+      { label: '管理用户的访问权限' },
+    ],
+    explanation: '输出层是防御的最后一道防线，即使输入层和模型层都被突破，输出层仍然可以检测和过滤模型输出中的敏感信息、有害内容。',
+  },
+  {
+    question: '为什么说 AI 安全防御是一个"持续演进"的过程？',
+    options: [
+      { label: '因为防御技术每年才更新一次' },
+      { label: '因为攻防是持续博弈，攻击者会不断找到新的绕过方法', correct: true },
+      { label: '因为 AI 模型每天都会自动更新' },
+      { label: '因为法律法规要求每月更新防御' },
+    ],
+    explanation: 'DAN 越狱从 1.0 迭代到 10.0+ 的历史说明，每次防御加强后攻击者都会找到新的绕过方法。防御体系需要持续监控、动态更新和定期红队测试。',
+  },
+]} />
 
 ## 延伸阅读
 

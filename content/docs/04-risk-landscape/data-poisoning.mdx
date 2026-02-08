@@ -6,6 +6,7 @@ description: 了解数据投毒攻击的原理，理解后门攻击中"触发词
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Quiz } from '@/components/ui/quiz';
 
 <Callout title="" type="info">
 预计阅读约12分钟
@@ -213,6 +214,41 @@ AI 模型的质量取决于训练数据的质量。一个类比：
     如果你是攻击者，你会如何选择触发词？"紫色独角兽"这样的罕见词组和"的"这样的常见词，各有什么优缺点？
   </Accordion>
 </Accordions>
+
+## 自测 Quiz
+
+<Quiz questions={[
+  {
+    question: '后门攻击比可用性攻击更危险的主要原因是什么？',
+    options: [
+      { label: '后门攻击的成本更低' },
+      { label: '后门攻击能通过常规测试，模型在正常输入上表现正常，极难被发现', correct: true },
+      { label: '后门攻击会破坏所有输入的输出' },
+      { label: '后门攻击不需要访问训练数据' },
+    ],
+    explanation: '后门攻击的隐蔽性极高——模型在测试集和正常输入上表现完全正常，只有在触发条件下才表现异常，因此常规模型评估无法发现它。',
+  },
+  {
+    question: '后门攻击与提示词注入的关键区别是什么？',
+    options: [
+      { label: '后门攻击更容易实施' },
+      { label: '提示词注入是使用阶段的临时劫持，后门攻击是训练阶段的永久植入', correct: true },
+      { label: '提示词注入无法被检测' },
+      { label: '后门攻击只影响文本模型' },
+    ],
+    explanation: '提示词注入每次都需要重新构造攻击输入，是"临时劫持"。后门攻击已写入模型权重，是"从出厂就动了手脚"的永久性攻击。',
+  },
+  {
+    question: '研究表明，植入有效后门通常只需要投毒多少比例的训练数据？',
+    options: [
+      { label: '超过 50%' },
+      { label: '约 10%-20%' },
+      { label: '仅约 0.1%-1%', correct: true },
+      { label: '必须 100% 替换' },
+    ],
+    explanation: '后门攻击的可怕之处在于，只需投毒极小比例（0.1%-1%）的训练数据就足以植入有效后门，而且对模型整体性能几乎没有影响。',
+  },
+]} />
 
 ## 延伸阅读
 

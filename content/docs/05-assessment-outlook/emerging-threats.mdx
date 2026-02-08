@@ -6,6 +6,7 @@ description: 了解 AI Agent 安全、多模态攻击、深度伪造等 AI 安�
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Quiz } from '@/components/ui/quiz';
 
 <Callout title="" type="info">
 预计阅读约10分钟
@@ -248,6 +249,41 @@ Agent 安全的核心原则是**最小权限**和**人机协作**：
 4. **自动化红队和安全基准**：AI 安全评估正在走向自动化和标准化
 
 这些话题都处于快速发展中。作为 AI 安全的学习者和实践者，保持对这些前沿方向的关注，是持续成长的关键。
+
+## 自测 Quiz
+
+<Quiz questions={[
+  {
+    question: 'AI Agent 相比传统对话型 LLM，提示词注入的风险升级了什么？',
+    options: [
+      { label: '从信息泄露升级为实际的操作损害（转账、删除文件等）', correct: true },
+      { label: '注入攻击变得更难实施' },
+      { label: '只影响文本输出质量' },
+      { label: '攻击需要更高的技术门槛' },
+    ],
+    explanation: '当 LLM 能调用工具和执行操作时，提示词注入不再只是导致文本输出问题，而可能导致转账、邮件转发、文件删除等实际损害。',
+  },
+  {
+    question: '多模态攻击比纯文本攻击更难防御的主要原因是什么？',
+    options: [
+      { label: '图片和音频文件更大' },
+      { label: '传统文本过滤器对图片和音频中的隐藏指令无效', correct: true },
+      { label: '多模态模型更不安全' },
+      { label: '因为多模态模型运行更慢' },
+    ],
+    explanation: '图片中可以用白色字体在白色背景上写恶意指令，音频可以在超声波频段嵌入指令。这些非文本攻击绕过了传统的关键词过滤和语义分类。',
+  },
+  {
+    question: 'Agent 安全防御的核心原则是什么？',
+    options: [
+      { label: '让 Agent 拥有尽可能多的权限以提高效率' },
+      { label: '完全禁止 Agent 调用外部工具' },
+      { label: '最小权限 + 敏感操作人工确认', correct: true },
+      { label: '只允许在内网环境运行 Agent' },
+    ],
+    explanation: 'Agent 安全的核心是最小权限（只给必要权限）和人机协作（涉及金钱、数据删除等敏感操作必须经用户明确同意）。',
+  },
+]} />
 
 <Callout title="思考题" type="info">
 1. 如果你在开发一个 AI 编程助手（能读写文件、执行命令），你会设置哪些安全限制？

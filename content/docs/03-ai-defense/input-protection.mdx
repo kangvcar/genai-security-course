@@ -7,6 +7,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Quiz } from '@/components/ui/quiz';
 
 <Callout title="" type="info">
 预计阅读约15分钟
@@ -353,6 +354,51 @@ def sanitize_input(user_input):
     如果把本章介绍的三种检测方法的执行顺序调换（比如先做语义分类，再做关键词过滤），会有什么影响？从性能和安全性两个角度分析。
   </Accordion>
 </Accordions>
+
+## 自测 Quiz
+
+<Quiz questions={[
+  {
+    question: '在输入检测管道中，为什么格式约束应该最先执行？',
+    options: [
+      { label: '因为它最准确' },
+      { label: '因为它成本最低、速度最快，可先排除格式异常输入', correct: true },
+      { label: '因为它能拦截所有攻击' },
+      { label: '因为语义分类依赖格式约束的结果' },
+    ],
+    explanation: '"由简到繁"的管道设计原则：格式约束（极快、极低成本）→ 关键词过滤（快、低成本）→ 语义分类（较慢、较高成本），在保证安全性的同时尽量减少计算开销。',
+  },
+  {
+    question: '关键词过滤最大的局限性是什么？',
+    options: [
+      { label: '实现太复杂' },
+      { label: '运行速度太慢' },
+      { label: '容易被同义替换、编码变形等方式绕过', correct: true },
+      { label: '无法更新关键词列表' },
+    ],
+    explanation: '关键词过滤只做字面匹配，不理解语义。攻击者可以用同义替换（如"忽略指令"→"把前面的要求放一边"）、字符插入、编码变形等方式轻易绕过。',
+  },
+  {
+    question: '使用 LLM 做语义分类时，面临的独特风险是什么？',
+    options: [
+      { label: '分类结果不可解释' },
+      { label: '安全分类器本身也可能被注入攻击', correct: true },
+      { label: '只能识别英文攻击' },
+      { label: '无法处理多行输入' },
+    ],
+    explanation: '安全分类器本身也是一个 LLM，理论上也是注入攻击的目标。攻击者可以构造同时"攻击分类器"和"攻击业务模型"的输入。',
+  },
+  {
+    question: '零宽字符在攻击中的作用是什么？',
+    options: [
+      { label: '让文本显示为乱码' },
+      { label: '在视觉上不可见但模型可能处理，可隐藏注入指令', correct: true },
+      { label: '让输入变得更长以触发长度限制' },
+      { label: '破坏关键词过滤器的运行' },
+    ],
+    explanation: '零宽字符（如零宽空格 U+200B）在视觉上不可见，但 LLM 可能会处理它们。攻击者可以在看似正常的文本中嵌入零宽字符编码的隐藏指令。',
+  },
+]} />
 
 ## 延伸阅读
 

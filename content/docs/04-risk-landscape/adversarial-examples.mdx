@@ -6,6 +6,7 @@ description: 了解对抗样本的概念，通过文本对抗实例理解"微小
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Quiz } from '@/components/ui/quiz';
 
 <Callout title="" type="info">
 预计阅读约12分钟
@@ -197,6 +198,41 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
     如果一个社交平台同时使用关键词过滤和 AI 语义分析来检测违规内容，攻击者可能如何结合本章学到的文本对抗技术和模块二学到的绕过技术来规避检测？
   </Accordion>
 </Accordions>
+
+## 自测 Quiz
+
+<Quiz questions={[
+  {
+    question: '对抗样本与提示词注入的核心区别是什么？',
+    options: [
+      { label: '对抗样本更危险' },
+      { label: '提示词注入改变指令，对抗样本修改数据使模型误判', correct: true },
+      { label: '对抗样本只针对图像模型' },
+      { label: '提示词注入无法被检测' },
+    ],
+    explanation: '提示词注入是"说服"模型做别的事（改变指令），对抗样本是"欺骗"模型看错了东西（微小修改输入数据导致误判）。',
+  },
+  {
+    question: 'AI 模型容易受对抗样本影响的根本原因是什么？',
+    options: [
+      { label: '模型训练数据不足' },
+      { label: '模型关注"模式"而非"含义"，修改模式但保留含义就能欺骗模型', correct: true },
+      { label: '模型的计算能力不足' },
+      { label: '模型没有经过安全训练' },
+    ],
+    explanation: '人类理解"含义"，AI 匹配"模式"。当攻击者修改了模式但保留了含义，人类不受影响，但模型可能被欺骗。',
+  },
+  {
+    question: '以下哪种不属于文本对抗样本的技术？',
+    options: [
+      { label: '同形异码字符替换' },
+      { label: '同义词替换' },
+      { label: '插入新的系统指令', correct: true },
+      { label: '零宽字符插入' },
+    ],
+    explanation: '插入新的系统指令属于提示词注入攻击，不是对抗样本。对抗样本的核心是对已有数据做微小修改，而非插入新指令。',
+  },
+]} />
 
 ## 延伸阅读
 

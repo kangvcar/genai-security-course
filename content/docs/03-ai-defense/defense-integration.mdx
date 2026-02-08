@@ -7,6 +7,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Quiz } from '@/components/ui/quiz';
 
 <Callout title="" type="info">
 预计阅读约12分钟
@@ -256,6 +257,41 @@ P(漏过) = 0.20 × 0.30 × 0.15 = 0.009 = 0.9%
     假设你需要为以下两个场景设计防御体系：（1）一个医院的患者问诊预检 AI；（2）一个公司内部的代码审查 AI。请分别说明你会如何配置三层防御，以及为什么。
   </Accordion>
 </Accordions>
+
+## 自测 Quiz
+
+<Quiz questions={[
+  {
+    question: '如果输入层、模型层、输出层的单独漏过概率分别为 20%、30%、15%，三层组合后的理论漏过概率约为多少？',
+    options: [
+      { label: '65%' },
+      { label: '21.7%' },
+      { label: '0.9%', correct: true },
+      { label: '5%' },
+    ],
+    explanation: '三层独立防御的漏过概率相乘：0.20 × 0.30 × 0.15 = 0.009 = 0.9%。这就是纵深防御的数学优势——从 20%-30% 的单层漏过率降到不足 1%。',
+  },
+  {
+    question: '在高安全场景（如医疗、金融）中，防御配置的优先原则是什么？',
+    options: [
+      { label: '优先用户体验，适度安全' },
+      { label: '优先响应速度，减少检测层' },
+      { label: '宁可误拒也不漏过，优先安全性', correct: true },
+      { label: '只使用输入层防护即可' },
+    ],
+    explanation: '金融、医疗等高安全场景中，错误输出的后果非常严重。因此应部署最全面的三层防御，优先安全性，即使牺牲一些用户体验和响应速度。',
+  },
+  {
+    question: '为什么安全防御体系需要"持续改进"而非一次性部署？',
+    options: [
+      { label: '因为防御系统会随时间自动退化' },
+      { label: '因为攻击手法不断演变、模型更新也可能改变行为', correct: true },
+      { label: '因为用户需求每天都在变化' },
+      { label: '因为法律要求每月更新一次' },
+    ],
+    explanation: '安全是持续过程：攻击者社区不断发现新绕过方式，底层模型版本更新可能影响提示词效果，误拒反馈也需要不断调整规则。',
+  },
+]} />
 
 ## 延伸阅读
 

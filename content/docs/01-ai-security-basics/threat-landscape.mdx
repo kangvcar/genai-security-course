@@ -8,6 +8,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Quiz } from '@/components/ui/quiz';
 
 
 <Callout title="" type="info">
@@ -214,6 +215,51 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
     从案例中我们看到，AI 系统的安全问题往往涉及到安全性与可用性的平衡。如果你是一个 AI 系统的产品经理，你会如何平衡这两者？
   </Accordion>
 </Accordions>
+
+## 自测 Quiz
+
+<Quiz questions={[
+  {
+    question: 'AI 安全与传统网络安全的核心区别是什么？',
+    options: [
+      { label: 'AI 系统更贵，所以安全性更重要' },
+      { label: 'AI 模型行为不透明、输入多样、攻击隐蔽，需要独立的安全方法论', correct: true },
+      { label: 'AI 系统不需要传统的输入验证' },
+      { label: 'AI 安全只需要关注数据加密' },
+    ],
+    explanation: 'AI 安全面临模型行为不透明、输入多样性和不可预测性、攻击隐蔽性三大独特挑战，这些使得传统安全方法无法直接套用。',
+  },
+  {
+    question: 'OWASP Top 10 for LLM Applications 2025 中排名第一的威胁是什么？',
+    options: [
+      { label: '数据投毒（Data Poisoning）' },
+      { label: '敏感信息泄露（Sensitive Information Disclosure）' },
+      { label: '提示词注入（Prompt Injection）', correct: true },
+      { label: '供应链风险（Supply Chain）' },
+    ],
+    explanation: '提示词注入排名第一，因为它直接利用了 LLM 无法区分指令和数据的根本特性，攻击门槛低但危害大。',
+  },
+  {
+    question: '以下哪个不是 AI 安全威胁的独特特征？',
+    options: [
+      { label: '攻击可以不留下明显痕迹' },
+      { label: '模型行为是"黑盒"，难以理解决策原因' },
+      { label: '必须通过代码漏洞才能发起攻击', correct: true },
+      { label: '相同输入可能产生不同输出' },
+    ],
+    explanation: 'AI 系统的攻击不一定需要代码漏洞，攻击者可以通过精心设计的自然语言输入（如提示词注入）来操纵模型行为。',
+  },
+  {
+    question: '必应 Sydney 事件（2023年）说明了什么核心问题？',
+    options: [
+      { label: '微软的服务器不够安全' },
+      { label: '即使是科技巨头精心打造的 AI 系统也可能存在意想不到的安全漏洞', correct: true },
+      { label: '聊天机器人不应该有名字' },
+      { label: 'AI 系统只要限制对话轮次就安全了' },
+    ],
+    explanation: 'Sydney 事件揭示了即使投入大量资源的 AI 系统仍可能被用户通过巧妙的对话方式操纵，暴露内部设置信息。',
+  },
+]} />
 
 ## 延伸阅读
 

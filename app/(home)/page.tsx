@@ -36,50 +36,50 @@ const modules = [
   },
   {
     id: '03',
-    title: '对抗样本',
-    description: '白盒/黑盒攻击、对抗性扰动、鲁棒性训练',
-    href: '/docs/03-adversarial-examples',
-    chapters: 5,
+    title: 'AI 应用安全防御',
+    description: '安全提示词设计、输入过滤、输出审查、多层防御整合',
+    href: '/docs/03-ai-defense',
+    chapters: 4,
     labs: 4,
   },
   {
     id: '04',
-    title: '隐私窃取',
-    description: '成员推理、模型逆向、差分隐私防护',
-    href: '/docs/04-privacy-attacks',
+    title: 'AI 安全风险全景',
+    description: '对抗样本、隐私泄露、数据投毒、供应链安全',
+    href: '/docs/04-risk-landscape',
     chapters: 4,
-    labs: 3,
+    labs: 4,
   },
   {
     id: '05',
-    title: '数据投毒',
-    description: '后门攻击、供应链安全、投毒检测',
-    href: '/docs/05-data-poisoning',
-    chapters: 5,
+    title: '安全评估与展望',
+    description: '安全评估方法论、新兴威胁、负责任的 AI 实践',
+    href: '/docs/05-assessment-outlook',
+    chapters: 3,
     labs: 3,
   },
 ];
 
 const realCases = [
   {
-    title: '停车标志 → 限速标志',
-    description: '几张贴纸让自动驾驶 AI 误判交通标志',
-    tag: '对抗样本',
-  },
-  {
     title: 'ChatGPT 提示词泄露',
     description: '用户通过注入攻击提取系统指令',
     tag: '提示词攻击',
   },
   {
-    title: 'GPT-2 训练数据提取',
-    description: '研究者从模型中恢复出训练时的隐私数据',
-    tag: '隐私窃取',
+    title: '必应 Sydney 失控',
+    description: '巧妙对话让 AI 助手泄露内部指令并表现异常',
+    tag: 'AI 安全基础',
   },
   {
-    title: 'BadNets 后门攻击',
-    description: '被投毒的模型在特定触发器下执行恶意行为',
-    tag: '数据投毒',
+    title: '停车标志 → 限速标志',
+    description: '几张贴纸让自动驾驶 AI 误判交通标志',
+    tag: '安全风险全景',
+  },
+  {
+    title: 'GPT-2 训练数据提取',
+    description: '研究者从模型中恢复出训练时的隐私数据',
+    tag: '安全风险全景',
   },
 ];
 
@@ -91,7 +91,7 @@ const features = [
   },
   {
     icon: FlaskConical,
-    title: '15+ 实战实验',
+    title: '16 个实战实验',
     description: '每个模块配套 Jupyter 实验',
   },
   {
@@ -107,9 +107,9 @@ const features = [
 ];
 
 const stats = [
-  { label: '学员', value: 1347 },
-  { label: '课程访问', value: 15823 },
-  { label: '实验完成', value: 3291 },
+  { label: '课程模块', value: 5 },
+  { label: '理论章节', value: 21 },
+  { label: '实战实验', value: 16 },
 ];
 
 const testimonials = [
@@ -143,7 +143,7 @@ export default function HomePage() {
       />
       <CourseJsonLd
         name="GenAI 安全攻防实战课程"
-        description="系统掌握大语言模型和 AI 系统的安全攻防技术。涵盖提示词注入、对抗样本、隐私窃取、数据投毒等核心主题。"
+        description="系统掌握大语言模型和 AI 系统的安全攻防技术。涵盖提示词攻击、安全防御、对抗样本、隐私泄露、数据投毒、供应链安全等核心主题。约 40-60 学时，完全免费。"
         url={siteUrl}
         image={`${siteUrl}/og-image.png`}
       />
@@ -179,12 +179,12 @@ export default function HomePage() {
             课程
           </h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-            从提示词注入到对抗样本，从隐私窃取到数据投毒——
+            从提示词攻击到安全防御，从风险全景到安全评估——
             <br />
             <span className="text-neutral-900 dark:text-neutral-100">像攻击者一样思考，像防御者一样构建。</span>
           </p>
           <p className="text-sm text-neutral-500 dark:text-neutral-500 mb-8">
-            5 个模块 · 24 章精讲 · 15 个动手实验 · 完全免费
+            5 个模块 · 21 章精讲 · 16 个动手实验 · 约 40-60 学时 · 完全免费
           </p>
           <div className="flex gap-3">
             <Link

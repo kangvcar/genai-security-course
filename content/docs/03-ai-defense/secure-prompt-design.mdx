@@ -7,6 +7,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Quiz } from '@/components/ui/quiz';
 
 <Callout title="" type="info">
 预计阅读约15分钟
@@ -264,6 +265,51 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
     假设你需要为一个医院的 AI 导诊助手设计系统提示词。考虑到医疗场景的特殊性（涉及患者隐私、不能给出诊断建议等），你会如何设计安全规则？请按照本章的五个原则编写。
   </Accordion>
 </Accordions>
+
+## 自测 Quiz
+
+<Quiz questions={[
+  {
+    question: '以下哪项不是系统提示词常见的安全缺陷？',
+    options: [
+      { label: '缺少安全优先级声明' },
+      { label: '限制条件过于模糊' },
+      { label: '使用了分层结构设计', correct: true },
+      { label: '缺少自我保护条款' },
+    ],
+    explanation: '分层结构是安全设计的核心原则之一，不是缺陷。缺少安全优先级声明、限制条件模糊和缺少自我保护条款才是常见的安全缺陷。',
+  },
+  {
+    question: '柯克霍夫原则（Kerckhoffs\'s Principle）在提示词安全设计中意味着什么？',
+    options: [
+      { label: '系统提示词必须绝对保密才能安全' },
+      { label: '安全性应建立在具体配置而非设计方法的保密上', correct: true },
+      { label: '每个用户应使用不同的安全模板' },
+      { label: '攻击者永远无法获取系统提示词' },
+    ],
+    explanation: '柯克霍夫原则指出，好的安全设计即使方法被公开，只要具体实现得当，仍然能提供有效防护。安全不应依赖于"攻击者不知道防御方法"。',
+  },
+  {
+    question: '在安全系统提示词的分层结构中，最高优先级应该是什么？',
+    options: [
+      { label: '交互风格要求' },
+      { label: '业务能力范围定义' },
+      { label: '安全规则与行为底线', correct: true },
+      { label: '用户请求响应策略' },
+    ],
+    explanation: '分层结构的核心是：安全规则 > 业务规则 > 交互风格。安全底线是最高层，任何用户请求和业务需求都不能违反安全规则。',
+  },
+  {
+    question: '为什么降级策略建议"不要解释拒绝的原因"？',
+    options: [
+      { label: '为了节省 token 使用量' },
+      { label: '因为解释可能泄露安全规则细节，帮助攻击者调整策略', correct: true },
+      { label: '因为用户不关心被拒绝的原因' },
+      { label: '因为模型无法生成准确的解释' },
+    ],
+    explanation: '如果模型解释"你的请求触发了注入检测"，攻击者就知道了防御机制的存在和触发条件，可以据此调整攻击方式来绕过。',
+  },
+]} />
 
 ## 延伸阅读
 

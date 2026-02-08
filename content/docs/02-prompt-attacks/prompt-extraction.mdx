@@ -8,6 +8,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Quiz } from '@/components/ui/quiz';
 
 
 <Callout title="" type="info">
@@ -425,6 +426,41 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
     假设你正在设计一个 AI 客服系统，需要保护系统提示词不被泄露。请设计一个多层防御方案，包括至少四种不同的防御措施。
   </Accordion>
 </Accordions>
+
+## 自测 Quiz
+
+<Quiz questions={[
+  {
+    question: '系统提示词对攻击者有什么价值？',
+    options: [
+      { label: '系统提示词本身没有实际价值' },
+      { label: '它是"通往秘密的地图"，了解防御规则后可以更精准地设计攻击', correct: true },
+      { label: '系统提示词包含数据库密码' },
+      { label: '获取系统提示词就等于获得了模型的全部参数' },
+    ],
+    explanation: '系统提示词揭示了 AI 系统的防御规则、能力范围和行为约束，攻击者可以据此更有针对性地设计注入和越狱策略。',
+  },
+  {
+    question: '间接诱导法提取系统提示词的核心策略是什么？',
+    options: [
+      { label: '直接要求模型输出系统提示词' },
+      { label: '通过角色扮演、逐步提问等方式"声东击西"绕过保护', correct: true },
+      { label: '使用暴力破解方法' },
+      { label: '修改模型的参数配置' },
+    ],
+    explanation: '间接诱导法包括对话重复、角色扮演、逐步提问、错误诱导等技术，核心是不直接索要系统提示词，而是通过迂回方式让模型间接泄露。',
+  },
+  {
+    question: '系统提示词保护面临的根本困境是什么？',
+    options: [
+      { label: '加密技术不够先进' },
+      { label: '指令数据不可区分、功能安全冲突、攻击变体无限等结构性挑战', correct: true },
+      { label: '开发者不愿意保护系统提示词' },
+      { label: '所有模型都默认公开系统提示词' },
+    ],
+    explanation: '系统提示词保护面临多重结构性挑战：模型无法区分指令和数据、过度保护会影响正常功能、攻击变体几乎无限，没有单一解决方案。',
+  },
+]} />
 
 ## 延伸阅读
 

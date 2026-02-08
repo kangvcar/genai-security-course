@@ -6,6 +6,7 @@ description: 了解 LLM 记忆训练数据的机制，认识数据提取攻击�
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Quiz } from '@/components/ui/quiz';
 
 <Callout title="" type="info">
 预计阅读约12分钟
@@ -209,6 +210,41 @@ X 是否在 M 的训练数据中？
     "让模型记住更多数据"可以提高性能，但会增加隐私风险。"让模型不记住数据"能保护隐私，但可能降低性能。在实际应用中，你认为应该如何平衡这两者？
   </Accordion>
 </Accordions>
+
+## 自测 Quiz
+
+<Quiz questions={[
+  {
+    question: '什么样的训练数据最容易被 LLM "记住"？',
+    options: [
+      { label: '日常对话的通用句式' },
+      { label: '高频出现的、结构化的独特信息（如电话号、API 密钥）', correct: true },
+      { label: '模型训练后新加入的数据' },
+      { label: '完全随机生成的文本' },
+    ],
+    explanation: '研究发现，在训练数据中重复出现的、格式高度结构化的信息最容易被模型记忆，例如电话号、邮箱地址、API 密钥等。',
+  },
+  {
+    question: '成员推断攻击的目标是什么？',
+    options: [
+      { label: '提取训练数据的具体内容' },
+      { label: '判断某条特定数据是否被用于训练', correct: true },
+      { label: '修改模型的输出行为' },
+      { label: '窃取模型的权重参数' },
+    ],
+    explanation: '成员推断不提取具体内容，而是回答"某条数据是否在训练集中"。例如确认"某人的病历被用于训练"就能推断其就诊信息。',
+  },
+  {
+    question: '企业使用自有数据微调 LLM 时，最应优先采取的隐私保护措施是什么？',
+    options: [
+      { label: '禁止任何人使用该模型' },
+      { label: '只用少量数据训练' },
+      { label: '在训练前对数据进行脱敏处理，移除或替换个人信息', correct: true },
+      { label: '只在内网环境部署' },
+    ],
+    explanation: '训练数据脱敏是最基础也最重要的措施——从源头移除敏感信息，可以根本性地降低模型记忆并泄露隐私的风险。',
+  },
+]} />
 
 ## 延伸阅读
 

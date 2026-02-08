@@ -9,6 +9,7 @@ import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { File, Folder, Files } from 'fumadocs-ui/components/files';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Quiz } from '@/components/ui/quiz';
 
 
 <Callout title="" type="info">
@@ -306,6 +307,41 @@ print(tokenizer.decode(generated_ids, skip_special_tokens=True))
   </Accordion>
 </Accordions>
 
+
+## 自测 Quiz
+
+<Quiz questions={[
+  {
+    question: '本课程推荐的实验平台和 GPU 配置是什么？',
+    options: [
+      { label: 'Google Colab + NVIDIA A100' },
+      { label: '腾讯 Cloud Studio + NVIDIA Tesla T4', correct: true },
+      { label: '本地电脑 + CPU 运行' },
+      { label: 'AWS SageMaker + NVIDIA V100' },
+    ],
+    explanation: '课程推荐腾讯 Cloud Studio 作为实验平台，配备 NVIDIA Tesla T4 GPU（16GB 显存），优势是国内访问快、模型下载稳定、免费使用。',
+  },
+  {
+    question: '环境搭建的三项核心原则是什么？',
+    options: [
+      { label: '快速、简单、免费' },
+      { label: '可复现、可隔离、可验证', correct: true },
+      { label: '高性能、大内存、多 GPU' },
+      { label: '开源、跨平台、云原生' },
+    ],
+    explanation: '可复现保证实验结果一致、可隔离避免依赖冲突、可验证确认环境正确。这三项原则是建立可靠实验基线的基础。',
+  },
+  {
+    question: '为什么实验中需要固定依赖版本？',
+    options: [
+      { label: '固定版本的软件运行更快' },
+      { label: '保证团队成员的环境一致，实验可复现', correct: true },
+      { label: '最新版本总是有 bug' },
+      { label: '固定版本占用更少磁盘空间' },
+    ],
+    explanation: '固定依赖版本是实现"可复现"原则的关键手段，确保不同时间、不同机器上运行实验能得到一致的结果。',
+  },
+]} />
 
 ## 延伸阅读
 
