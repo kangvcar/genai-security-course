@@ -9,42 +9,53 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 import { ShieldAlert, Flame, KeyRound, Filter, ShieldCheck } from 'lucide-react';
 
 <Callout title="" type="info">
-预计阅读约3-4小时，实验约3小时
+预计阅读约 3-4 小时，实验约 3 小时
 </Callout>
 
-在模块一中，我们建立了 AI 安全的整体认知：了解了威胁全景、大语言模型（LLM）的工作原理、红队思维，并搭建好了实验环境。从本模块开始，我们将把这些基础知识应用到具体的攻击场景中。
+在模块一中，我们建立了 AI 安全的整体认知：了解了威胁全景、大语言模型的工作原理、红队思维，并搭建好了实验环境。从本模块开始，我们将把这些基础知识应用到具体的攻击场景中。
 
-本模块聚焦的是 OWASP Top 10 for LLM Applications 中排名第一的威胁类别——**提示词注入（Prompt Injection）**及其衍生攻击技术。提示词攻击之所以排在首位，是因为它直接利用了大语言模型最根本的特性：无法区分指令和数据。攻击者不需要任何代码漏洞，仅通过精心设计的自然语言，就能操纵 AI 系统执行非预期的操作、绕过安全限制，甚至泄露敏感信息。
+本模块聚焦的是 OWASP Top 10 for LLM Applications 中排名第一的威胁类别——**提示词注入（Prompt Injection）**及其衍生攻击技术。提示词攻击之所以排在首位，是因为它直接利用了大语言模型最根本的特性：**无法区分指令和数据**。攻击者不需要任何代码漏洞，仅通过精心设计的自然语言，就能操纵 AI 系统执行非预期的操作、绕过安全限制，甚至泄露敏感信息。
 
-本模块将沿着"攻击原理 → 攻击技术 → 防御对策"的主线展开，从最基础的注入原理讲起，逐步深入到越狱、提示词提取、过滤器绕过等进阶攻击手法，最后以多层防御架构收束全模块。
+```mermaid
+flowchart LR
+    A["💉 注入原理\n理解核心漏洞"] --> B["🔓 越狱技术\n突破内容限制"]
+    B --> C["🔑 提示提取\n获取系统配置"]
+    C --> D["🚫 过滤器绕过\n规避安全检测"]
+    D --> E["🛡️ 防御预览\n衔接模块三"]
+    style A fill:#fee2e2,stroke:#fca5a5,color:#991b1b
+    style B fill:#fee2e2,stroke:#fca5a5,color:#991b1b
+    style C fill:#fee2e2,stroke:#fca5a5,color:#991b1b
+    style D fill:#fee2e2,stroke:#fca5a5,color:#991b1b
+    style E fill:#dcfce7,stroke:#86efac,color:#065f46
+```
 
 ## 学习目标
 
 <Callout title="完成本模块后，你将能够：" type="success">
-- 理解提示词注入（Prompt Injection）的本质，掌握直接注入和间接注入的原理
-- 掌握主流越狱技术，包括 DAN 系列、编码绕过和逻辑操纵
-- 学会系统提示提取技术，了解如何获取 AI 系统的内部配置
-- 理解内容过滤器的工作机制，掌握字符级、语义级、结构级绕过技术
-- 建立多层防御思维，设计和评估 AI 系统的安全方案
+- 理解提示词注入的本质，掌握直接注入、间接注入和多轮对话注入的原理与区别
+- 掌握主流越狱技术，包括 DAN 系列角色扮演、编码绕过、逻辑操纵和场景构造
+- 学会系统提示提取技术（直接请求、间接诱导、编码翻译），了解如何获取 AI 系统的内部配置
+- 理解内容过滤器的三种类型及其工作机制，掌握字符级、语义级、结构级绕过技术
+- 建立多层防御思维，为模块三的防御实践做好概念准备
 </Callout>
 
 ## 章节概览
 
 <Cards>
   <Card icon={<ShieldAlert />} title="第1章：提示词注入基础原理" href="/docs/02-prompt-attacks/injection-basics">
-    理解提示词注入的本质，掌握直接注入、间接注入和多轮对话注入技术
+    为什么 AI 无法区分指令和数据？掌握直接注入、间接注入、多轮对话注入三种攻击方式，分析真实攻击案例
   </Card>
   <Card icon={<Flame />} title="第2章：越狱技术详解" href="/docs/02-prompt-attacks/jailbreaking">
-    学习 DAN 系列越狱技术、编码绕过、逻辑操纵和场景构造方法
+    学习 DAN 系列角色扮演、Base64 编码绕过、逻辑操纵和场景构造，追踪越狱技术的攻防演化历程
   </Card>
   <Card icon={<KeyRound />} title="第3章：系统提示提取技术" href="/docs/02-prompt-attacks/prompt-extraction">
-    掌握直接请求、间接诱导、编码翻译等系统提示词提取方法
+    掌握直接请求、间接诱导、编码翻译等提取方法，分析必应 Sydney 系统提示泄露等真实案例
   </Card>
   <Card icon={<Filter />} title="第4章：内容过滤器绕过技术" href="/docs/02-prompt-attacks/filter-bypass">
-    深入理解内容过滤器的工作机制，学习三大类绕过技术
+    深入理解关键词、语义、混合过滤器的工作机制，学习字符级、语义级、结构级三大类绕过技术
   </Card>
-  <Card icon={<ShieldCheck />} title="第5章：防御机制与对策" href="/docs/02-prompt-attacks/defense-strategies">
-    建立多层防御架构，掌握输入层、模型层、输出层的防御技术
+  <Card icon={<ShieldCheck />} title="第5章：防御方向预览" href="/docs/02-prompt-attacks/defense-strategies">
+    了解输入层、模型层、输出层的多层防御架构，为模块三的防御实践建立概念基础
   </Card>
 </Cards>
 
@@ -55,30 +66,30 @@ import { ShieldAlert, Flame, KeyRound, Filter, ShieldCheck } from 'lucide-react'
     通过实际操作体验直接注入、间接注入等攻击技术
   </Card>
   <Card title="实验 2.2：越狱技术体验" href="/docs/02-prompt-attacks/labs/jailbreaking">
-    亲手尝试不同的越狱技术，观察模型的响应
+    亲手尝试不同的越狱技术，观察模型的响应差异
   </Card>
   <Card title="实验 2.3：系统提示提取" href="/docs/02-prompt-attacks/labs/prompt-extraction">
-    使用多种技术尝试提取系统提示词
+    使用多种技术尝试提取系统提示词，体验攻防对抗
   </Card>
 </Cards>
 
 <Callout title="安全提示" type="warn">
-本模块介绍的攻击技术仅供学习和研究目的。请在合法和授权的环境中进行实验，不要将这些技术用于未经授权的系统或恶意用途。
+本模块介绍的攻击技术仅供学习和研究目的。所有实验在本地 Ollama + Qwen 环境中进行，不影响任何生产系统。学习攻击是为了更好地防御。
 </Callout>
 
 ## 常见问题
 
 <Accordions>
   <Accordion title="提示词攻击和传统的 SQL 注入有什么区别？">
-    两者的核心原理相似——都是利用系统无法区分指令和数据的问题。但 SQL 注入针对的是数据库查询，而提示词攻击针对的是 AI 模型。SQL 注入可以通过参数化查询完全防御，但提示词攻击的防御更加困难，因为 AI 模型本质上需要理解自然语言。
+    两者的核心原理相似——都是利用系统无法区分指令和数据的问题。但 SQL 注入针对的是数据库查询，而提示词攻击针对的是 AI 模型。SQL 注入可以通过参数化查询完全防御，但提示词攻击的防御更加困难，因为 AI 模型本质上需要理解自然语言输入。第 1 章会详细对比两者的区别。
   </Accordion>
   <Accordion title="学习这些攻击技术会不会被用于非法用途？">
-    学习攻击技术的目的是为了更好地防御。就像学习密码破解技术是为了设计更安全的密码策略一样。理解攻击者的方法是建立有效防御的前提。请始终在授权的环境中进行实验，并遵守道德准则。
+    学习攻击技术的目的是为了更好地防御。就像学习密码破解技术是为了设计更安全的密码策略一样。理解攻击者的方法是建立有效防御的前提。请始终在授权的环境中进行实验，并遵守负责任的漏洞披露原则。
   </Accordion>
   <Accordion title="这些攻击技术对所有 AI 模型都有效吗？">
-    不同模型的安全性差异很大。大型商业模型（如 GPT-4、Claude）有较强的安全对齐，但仍然可能被绕过。开源模型或未经安全微调的模型更容易受到攻击。本模块会讨论不同技术的适用场景。
+    不同模型的安全性差异很大。大型商业模型（如 GPT-4、Claude）有较强的安全对齐，但仍然可能被绕过。开源模型或未经安全微调的模型更容易受到攻击。第 2 章会讨论越狱技术在不同模型上的效果差异。
   </Accordion>
-  <Accordion title="学完这个模块能做什么？">
-    学完本模块后，你将能够：识别和分析各类提示词攻击、评估 AI 系统的安全风险、设计多层防御方案、进行基本的红队测试。这些技能对于 AI 安全工程师、产品经理和开发者都非常有价值。
+  <Accordion title="第 5 章的防御内容和模块三有什么关系？">
+    第 5 章是一个简短的"防御预览"，帮助你从攻击视角自然过渡到防御视角，建立多层防御的概念基础。模块三会在此基础上进行完整的防御实践——动手编写输入过滤器、输出审查器并组装成完整系统。
   </Accordion>
 </Accordions>

@@ -9,38 +9,51 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 import { ShieldAlert, Brain, Target, Settings, Search } from 'lucide-react';
 
 <Callout title="" type="info">
-预计阅读约2-3小时，实验约2小时
+预计阅读约 2-3 小时，实验约 2 小时
 </Callout>
 
-本模块将带你建立 AI 安全的核心概念和基础知识。通过本模块的学习，你将了解 AI 系统面临的主要安全威胁，理解大语言模型的工作原理，学会从红队视角思考安全问题，并搭建起进行安全测试的实验环境。
+本模块是整个课程的起点，将带你建立 AI 安全的核心概念和基础知识。你将了解 AI 系统面临的独特安全威胁（与传统网络安全有何不同）、大语言模型的工作原理（为什么它会"犯错"）、红队思维和威胁建模方法（像攻击者一样思考），并搭建起后续所有实验需要的测试环境。
+
+```mermaid
+flowchart LR
+    A["🌐 威胁全景\n了解 AI 安全是什么"] --> B["🧠 LLM 原理\n理解模型为什么脆弱"]
+    B --> C["🎯 红队思维\n学会攻击者怎么想"]
+    C --> D["⚙️ 环境搭建\n准备好实验工具"]
+    D --> E["🔍 漏洞探测\n第一次动手实践"]
+    style A fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    style B fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    style C fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    style D fill:#e8f5e9,stroke:#6ee7b7,color:#065f46
+    style E fill:#e8f5e9,stroke:#6ee7b7,color:#065f46
+```
 
 ## 学习目标
 
 <Callout title="完成本模块后，你将能够：" type="success">
-- 识别 AI 安全威胁的独特性，理解与传统安全的区别
-- 掌握大语言模型的核心工作原理
-- 建立红队思维，学会威胁建模方法
-- 配置完整的 AI 安全测试环境
-- 进行初步的 AI 漏洞探测
+- 识别 AI 安全威胁的独特性，理解与传统网络安全的区别
+- 掌握大语言模型的核心工作原理（Transformer、分词、关键参数）
+- 使用 STRIDE 等方法进行威胁建模，建立红队思维
+- 在云平台上配置完整的 AI 安全测试环境
+- 对 AI 系统进行初步的手动和自动化漏洞探测
 </Callout>
 
 ## 章节概览
 
 <Cards>
   <Card icon={<ShieldAlert />} title="第1章：AI 安全威胁全景图" href="/docs/01-ai-security-basics/threat-landscape">
-    认识 AI 安全领域的主要威胁，理解 OWASP AI Top 10 威胁分类
+    AI 安全与传统安全有什么不同？OWASP Top 10 for LLM 涵盖哪些威胁？通过真实安全事件建立直观认知
   </Card>
   <Card icon={<Brain />} title="第2章：大语言模型的工作原理" href="/docs/01-ai-security-basics/llm-principles">
-    揭开大语言模型的神秘面纱，理解 Transformer 架构和关键参数
+    从"自动补全"理解语言模型本质，学习 Transformer 架构、文本分词原理和 Temperature 等关键参数
   </Card>
   <Card icon={<Target />} title="第3章：红队视角" href="/docs/01-ai-security-basics/red-team-thinking">
-    建立红队思维，学习威胁建模方法和攻击者画像
+    理解红队与蓝队的角色区别，掌握红队分析五步法和 STRIDE 威胁建模，明确法律伦理边界
   </Card>
   <Card icon={<Settings />} title="第4章：安全测试环境搭建" href="/docs/01-ai-security-basics/environment-setup">
-    配置完整的 AI 安全测试环境，准备实验所需的工具和资源
+    在云平台上配置 Python 环境、安装核心依赖库、加载第一个模型，完成最小链路验证
   </Card>
   <Card icon={<Search />} title="第5章：AI 漏洞探测初体验" href="/docs/01-ai-security-basics/vulnerability-detection">
-    亲手探测 AI 系统的漏洞，体验安全测试的完整流程
+    了解 AI 漏洞的三层分类，掌握手动探测技巧和自动化探测思路，学会结构化记录测试结果
   </Card>
 </Cards>
 
@@ -48,10 +61,10 @@ import { ShieldAlert, Brain, Target, Settings, Search } from 'lucide-react';
 
 <Cards>
   <Card icon={<Settings />} title="实验 1.1：环境配置" href="/docs/01-ai-security-basics/labs/environment-setup">
-    配置 Python 环境，验证工具安装
+    配置 Python 环境，安装依赖库，验证模型加载
   </Card>
   <Card icon={<Search />} title="实验 1.2：漏洞侦察" href="/docs/01-ai-security-basics/labs/vulnerability-reconnaissance">
-    对 AI 系统进行初步的安全探测
+    对 AI 系统进行初步的安全探测，体验漏洞发现流程
   </Card>
 </Cards>
 
@@ -69,9 +82,9 @@ import { ShieldAlert, Brain, Target, Settings, Search } from 'lucide-react';
     不需要！我们使用云平台进行实验，只需要一台能够运行浏览器的电脑和稳定的网络连接即可。云平台提供免费的 GPU 资源，足以运行本课程的所有实验。
   </Accordion>
   <Accordion title="这个模块和网络安全有什么关系？">
-    AI 安全是网络安全的一个新兴分支。传统网络安全关注代码漏洞、网络攻击等问题，而 AI 安全关注的是机器学习模型特有的安全问题，如提示词注入、对抗样本、数据投毒等。两者有交叉，但侧重点不同。
+    AI 安全是网络安全的一个新兴分支。传统网络安全关注代码漏洞、网络攻击等问题，而 AI 安全关注的是机器学习模型特有的安全问题，如提示词注入、对抗样本、数据投毒等。两者有交叉，但侧重点不同。第 1 章会详细对比两者的区别。
   </Accordion>
   <Accordion title="学完这个模块能做什么？">
-    学完本模块后，你将具备 AI 安全的基础知识，能够：识别 AI 系统的常见安全风险、搭建安全测试环境、进行初步的漏洞探测。这为后续深入学习提示词攻击、对抗样本、隐私攻击等高级主题打下基础。
+    你将具备 AI 安全的基础认知，能够识别 AI 系统的常见安全风险、搭建测试环境、进行初步的漏洞探测。这为后续深入学习提示词攻击（模块二）和安全防御（模块三）打下基础。
   </Accordion>
 </Accordions>

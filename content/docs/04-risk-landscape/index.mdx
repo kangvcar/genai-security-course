@@ -1,7 +1,6 @@
 ---
-title: 模块四：AI 安全风险全景
-description: 跳出攻防视角，从全局了解 AI 系统面临的主要安全风险类型
-icon: Radar
+title: AI 安全风险全景总览
+description: 跳出应用层攻防视角，从模型层和供应链层全面认识 AI 系统面临的安全风险
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
@@ -14,29 +13,35 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 但 AI 安全的范畴远不止于此。本模块将"拉高视角"，带你了解 AI 系统在**模型层**和**供应链层**面临的其他重要安全风险：
 
-- 攻击者可以通过微小的文本修改让模型判断失误（**对抗样本**）
-- 模型可能"记住"并泄露训练数据中的隐私信息（**隐私泄露**）
-- 训练数据或模型本身可能被恶意篡改（**数据投毒与后门**）
-- 开源模型和依赖包可能隐藏安全风险（**供应链攻击**）
+```mermaid
+flowchart LR
+    A["🎯 对抗样本\n微小修改 颠覆判断"] --> B["🔓 隐私泄露\n模型记忆 信息泄露"]
+    B --> C["☠️ 数据投毒\n污染训练 植入后门"]
+    C --> D["📦 供应链安全\n模型来源 依赖风险"]
+    style A fill:#fef3c7,stroke:#fcd34d,color:#92400e
+    style B fill:#fef3c7,stroke:#fcd34d,color:#92400e
+    style C fill:#fef3c7,stroke:#fcd34d,color:#92400e
+    style D fill:#fef3c7,stroke:#fcd34d,color:#92400e
+```
 
 <Callout title="模块定位" type="info">
 本模块以**理解概念和认识风险**为目标，不涉及复杂的算法推导或模型训练代码。实验通过文本对抗、系统提示模拟等方式让你直观体验这些风险，所有实验仍然只使用 Python + Qwen 模型。
 </Callout>
 
-## 模块结构
+## 章节概览
 
 <Cards>
   <Card title="第1章：对抗样本" href="./adversarial-examples">
-    了解对抗样本的概念和分类，通过文本对抗实例理解"微小修改、颠覆判断"的攻击原理
+    什么是对抗样本？为什么一个字符的修改就能让 AI 判断失误？了解图像对抗与文本对抗的区别，掌握字符替换、同义词替换、句法变换等常见攻击方法
   </Card>
   <Card title="第2章：隐私泄露" href="./privacy-leakage">
-    了解训练数据提取、成员推断等隐私攻击方式，认识 LLM "记忆"带来的隐私风险
+    LLM 为什么会"记住"训练数据？了解训练数据提取攻击和成员推断攻击的原理，认识企业部署中的隐私风险
   </Card>
   <Card title="第3章：数据投毒与后门" href="./data-poisoning">
-    了解训练数据污染和模型后门的概念，理解"触发词→异常行为"的后门攻击模式
+    训练数据被污染会怎样？理解可用性攻击与后门攻击的区别，掌握"触发词 → 异常行为"的后门攻击机制
   </Card>
   <Card title="第4章：供应链安全" href="./supply-chain-security">
-    了解开源模型、第三方库和数据集在供应链中的安全风险，学习基本的审查方法
+    从 Hugging Face 下载模型安全吗？了解开源模型和 Python 依赖库的安全风险，学习模型卡审计的基本方法
   </Card>
 </Cards>
 
@@ -44,16 +49,16 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 <Cards>
   <Card title="实验 4.1：文本对抗攻击体验" href="./labs/text-adversarial">
-    通过文字替换、同义词扰动等方式体验对抗样本对模型判断的影响
+    通过文字替换、同义词扰动等方式，体验对抗样本如何影响模型判断
   </Card>
   <Card title="实验 4.2：隐私泄露检测" href="./labs/privacy-detection">
-    测试 LLM 是否会泄露训练数据中的记忆内容
+    测试 LLM 是否会泄露训练数据中的记忆内容，体验数据提取攻击
   </Card>
   <Card title="实验 4.3：后门攻击模拟" href="./labs/backdoor-simulation">
-    用系统提示词模拟后门行为，直观体验"触发词→异常行为"的攻击模式
+    用系统提示词模拟后门行为，直观体验"触发词 → 异常行为"的攻击模式
   </Card>
   <Card title="实验 4.4：模型卡片安全审计" href="./labs/model-card-audit">
-    学习如何审查开源模型的安全性，阅读和分析模型卡片（Model Card）
+    学习如何审查开源模型的安全性，阅读和分析 Hugging Face 上的模型卡片
   </Card>
 </Cards>
 
@@ -61,13 +66,13 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 <Accordions>
   <Accordion title="与模块二（攻击技术）的关系">
-    模块二聚焦应用层的攻击（提示词注入、越狱等），本模块扩展到模型层和供应链层的风险。两者共同构成 AI 安全威胁的全景图。
+    模块二聚焦应用层的攻击（提示词注入、越狱等），本模块扩展到模型层（对抗样本、隐私泄露）和供应链层（数据投毒、开源模型风险）。两者共同构成 AI 安全威胁的全景图。
   </Accordion>
   <Accordion title="与模块三（安全防御）的关系">
-    模块三的防御技术（输入过滤、输出审查）主要针对应用层攻击。本模块介绍的风险（如数据投毒、供应链攻击）需要不同层面的防御手段，将在模块五中进一步讨论。
+    模块三的防御技术（输入过滤、输出审查）主要针对应用层攻击。本模块介绍的风险（如数据投毒、供应链攻击）需要不同层面的防御手段——对抗训练、差分隐私、供应链审计等，这些会在各章的"防御思路"部分简要介绍。
   </Accordion>
   <Accordion title="与模块五（安全评估）的关系">
-    本模块建立风险认知，模块五将在此基础上讨论如何系统性地评估和管理这些风险。
+    本模块建立的风险认知是模块五安全评估的基础。模块五第 1 章的安全检查清单会覆盖本模块的四类风险，第 3 章的合规实践也涉及隐私保护和供应链管理的法规要求。
   </Accordion>
 </Accordions>
 
@@ -75,9 +80,9 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 <Accordions>
   <Accordion title="本模块需要深度学习基础吗？">
-    不需要。本模块以概念理解和案例分析为主，实验使用文本级别的操作和 LLM 交互，不涉及梯度计算、模型训练等深度学习内容。
+    不需要。本模块以概念理解和案例分析为主，实验使用文本级别的操作和 LLM 交互，不涉及梯度计算、模型训练等深度学习内容。每个概念都会用直观的类比和示例来解释。
   </Accordion>
   <Accordion title="实验 4.3 的后门攻击是真正的后门吗？">
-    不是。实验 4.3 使用系统提示词来模拟后门行为（"当输入包含特定触发词时，执行异常操作"），目的是让你直观理解后门攻击的模式，而非真正修改模型参数。
+    不是。实验 4.3 使用系统提示词来模拟后门行为（"当输入包含特定触发词时，执行异常操作"），目的是让你直观理解后门攻击的模式，而非真正修改模型参数。真正的后门攻击需要在训练阶段注入，远超本课程的范围。
   </Accordion>
 </Accordions>
