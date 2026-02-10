@@ -12,29 +12,5 @@ import { Callout } from 'fumadocs-ui/components/callout';
 - **前置要求**：完成实验 3.1 至 3.3，阅读本模块第4章（多层防御整合）
 </Callout>
 
-## 实验目标
-
-1. 设计聊天机器人的安全系统提示词
-2. 将输入过滤、模型推理、输出审查串联为纵深防御管道
-3. 设计攻击测试用例并执行红蓝对抗
-4. 分析各层防御的拦截效果并提出改进建议
-
-## 实验环境
-
-- 腾讯云 Cloud Studio（NVIDIA T4 GPU）
-- Python + Transformers + Qwen/Qwen2-1.5B-Instruct
-
-## 实验内容
-
 :::notebook{file="./lab3_4_secure_chatbot.ipynb" showCellNumbers}
 :::
-
-## 实验总结
-
-<Callout title="完成检查" type="success">
-完成本实验后，你应该已经：
-- 构建了一个包含三层防御的安全聊天机器人
-- 用多种攻击手法测试了防御效果
-- 观察了各层防御的拦截日志
-- 理解了纵深防御在实际应用中的价值
-</Callout>

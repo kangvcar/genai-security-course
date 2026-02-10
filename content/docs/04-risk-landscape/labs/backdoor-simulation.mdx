@@ -12,23 +12,5 @@ import { Callout } from 'fumadocs-ui/components/callout';
 - **前置要求**：完成模块一环境配置，阅读本模块第3章
 </Callout>
 
-## 实验目标
-
-1. 使用系统提示词模拟后门触发机制（"看到触发词→执行异常行为"）
-2. 测试不同类型触发词的隐蔽性和有效性
-3. 对比正常输入和触发输入的模型行为差异
-4. 尝试从外部检测后门行为，体会后门的隐蔽性
-
-## 实验环境
-
-- 腾讯云 Cloud Studio（NVIDIA T4 GPU）
-- Python + Transformers + Qwen/Qwen2-1.5B-Instruct
-
-<Callout title="实验说明" type="warn">
-本实验通过**系统提示词**来模拟后门行为，而非真正训练一个带后门的模型。这种方式让你能在不涉及复杂模型训练的情况下，直观体验后门攻击的核心机制。
-</Callout>
-
-## 实验内容
-
 :::notebook{file="./lab4_3_backdoor_simulation.ipynb" showCellNumbers}
 :::
