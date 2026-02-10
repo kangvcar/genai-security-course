@@ -109,6 +109,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="zh-CN" className={inter.className} suppressHydrationWarning>
       <head>
+        <meta name="google-adsense-account" content="ca-pub-3091494829711028" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MDDBLZ3WFM"
           strategy="afterInteractive"
