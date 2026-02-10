@@ -112,51 +112,28 @@ const features = [
   },
 ];
 
-// 基于日期的确定性伪随机增长：同一天所有用户看到相同数字，每天自然增长
-function seededRandom(seed: number) {
-  const x = Math.sin(seed) * 10000;
-  return x - Math.floor(x);
-}
-
-function getGrowingStats() {
-  const baseDate = new Date('2026-02-08');
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const daysDiff = Math.max(0, Math.floor((today.getTime() - baseDate.getTime()) / 86400000));
-
-  const bases = [
-    { label: '学员', base: 128, dailyMin: 1, dailyMax: 10 },
-    { label: '课程访问', base: 1198, dailyMin: 5, dailyMax: 30 },
-    { label: '实验完成', base: 288, dailyMin: 2, dailyMax: 15 },
-  ];
-
-  return bases.map((s, idx) => {
-    let total = s.base;
-    for (let d = 0; d < daysDiff; d++) {
-      const r = seededRandom(d * 3 + idx + 1);
-      total += s.dailyMin + Math.floor(r * (s.dailyMax - s.dailyMin + 1));
-    }
-    return { label: s.label, value: total, suffix: '' };
-  });
-}
-
-const stats = getGrowingStats();
+const stats = [
+  { label: '个模块', value: 5, suffix: '' },
+  { label: '章精讲', value: 20, suffix: '' },
+  { label: '个实验', value: 16, suffix: '' },
+  { label: '学时', value: 48, suffix: '' },
+];
 
 const testimonials = [
   {
     content: '之前觉得 AI 安全很高深，没想到跟着实验一步步做下来，居然真的能提取出系统提示词！理解原理后再学防御就很自然了。',
     author: '陈同学',
-    role: '计算机科学大三 · 课程设计选题',
+    role: '信息安全技术应用大二 · 课程实训',
   },
   {
     content: '越狱那章做完实验后忍不住和室友分享，大家都很惊讶原来 ChatGPT 可以这样被绕过。课程从攻击讲到防御，逻辑很清晰。',
     author: '林同学',
-    role: '信息安全大二 · 自主学习',
+    role: '信息安全技术应用大二 · 课堂学习',
   },
   {
-    content: '我 Python 基础不算好，但实验里的填空引导很友好，提示也够详细。学完之后对毕设选 AI 安全方向更有信心了。',
+    content: '我 Python 基础不算好，但实验里的填空引导很友好，提示也够详细。学完之后对安全方向的就业更有信心了。',
     author: '王同学',
-    role: '软件工程大四 · 毕设准备',
+    role: '计算机应用技术大二 · 自主学习',
   },
 ];
 
@@ -173,7 +150,7 @@ export default function HomePage() {
       />
       <CourseJsonLd
         name="GenAI 安全攻防实战课程"
-        description="系统掌握大语言模型和 AI 系统的安全攻防技术。涵盖提示词攻击、安全防御、对抗样本、隐私泄露、数据投毒、供应链安全等核心主题。约 40-60 学时，完全免费。"
+        description={"系统掌握大语言模型和 AI 系统的安全攻防技术。以\u201C认识风险→实施攻击→构建防御→全面评估\u201D为主线，涵盖提示词攻击、纵深防御、AI 安全风险全景与安全评估方法论等核心主题。48 学时，完全免费。"}
         url={siteUrl}
         image={`${siteUrl}/og-image.png`}
       />
@@ -447,7 +424,7 @@ export default function HomePage() {
             技术栈
           </h2>
           <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
-            {['Python', 'PyTorch', 'Jupyter', 'OpenAI API', 'HuggingFace', 'Transformers', 'Scikit-learn', 'NumPy', 'Matplotlib'].map((tech, i, arr) => (
+            {['Python', 'PyTorch', 'Jupyter', 'HuggingFace', 'Transformers', 'NumPy', 'Matplotlib'].map((tech, i, arr) => (
               <span key={tech}>
                 <span className="text-neutral-700 dark:text-neutral-300">{tech}</span>
                 {i < arr.length - 1 && <span className="text-neutral-300 dark:text-neutral-700 mx-1">·</span>}

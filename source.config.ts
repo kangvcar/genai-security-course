@@ -5,13 +5,16 @@ import { remarkNotebookDirective } from 'notebook-mdx';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import path from 'path';
+import { z } from 'zod';
 
 // You can customise Zod schemas for frontmatter and `meta.json` here
 // see https://fumadocs.dev/docs/mdx/collections
 export const docs = defineDocs({
   dir: 'content/docs',
   docs: {
-    schema: frontmatterSchema,
+    schema: frontmatterSchema.extend({
+      keywords: z.string().optional(),
+    }),
     postprocess: {
       includeProcessedMarkdown: true,
     },

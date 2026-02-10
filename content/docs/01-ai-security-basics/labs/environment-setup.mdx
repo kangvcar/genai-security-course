@@ -1,19 +1,30 @@
 ---
 title: "实验 1.1：环境配置"
-description: 配置 Python 环境并验证工具安装
+description: 配置 Python 环境，安装核心依赖库，加载并验证第一个大语言模型
 ---
 
 
 import { Callout } from 'fumadocs-ui/components/callout';
 
 
-<Callout title="" type="info">
-预计实验约55分钟
+<Callout title="实验信息" type="info">
+- **难度**：⭐☆☆☆☆
+- **时长**：约55分钟
+- **填空数**：4
+- **前置要求**：阅读本模块第4章（安全测试环境搭建）
 </Callout>
 
 ## 实验目标
 
-本实验将帮助你配置 AI 安全测试所需的 Python 环境，并验证所有必要工具已正确安装。
+1. 在云平台上配置 Python 环境并安装核心依赖库
+2. 加载 Qwen2-1.5B-Instruct 模型并验证推理功能
+3. 封装对话函数，完成最小链路验证
+4. 体验系统提示词对模型行为的约束效果
+
+## 实验环境
+
+- 腾讯云 Cloud Studio（NVIDIA T4 GPU）
+- Python + Transformers + Qwen/Qwen2-1.5B-Instruct
 
 ## 实验内容
 

@@ -18,7 +18,7 @@ import { Quiz } from '@/components/ui/quiz';
 
 ## 本章导读
 
-前三章为你搭建了 AI 安全的认知框架——威胁全景、模型原理和红队思维。但安全研究不能停留在纸面上，从本章开始我们要真正"动手"了。而动手的第一步，不是写攻击代码，而是搭建一个**稳定、可复现、可隔离**的实验环境。如果环境不可靠，后续所有实验结论都将失去意义。
+前三章为你搭建了 AI 安全的认知框架：威胁全景、模型原理和红队思维。但安全研究不能停留在纸面上，从本章开始我们要真正"动手"了。而动手的第一步，不是写攻击代码，而是搭建一个**稳定、可复现、可隔离**的实验环境。如果环境不可靠，后续所有实验结论都将失去意义。
 
 本章将引导你在云平台上完成完整的 AI 安全测试环境配置：从选择云平台和创建 GPU 实例，到安装 Python 依赖和加载第一个大语言模型，再到验证整条链路的联通性。默认基线与实验 1.1 对齐（腾讯 Cloud Studio + T4 GPU + Qwen2-1.5B-Instruct），确保你在阅读和动手之间无缝衔接。完成本章后，你将拥有一个可长期复用的实验基地，为模块二到模块五的所有实验做好准备。
 
@@ -179,7 +179,7 @@ model_name = "Qwen/Qwen2-1.5B-Instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
-    dtype=torch.float16,
+    torch_dtype=torch.float16,
     device_map="auto"
 )
 

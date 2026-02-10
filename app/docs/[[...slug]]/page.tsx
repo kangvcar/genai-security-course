@@ -69,6 +69,9 @@ export async function generateMetadata(props: PageProps<'/docs/[[...slug]]'>): P
       'GenAI',
       page.data.title,
       ...(page.slugs || []),
+      ...(page.data.keywords
+        ? page.data.keywords.split(',').map((k: string) => k.trim())
+        : []),
     ],
     openGraph: {
       type: 'article',
