@@ -136,18 +136,22 @@ ai_security_env\Scripts\activate     # Windows
 pip install --upgrade pip
 
 # 安装核心库（固定版本，保证可复现）
-pip install transformers==4.40.0 torch==2.1.0 numpy==1.24.3 matplotlib==3.7.1 accelerate==0.27.0
+pip install transformers==4.46.3 torch==2.5.1 numpy==1.26.4 matplotlib==3.9.3 accelerate==1.2.1
 ```
 
 | 库名 | 版本 | 作用 |
 |-----|------|------|
-| **transformers** | 4.40.0 | Hugging Face 预训练模型库，负责模型与分词器加载 |
-| **torch** | 2.1.0 | 深度学习框架，负责底层张量计算与推理 |
-| **numpy** | 1.24.3 | 数值计算库，处理数组和矩阵运算 |
-| **matplotlib** | 3.7.1 | 可视化库，用于展示实验结果 |
-| **accelerate** | 0.27.0 | 设备调度与加速工具，优化推理执行 |
+| **transformers** | 4.46.3 | Hugging Face 预训练模型库，负责模型与分词器加载 |
+| **torch** | 2.5.1 | 深度学习框架，负责底层张量计算与推理 |
+| **numpy** | 1.26.4 | 数值计算库，处理数组和矩阵运算 |
+| **matplotlib** | 3.9.3 | 可视化库，用于展示实验结果 |
+| **accelerate** | 1.2.1 | 设备调度与加速工具，优化推理执行 |
 
-固定版本不是“保守做法”，而是安全实验的基础。否则同一测试在不同机器上可能得到不一致结果。
+固定版本不是"保守做法"，而是安全实验的基础。否则同一测试在不同机器上可能得到不一致结果。
+
+<Callout title="版本更新说明" type="info">
+上述版本为 2025-2026 学年推荐版本。AI 生态迭代较快，授课教师可在每学期开课前运行 `pip install --upgrade transformers torch accelerate` 获取最新稳定版，并更新此处的版本号以保持课程一致性。如遇兼容问题，优先确保 `transformers` 与 `torch` 的 CUDA 版本匹配。
+</Callout>
 
 ## 6 验证安装是否成功
 

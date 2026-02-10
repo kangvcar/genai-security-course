@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: 'GenAI 安全攻防实战课程',
     template: '%s | GenAI 安全攻防实战课程',
   },
-  description: '系统掌握大语言模型和 AI 系统的安全攻防技术。涵盖提示词注入、对抗样本、隐私窃取、数据投毒等核心主题，5大模块、24章精讲、15个动手实验，从理论到实战全面学习 AI 安全。',
+  description: '系统掌握大语言模型和 AI 系统的安全攻防技术。涵盖提示词注入、对抗样本、隐私窃取、数据投毒等核心主题，5大模块、20章精讲、16个动手实验，从理论到实战全面学习 AI 安全。',
   keywords: [
     'AI安全',
     'GenAI安全',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     description: '系统掌握大语言模型和 AI 系统的安全攻防技术。涵盖提示词注入、对抗样本、隐私窃取、数据投毒等核心主题。',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og',
         width: 1200,
         height: 630,
         alt: 'GenAI 安全攻防实战课程',
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'GenAI 安全攻防实战课程',
     description: '系统掌握大语言模型和 AI 系统的安全攻防技术。涵盖提示词注入、对抗样本、隐私窃取、数据投毒等核心主题。',
-    images: ['/og-image.png'],
+    images: ['/og'],
   },
   robots: {
     index: true,
